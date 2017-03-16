@@ -1,0 +1,348 @@
+% manuscript produces a one-column, double-spaced document:
+%\documentclass[12pt,preprint]{aastex}
+\documentclass[twocolumn]{aastex61}
+%\documentclass[iop]{emulateapj}
+
+% preprint2 produces a double-column, single-spaced document:
+%\documentclass[preprint2]{aastex}
+
+%Packages
+%\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage{natbib}
+\usepackage[caption=false]{subfig}
+\usepackage{amsmath,amssymb}
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand{\degree}{$^\circ$}
+\newcommand{\vtan}{$V_{tan}$}
+\newcommand{\kms}{km~s$^{-1}$}
+\newcommand{\msun}{M$_{\sun}$}
+\newcommand{\rjup}{R$_{Jup}$}
+\newcommand{\ldl}{$\lambda/{\Delta}{\lambda}$}
+\newcommand{\lsun}{L$_{\sun}$}
+\newcommand{\lbol}{$\log_{10}{L_{bol}/L_{\sun}}$}
+\newcommand{\teff}{T$_{eff}$}
+\newcommand{\logg}{$\log{g}$}
+\newcommand{\fsed}{$f_{sed}$}
+\newcommand{\kzz}{$K_{zz}$}
+\newcommand{\meth}{CH$_4$}
+\newcommand{\wat}{H$_2$O}
+\newcommand{\sha}{KIC 1255 b}
+\newcommand{\shStar}{KIC 1255}
+
+%\slugcomment{To be submitted to MNRAS}
+
+
+\shorttitle{KIC 12557548 b Long Term Followup}
+\shortauthors{Schlawin et al.}
+
+
+\begin{document}
+
+
+\title{Long Term Monitoring of the Disintegrating Planet Candidate KIC 12557548 b}
+
+%% Use \author, \affil, and the \and command to format
+%% author and affiliation information.
+%% Note that \email has replaced the old \authoremail command
+%% from AASTeX v4.0. You can use \email to mark an email address
+%% anywhere in the paper, not just in the front matter.
+%% As in the title, use \\ to force line breaks.
+
+\correspondingauthor{E. Schlawin}
+\email{eas342@email.arizona.edu}
+
+\author{E. Schlawin}
+\affiliation{Steward Observatory, Tucson AZ 85721}
+
+\author{Betsy Green?}
+\affiliation{Steward Observatory, Tucson AZ 85721}
+
+\author{J. Teske?}
+\affiliation{Carnegie Observatories, 813 Santa Barbara Street, Pasadena, CA 91101, USA}
+
+\author{S. Rappaport?}
+\affiliation{MIT}
+
+\author{R. van Lieshout?}
+\affiliation{Institute of Astronomy - University of Cambridge}
+
+\begin{abstract}
+KIC 12557548 b is one of several disintegrating planet candidates which lose mass in the form of dust particles escaping their surface. Photometric monitoring of KIC 12557548 b originally showed evidence for a slowdown of integration activity in 2013 and 2014. Here, we report 2016 measurements that are consistent with photometry from the Kepler spacecraft in 2009-2013.
+\end{abstract}
+
+
+\keywords{stars: atmospheres -- stars: individual (\objectname{KIC 12557548}) -- stars: variables: general}
+
+
+
+\section{Introduction}
+
+\section{Conclusions}\label{sec:conclusions}
+
+\section{Acknowledgements}
+Thanks to Alessondra Springman for good resources on core and mantle compositions and the gases that could sublimate off of them.
+Thanks to Jonathan Fraine and Rafia Bushra for help with observing at the Kuiper 61-inch telescope.
+MCMC fitting makes use of \texttt{emcee} \citep{foreman-mackey2013emcee} and the covariance plot was made with \texttt{corner.py} \citep{foremanCorner}.
+Funding for the E Schlawin is provided by NASA Goddard Spaceflight Center.
+This research made use of the \texttt{astropy} package \citep{astropy2013}.
+
+%If  used, this work made use of the \texttt{astropy} package \citep{astropy2013}.
+%If used, some data was collected from the Open Exoplanet Catalogue \citep{rein2012openExoCat}.
+
+%% In a manner similar to \objectname authors can provide links to dataset
+%% hosted at participating data centers via the \dataset{} command.  The
+%% second curly bracket argument is printed in the text while the first
+%% parentheses argument serves as the valid data set identifier.  Large
+%% lists of data set are best provided in a table (see Table 3 for an example).
+%% Valid data set identifiers should be obtained from the data center that
+%% is currently hosting the data.
+%%
+%% Note that AASTeX interprets everything between the curly braces in the 
+%% macro as regular text, so any special characters, e.g. "#" or "_," must be 
+%% preceded by a backslash. Otherwise, you will get a LaTeX error when you 
+%% compile your manuscript.  Special characters do not 
+%% need to be escaped in the optional, square-bracket argument.
+
+
+
+%% In this section, we use  the \subsection command to set off
+%% a subsection.  \footnote is used to insert a footnote to the text.
+
+%% Observe the use of the LaTeX \label
+%% command after the \subsection to give a symbolic KEY to the
+%% subsection for cross-referencing in a \ref command.
+%% You can use LaTeX's \ref and \label commands to keep track of
+%% cross-references to sections, equations, tables, and figures.
+%% That way, if you change the order of any elements, LaTeX will
+%% automatically renumber them.
+
+%% This section also includes several of the displayed math environments
+%% mentioned in the Author Guide.
+
+
+%% The equation environment wil produce a numbered display equation.
+
+
+%% The \notetoeditor{TEXT} command allows the author to communicate
+%% information to the copy editor.  This information will appear as a
+%% footnote on the printed copy for the manuscript style file.  Nothing will
+%% appear on the printed copy if the preprint or
+%% preprint2 style files are used.
+
+%% The eqnarray environment produces multi-line display math. The end of
+%% each line is marked with a \\. Lines will be numbered unless the \\
+%% is preceded by a \nonumber command.
+%% Alignment points are marked by ampersands (&). There should be two
+%% ampersands (&) per line.
+
+%% Putting eqnarrays or equations inside the mathletters environment groups
+%% the enclosed equations by letter. For instance, the eqnarray below, instead
+%% of being numbered, say, (4) and (5), would be numbered (4a) and (4b).
+%% LaTeX the paper and look at the output to see the results.
+
+%% This section contains more display math examples, including unnumbered
+%% equations (displaymath environment). The last paragraph includes some
+%% examples of in-line math featuring a couple of the AASTeX symbol macros.
+
+%% The displaymath environment will produce the same sort of equation as
+%% the equation environment, except that the equation will not be numbered
+%% by LaTeX.
+%% If you wish to include an acknowledgments section in your paper,
+%% separate it off from the body of the text using the \acknowledgments
+%% command.
+
+%% Included in this acknowledgments section are examples of the
+%% AASTeX hypertext markup commands. Use \url without the optional [HREF]
+%% argument when you want to print the url directly in the text. Otherwise,
+%% use either \url or \anchor, with the HREF as the first argument and the
+%% text to be printed in the second.
+
+\acknowledgments
+
+
+
+%% To help institutions obtain information on the effectiveness of their
+%% telescopes, the AAS Journals has created a group of keywords for telescope
+%% facilities. A common set of keywords will make these types of searches
+%% significantly easier and more accurate. In addition, they will also be
+%% useful in linking papers together which utilize the same telescopes
+%% within the framework of the National Virtual Observatory.
+%% See the AASTeX Web site at http://aastex.aas.org/
+%% for information on obtaining the facility keywords.
+
+%% After the acknowledgments section, use the following syntax and the
+%% \facility{} macro to list the keywords of facilities used in the research
+%% for the paper.  Each keyword will be checked against the master list during
+%% copy editing.  Individual instruments or configurations can be provided 
+%% in parentheses, after the keyword, but they will not be verified.
+
+%{\it Facilities:} \facility{Nickel}, \facility{HST (STIS)}, \facility{CXO (ASIS)}.
+
+%% Appendix material should be preceded with a single \appendix command.
+%% There should be a \section command for each appendix. Mark appendix
+%% subsections with the same markup you use in the main body of the paper.
+
+%% Each Appendix (indicated with \section) will be lettered A, B, C, etc.
+%% The equation counter will reset when it encounters the \appendix
+%% command and will number appendix equations (A1), (A2), etc.
+
+\appendix
+
+\section{Original Light Curves}
+
+%% The reference list follows the main body and any appendices.
+%% Use LaTeX's thebibliography environment to mark up your reference list.
+%% Note \begin{thebibliography} is followed by an empty set of
+%% curly braces.  If you forget this, LaTeX will generate the error
+%% "Perhaps a missing \item?".
+%%
+%% thebibliography produces citations in the text using \bibitem-\cite
+%% cross-referencing. Each reference is preceded by a
+%% \bibitem command that defines in curly braces the KEY that corresponds
+%% to the KEY in the \cite commands (see the first section above).
+%% Make sure that you provide a unique KEY for every \bibitem or else the
+%% paper will not LaTeX. The square brackets should contain
+%% the citation text that LaTeX will insert in
+%% place of the \cite commands.
+
+%% We have used macros to produce journal name abbreviations.
+%% AASTeX provides a number of these for the more frequently-cited journals.
+%% See the Author Guide for a list of them.
+
+%% Note that the style of the \bibitem labels (in []) is slightly
+%% different from previous examples.  The natbib system solves a host
+%% of citation expression problems, but it is necessary to clearly
+%% delimit the year from the author name used in the citation.
+%% See the natbib documentation for more details and options.
+
+\bibliographystyle{apj}
+\bibliography{ms}
+
+%\clearpage
+
+%% Use the figure environment and \plotone or \plottwo to include
+%% figures and captions in your electronic submission.
+%% To embed the sample graphics in
+%% the file, uncomment the \plotone, \plottwo, and
+%% \includegraphics commands
+%%
+%% If you need a layout that cannot be achieved with \plotone or
+%% \plottwo, you can invoke the graphicx package directly with the
+%% \includegraphics command or use \plotfiddle. For more information,
+%% please see the tutorial on "Using Electronic Art with AASTeX" in the
+%% documentation section at the AASTeX Web site, http://aastex.aas.org/
+%%
+%% The examples below also include sample markup for submission of
+%% supplemental electronic materials. As always, be sure to check
+%% the instructions to authors for the journal you are submitting to
+%% for specific submissions guidelines as they vary from
+%% journal to journal.
+
+%% This example uses \plotone to include an EPS file scaled to
+%% 80% of its natural size with \epsscale. Its caption
+%% has been written to indicate that additional figure parts will be
+%% available in the electronic journal.
+
+%\begin{figure}
+%\epsscale{.80}
+%\plotone{f1.eps}
+%\caption{Derived spectra for 3C138 \citep[see][]{heiles03}. Plots for all sources are available
+%in the electronic edition of {\it The Astrophysical Journal}.\label{fig1}}
+%\end{figure}
+
+%\clearpage
+
+%% Here we use \plottwo to present two versions of the same figure,
+%% one in black and white for print the other in RGB color
+%% for online presentation. Note that the caption indicates
+%% that a color version of the figure will be available online.
+%%
+
+%\begin{figure}
+%\plottwo{f2.eps}{f2_color.eps}
+%\caption{A panel taken from Figure 2 of \citet{rudnick03}. 
+%See the electronic edition of the Journal for a color version 
+%of this figure.\label{fig2}}
+%\end{figure}
+
+%% This figure uses \includegraphics to scale and rotate the still frame
+%% for an mpeg animation.
+
+%\begin{figure}
+%\includegraphics[angle=90,scale=.50]{f3.eps}
+%\caption{Animation still frame taken from \citet{kim03}.
+%This figure is also available as an mpeg
+%animation in the electronic edition of the
+%{\it Astrophysical Journal}.}
+%\end{figure}
+
+%% If you are not including electonic art with your submission, you may
+%% mark up your captions using the \figcaption command. See the
+%% User Guide for details.
+%%
+%% No more than seven \figcaption commands are allowed per page,
+%% so if you have more than seven captions, insert a \clearpage
+%% after every seventh one.
+
+%% Tables should be submitted one per page, so put a \clearpage before
+%% each one.
+
+%% Two options are available to the author for producing tables:  the
+%% deluxetable environment provided by the AASTeX package or the LaTeX
+%% table environment.  Use of deluxetable is preferred.
+%%
+
+%% Three table samples follow, two marked up in the deluxetable environment,
+%% one marked up as a LaTeX table.
+
+%% In this first example, note that the \tabletypesize{}
+%% command has been used to reduce the font size of the table.
+%% We also use the \rotate command to rotate the table to
+%% landscape orientation since it is very wide even at the
+%% reduced font size.
+%%
+%% Note also that the \label command needs to be placed
+%% inside the \tablecaption.
+
+%% This table also includes a table comment indicating that the full
+%% version will be available in machine-readable format in the electronic
+%% edition.
+
+%% If you use the table environment, please indicate horizontal rules using
+%% \tableline, not \hline.
+%% Do not put multiple tabular environments within a single table.
+%% The optional \label should appear inside the \caption command.
+
+
+
+%% If the table is more than one page long, the width of the table can vary
+%% from page to page when the default \tablewidth is used, as below.  The
+%% individual table widths for each page will be written to the log file; a
+%% maximum tablewidth for the table can be computed from these values.
+%% The \tablewidth argument can then be reset and the file reprocessed, so
+%% that the table is of uniform width throughout. Try getting the widths
+%% from the log file and changing the \tablewidth parameter to see how
+%% adjusting this value affects table formatting.
+
+%% The \dataset{} macro has also been applied to a few of the objects to
+%% show how many observations can be tagged in a table.
+
+
+%% Tables may also be prepared as separate files. See the accompanying
+%% sample file table.tex for an example of an external table file.
+%% To include an external file in your main document, use the \input
+%% command. Uncomment the line below to include table.tex in this
+%% sample file. (Note that you will need to comment out the \documentclass,
+%% \begin{document}, and \end{document} commands from table.tex if you want
+%% to include it in this document.)
+
+%% \input{table}
+
+%% The following command ends your manuscript. LaTeX will ignore any text
+%% that appears after it.
+
+\end{document}
+
+%%
+%% End of file `sample.tex'.
