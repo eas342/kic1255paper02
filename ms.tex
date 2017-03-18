@@ -77,8 +77,21 @@ KIC 12557548 b is one of several disintegrating planet candidates which lose mas
 
 
 \section{Introduction}
+The disintegrating planet candidate KIC 12557548 b \citep{rappaport} was the first discovery of a planet candidate causes wildly varying dust obscuration of its host star.
+It is now one of many systems that are proposed to be disintegrating planets that are rapidly losing dust that is seen as obscurations toward the host star.
+
+The Kepler spacecraft performed near-continuous long cadence photometry for KIC 12557548 during its entire main mission lifetime from 2009 to 2013.
+During this time, the transit depths averaged around (??0.55\%) but varied stochastically from just one 15.7 hour orbit to the next.
+\citet{vanWerkhoven2014} analyzed 15 of the total 17 quarters of data and calculated every transit depth during this period.
+There were two intervals near obits 50 and 1950 that showed shallower (0.1\%) than average transit depths for roughly one month.
+
+Subsequently, \citet{schlawin2016kic1255} observed 8 total transits of the system for 4 nights in 2013 and 4 nights in 2014 for the $r'$ band using the MORIS imager \citep{Gulbis2011} on SpeX/IRTF \citep{rayner03}.
+\citet{schlawin2016kic1255} found that the transit depths were all weaker than $0.43\%$ and that the probably of this randomly occurring based on random behavior from Kepler statistics was around 0.2\%.
+This was evidence that the observations all fell during weaker periods (as found in \citet{vanWerkhoven2014}'s 15 Kepler quarter analysis) or that the disintegration activity was falling off with time.
+We performed follow-up $R$ band photometry of the \shStar\ system to explore whether the disintegration activity is shutting off with time.
 
 \section{Observations}
+We observed \sha\ with the Mont4k imager on the 61-inch Kuiper observatory.
 
 \begin{deluxetable*}{lr}
 \tablecaption{List of observations}\label{tab:obsList}
@@ -102,7 +115,7 @@ UT 2016-07-16 & Good \\
 
 \section{Acknowledgements}
 Thanks to Alessondra Springman for good resources on core and mantle compositions and the gases that could sublimate off of them.
-Thanks to Jonathan Fraine and Rafia Bushra for help with observing at the Kuiper 61-inch telescope.
+Thanks to Jonathan Fraine and Rafia Bushra for help with observing at the 61-inch Kuiper telescope on Mt Bigelow.
 MCMC fitting makes use of \texttt{emcee} \citep{foreman-mackey2013emcee} and the covariance plot was made with \texttt{corner.py} \citep{foremanCorner}.
 Funding for the E Schlawin is provided by NASA Goddard Spaceflight Center.
 This research made use of the \texttt{astropy} package \citep{astropy2013}.
