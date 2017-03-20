@@ -136,6 +136,22 @@ UT & UT & & & \\
 \tablenotetext{}{Summary of published observations of \sha.}
 \end{deluxetable*}
 
+\section{Time Series}
+
+As an initial start, I created a time series for the night of UT 2016-06-12.
+I used aperture photometry with a source radius of 4 pixels, an inner aperture annulus of 5 pixels and an outer aperture radius of 8 pixels for the background.
+I choose 6 reference stars of similar brightness and which were nearby the source on the CCD.
+I use the \texttt{photutils} python package for the aperture photometry.
+The resulting raw time series can be seen in \ref{fig:initTseries}.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{initial_t_series.pdf}
+\caption{Quick raw time series for UT 2016-06-12. No aperture centering was done (there were fixed apertures with time).
+No bias or flat field corrections were applied.}\label{fig:initTseries}
+\end{centering}
+\end{figure}
+
 \section{Conclusions}\label{sec:conclusions}
 
 \section{Acknowledgements}
