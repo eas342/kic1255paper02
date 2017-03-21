@@ -152,6 +152,22 @@ No bias or flat field corrections were applied.}\label{fig:initTseries}
 \end{centering}
 \end{figure}
 
+The initial time series has huge fluctuations (and even goes negative! due to poor aperture centering at the start).
+I used \texttt{photutils.centroid\_2g} to do 2D Gaussian centroiding to choose the aperture positions to start with.
+Adding a centroiding routine significantly improves the precision as seen in Figure \ref{fig:secTseries}.
+
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{second_t_series.pdf}
+\caption{Same data for UT 2016-06-12 as Figure \ref{fig:initTseries}.
+This time aperture centroiding was done.
+No bias or flat field corrections were applied.}\label{fig:secTseries}
+\end{centering}
+\end{figure}
+
+
+
 \section{Conclusions}\label{sec:conclusions}
 
 \section{Acknowledgements}
