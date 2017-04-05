@@ -138,6 +138,11 @@ UT & UT & & & \\
 
 \section{Time Series}
 
+\subsection{Observations and Reduction}
+
+For the photometric reduction, I used the \texttt{ccdproc} package to generate master flat field and bias files.
+I combined with an average with a low threshold of 2$\sigma$ and a high threshold of 5$\sigma$.
+
 As an initial start, I created a time series for the night of UT 2016-06-12.
 I used aperture photometry with a source radius of 4 pixels, an inner aperture annulus of 5 pixels and an outer aperture radius of 8 pixels for the background.
 I choose 6 reference stars of similar brightness and which were nearby the source on the CCD.
