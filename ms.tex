@@ -114,7 +114,7 @@ We observed \sha\ with the Mont4k imager on the 61-inch Kuiper observatory.
 \tablenotetext{}{Summary of observations in this work.}
 \end{deluxetable*}
 
-\section{Previous Observations}
+\subsection{Previous Observations}
 
 \begin{deluxetable*}{lrrrr}
 \tablecaption{List of published observations}\label{tab:obsList}
@@ -136,9 +136,7 @@ UT & UT & & & \\
 \tablenotetext{}{Summary of published observations of \sha.}
 \end{deluxetable*}
 
-\section{Time Series}
-
-\subsection{Observations and Reduction}
+\subsection{Photometric Pipeline}
 
 For the photometric reduction, I used the \texttt{ccdproc} package to generate master flat field and bias files.
 I combined with an average with a low threshold of 2$\sigma$ and a high threshold of 5$\sigma$.
@@ -159,8 +157,15 @@ No bias or flat field corrections were applied.}\label{fig:initTseries}
 
 The initial time series has huge fluctuations (and even goes negative! due to poor aperture centering at the start).
 I used \texttt{photutils.centroid\_2g} to do 2D Gaussian centroiding to choose the aperture positions to start with.
+The guess position and \texttt{centroid\_2g} position for the target \sha\ are shown in Figure \ref{fig:centroid2g}.
 Adding a centroiding routine significantly improves the precision as seen in Figure \ref{fig:secTseries}.
 
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{centering.pdf}
+\caption{The guess position of (750.7,682.4) is shown as a cyan circle. The \texttt{centroid\_2g} position of (749.7,681.1) is shown as a red circle.}\label{fig:centroid2g}
+\end{centering}
+\end{figure}
 
 \begin{figure}
 \begin{centering}
@@ -172,6 +177,7 @@ No bias or flat field corrections were applied.}\label{fig:secTseries}
 \end{figure}
 
 
+\clearpage
 
 \section{Conclusions}\label{sec:conclusions}
 
