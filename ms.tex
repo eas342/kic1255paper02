@@ -94,6 +94,9 @@ We performed follow-up $R$ band photometry of the \shStar\ system to explore whe
 
 \section{Observations}
 We observed \sha\ with the Mont4k imager on the 61-inch Kuiper observatory.
+Table \ref{tab:obsList} shows a summary of our observations and the UT dates.
+We obtained photometry for 5 nights with good weather on the \sha\ system.
+
 
 \begin{deluxetable*}{lr}
 \tablecaption{List of observations}\label{tab:obsList}
@@ -173,6 +176,28 @@ Adding a centroiding routine significantly improves the precision as seen in Fig
 \caption{Same data for UT 2016-06-12 as Figure \ref{fig:initTseries}.
 This time aperture centroiding was done.
 No bias or flat field corrections were applied.}\label{fig:secTseries}
+\end{centering}
+\end{figure}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{second_t_series_bias_flat.pdf}
+\caption{Same data for UT 2016-06-12 as Figure \ref{fig:initTseries}.
+This time bias correction, flat field correction and aperture centroiding was done.
+Note that the target, reference stars 2 and 3 have smaller deviations at 0.81 days.}\label{fig:secTseriesBiasFlat}
+\end{centering}
+\end{figure}
+
+It turns out that the large flux excursions in Figure \ref{fig:secTseries} and \ref{fig:secTseriesBiasFlat} are due to some bumps pointing errors and so substantial fractions of flux fall outside the source apertures.
+I solved this problem by increasing the size of the subarray box (from 10 pix width to 18 px) so that the source would be found even if it wanders.
+This results in much smaller flux excursions, as seen in Figure \ref{fig:secTseriesWiderBox}.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{second_t_series_wider_box.pdf}
+\caption{Same data for UT 2016-06-12 as Figure \ref{fig:initTseries}.
+Bias correction, flat field correction and aperture centroiding was done.
+The aperture centering (2D Gaussian fits) was done with a wider 18 pixel box to allow for pointing wander.}\label{fig:secTseriesWiderBox}
 \end{centering}
 \end{figure}
 
