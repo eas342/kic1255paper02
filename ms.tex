@@ -201,6 +201,23 @@ The aperture centering (2D Gaussian fits) was done with a wider 18 pixel box to 
 \end{centering}
 \end{figure}
 
+We considered several ways to do reference summation.
+Under consideration were two choices:
+\begin{itemize}
+	\item How to weight the stars (by flux, equally, variance)?
+	\item Which stars to include in the summation?
+\end{itemize}
+Figure \ref{fig:refSumMethods} shows these 4 combinations of these two choices.
+Clearly reference star 2 adds noise to the time series, but this does not affect the total summation method since it has lower flux.
+When normalizing each time series before summation, this appears to decrease the linear trend in the data.
+In all cases, there is an apparent transit-like feature near JD = 2457551.82.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{images/reference_method.pdf}
+\caption{Corrected time series for \shStar\ when using different combinations of averaging the reference stars: i) Summing all stars equally ii) Summing the best stars [1,3,4,5,6], iii) Summing the normalized time series of the best stars iv) summing the normalized time series of the best stars.}\label{fig:refSumMethods}
+\end{centering}
+\end{figure}
 
 \clearpage
 
