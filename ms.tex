@@ -231,7 +231,16 @@ Figure \ref{fig:starLabels} shows the reference stars used in the initial analys
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.5\textwidth]{images/postage_stamps.pdf}
-\caption{Postage stamps of apertures used for each source (before centroiding).}\label{fig:starLabels}
+\caption{Postage stamps of apertures used for each source (before centroiding).}\label{fig:starPostageGuess}
+\end{centering}
+\end{figure}
+
+Source centroiding was performed with \texttt{centroid\_2g} within \texttt{photutils} to do 2-D Gaussian fitting. Figure \ref{fig:starPostageCen}.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{images/postage_stamps_centered.pdf}
+\caption{Postage stamps of apertures used for each source, after centroiding with \texttt{centroid\_2g} with the initial guesses shown in Figure \ref{fig:starPostageGuess}.}\label{fig:starPostageCen}
 \end{centering}
 \end{figure}
 
