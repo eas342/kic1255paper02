@@ -111,7 +111,7 @@ We obtained photometry for 5 nights with good weather on the \sha\ system.
 2016-06-12 & Good \\
 2016-06-14 & Good \\
 2016-07-12 & Good \\
-2016-07-14 & Good \\
+2016-07-14 & Mostly clear, some clouds \\
 2016-07-16 & Good \\
 \enddata
 \tablenotetext{}{Summary of observations in this work.}
@@ -309,6 +309,34 @@ There is a sharp drop in flux at 32.88 due to clouds}\label{fig:ut2016-07-14clou
 \caption{Three example images during a cloud passage.}\label{fig:ut2016-07-14cloudImg}
 \end{centering}
 \end{figure}
+
+All nights light curves are shown in Figure \ref{fig:allNightallStar}.
+These are the same reference stars shown in Figure \ref{fig:ut2016-07-14cloudImg}.
+The nights two nights in June, 2016 show greater overall stability than the ones in July, 2016.
+I suspect that this can mostly be explained by moisture and clouds (such as the ones that caused huge drops in flux on UT2016-07-14.
+
+\begin{figure*}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{images/all_kic1255_phot/all_kic1255_allstar.pdf}
+\caption{Time series photometry for all stars and all nights nights.
+The nights in July appear more strongly affected by cloud/and or seeing variations, whereas the two nights in June are stable to within a few percent.
+All source radius, background start and background annulus end parameters were 9, 9 and 12 pixels respectively.}\label{fig:allNightallStar}
+\end{centering}
+\end{figure*}
+
+Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ showing transits.
+The expected transit epochs from the ephemeris in \citep{vanWerkhoven2014} are shown for reference.
+Typical uncertainties for the Kepler ephemeris are $\sim$ 1 minute at these dates (considering only the uncertainty in period since the transit center is ill-defined).
+The ``transit duration'' from Kepler light curves is around 0.05 days, which is consistent with these transit durations.
+
+\begin{figure*}
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{images/all_kic1255_phot/all_kic1255_refcor.pdf}
+\caption{Reference-corrected time series photometry \shStar\ for all nights.
+The expected transit epochs from the Kepler-based ephemeris \citep{vanWerkhoven2014} are shown as vertical red bars.
+Transits are clearly visible for all five nights except for UT2016-06-14.}\label{fig:allNightrefCorrect}
+\end{centering}
+\end{figure*}
 
 \clearpage
 
