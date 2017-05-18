@@ -367,6 +367,7 @@ We decided to re-visit the high resolution spectrum from \citet{kawahara2013star
 We follow the \texttt{iraf} reduction techniques from the instrument manual\footnote{https://www.subarutelescope.org/Observing/Instruments/HDS/specana2014.10e.pdf}.
 Some modifications to the manual were made, including a more aggressive -50/+50 lower and upper window for bad pixel identification with \texttt{mkbadpx} on the red CCD.
 We applied bad pixel masks and bias files to each CCD separately.
+Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678 (Kepler 211) to trace the spectrum and use this trace for \shStar.
 
 \section{Conclusions}\label{sec:conclusions}
 
