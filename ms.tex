@@ -369,6 +369,20 @@ Some modifications to the manual were made, including a more aggressive -50/+50 
 We applied bad pixel masks and bias files to each CCD separately.
 Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678 (Kepler 211) to trace the spectrum and use this trace for \shStar.
 
+The 2013 HDS data for KIC 1255 display as very strange PSF, so we begin with the 2015 HDS data on the Subaru archive.
+The 2015 data has a much sharper PSF and and is easier to trace and calibrate without needing a brighter source for reference.
+For wavelength identification, a Thorium Argon reference is used.
+The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.45\textwidth]{images/subaru/nad_spec.pdf}
+\caption{Example spectrum of \shStar\ near the Na D line.
+There are many bad pixels.}\label{fig:naDline}
+\end{centering}
+\end{figure}
+
+
 \section{Conclusions}\label{sec:conclusions}
 
 \section{Acknowledgements}
