@@ -369,10 +369,20 @@ Some modifications to the manual were made, including a more aggressive -50/+50 
 We applied bad pixel masks and bias files to each CCD separately.
 Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678 (Kepler 211) to trace the spectrum and use this trace for \shStar.
 
-The 2013 HDS data for KIC 1255 display as very strange PSF, so we begin with the 2015 HDS data on the Subaru archive.
+The 2013 HDS data for \shStar\ display as very strange PSF, so we begin with the 2015 HDS data on the Subaru archive.
 The 2015 data has a much sharper PSF and and is easier to trace and calibrate without needing a brighter source for reference.
 For wavelength identification, a Thorium Argon reference is used.
-The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas
+(Not to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas
+The Th-Ar line identification was started with the atlas, rejecting high sigma points and then used to find the rest of the lines automatically.
+The final fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
+The final rms in this wavelength solution is 0.0021 $\AA$.
+
+After the reference spectrum is used to find a wavelength solution, the spectrum is examined some strong stellar lines, including the Na D$_1$/D$_2$ lines (Figure \ref{fig:naDlines} and the Mg Triplet (Figure \ref{fig:mgTriplet}).
+The Mg triplet is diagnostic of spectral type and may help resolve some of the conflicts in the literature about the gravity of the host star.
+\citet{kawahara2013starspots} find a log(g) = 3.9 $\pm$ 0.2, whereas \citet{rappaport} find a log(g)=4.63.
+To compare to some HIGHRES models \citep{coelho2014hires}, we first had to convolve the spectrum.
+Also, we interpolated over any pixels above a normalized flux of 2.0 in Figure \ref{fig:mgTriplet} (top).
+Then, we convolve with a Gaussian kernel with a standard deviation of 6 pixels.
 
 \begin{figure}
 \begin{centering}
@@ -394,7 +404,7 @@ Second, a convolution kernel is applied and the spectrum is compared to HIGHRES 
 \end{figure}
 
 
-
+\clearpage
 \section{Conclusions}\label{sec:conclusions}
 
 \section{Acknowledgements}
