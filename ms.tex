@@ -202,18 +202,30 @@ Transits are clearly visible for all five nights except for UT2016-06-14.}\label
 \end{figure*}
 
 \clearpage
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.45\textwidth]{images/subaru/Na_D_spec_interp.pdf}
+\includegraphics[width=0.45\textwidth]{images/subaru/Na_D_spec.pdf}
+\caption{Example spectrum of \shStar\ near the Na D$_1$ and D$_2$ lines (black vertical lines).
+There are many bad pixels, which are preliminarily discarded for fluxes above 1.25.
+These are not fully removed in the convolved spectrum.}\label{fig:naDlines}
+\end{centering}
+\end{figure}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.45\textwidth]{images/subaru/Mg_triplet_spec_interp.pdf}
+\includegraphics[width=0.45\textwidth]{images/subaru/Mg_triplet_spec.pdf}
+\caption{Example spectrum of \shStar\ near the Mg triplet.
+{\it Top:} The full resolution original spectrum (blue) is compared to the Mg lines (black) to check wavelength solutions.
+The points above a flux of 2.00 are marked as bad pixels and then linear interpolation is performed over these bad pixels to construct a cleaned spectrum (orange).
+{\it Bottom} A convolution kernel is applied to the spectrum in order to compare to to HIGHRES models.
+The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms of line ratios to the measured spectrum than the low surface gravity and higher temperature (3.9 $\pm$ 0.2, 4950 $\pm$ 50 K) reported in \citet{kawahara2013starspots}.}\label{fig:mgTriplet}
+\end{centering}
+\end{figure}
 
 \section{Stellar Characterization}
-
 \subsection{Previous Observations}
-The host star \shStar\ has been characterized by both photometry and spectroscopy.
-Table \ref{tab:stellObsParams} shows the summary of observations and analyses compiled in \citet{vanlieshout2016kic1255} for the stellar properties, re-produced here.
-In the photometric analysis and low resolution spectroscopy, the spectra are consistent with a 4500 K main sequence K-type star.
-High resolution spectra, however, indicate a higher temperature 4900 K lower log(g) sub-giant star \citep{kawahara2013starspots}
-\citet{vanlieshout2016kic1255} analyze the light curve with a dust model and find a constraint on the semi-major axis which, in term, constraints the density of the star.
-\citet{vanlieshout2016kic1255} find that the stellar density is only consistent with a main-sequence star with log(g) $\gtrsim 4.4 \log($cm s$^{-2})$.
-They suggest an intriguing possibility that the high resolution spectrum of \shStar\ has contamination from dusty debris from the planet and thus appears as a sub-giant star.
-If true, this would suggest that high resolution spectra would be valuable tool to study the composition and dynamics of the material escaping \sha.
 
 \begin{deluxetable*}{lcrrr}
 \tablecaption{Observational estimates of the stellar parameters of KIC~12557548 from \citet{vanlieshout2016kic1255}}\label{tab:stellObsParams}
@@ -235,26 +247,17 @@ If true, this would suggest that high resolution spectra would be valuable tool 
 \tablenotetext{}{While most of the photometric results show a surface gravity of a main sequence star, the high resolution analysis from \citet{kawahara2013starspots} indicates a gravity consistent with a sub-giant star.}
 \end{deluxetable*}
 
-\subsection{Observation}
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/nad_spec.pdf}
-\caption{Example spectrum of \shStar\ near the Na D$_1$ and D$_2$ lines (black vertical lines).
-There are many bad pixels.}\label{fig:naDlines}
-\end{centering}
-\end{figure}
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/Mg_triplet_spec_interp.pdf}
-\includegraphics[width=0.45\textwidth]{images/subaru/Mg_triplet_spec.pdf}
-\caption{Example spectrum of \shStar\ near the Mg triplet.
-{\it Top:} The full resolution original spectrum (blue) is compared to the Mg lines (black) to check wavelength solutions.
-The points above a flux of 2.00 are marked as bad pixels and then linear interpolation is performed over these bad pixels to construct a cleaned spectrum (orange).
-{\it Bottom} A convolution kernel is applied to the spectrum in order to compare to to HIGHRES models.
-The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms of line ratios to the measured spectrum than the low surface gravity and higher temperature (3.9 $\pm$ 0.2, 4950 $\pm$ 50 K) reported in \citet{kawahara2013starspots}.}\label{fig:mgTriplet}
-\end{centering}
-\end{figure}
+The host star \shStar\ has been characterized by both photometry and spectroscopy.
+Table \ref{tab:stellObsParams} shows the summary of observations and analyses compiled in \citet{vanlieshout2016kic1255} for the stellar properties, re-produced here.
+In the photometric analysis and low resolution spectroscopy, the spectra are consistent with a 4500 K main sequence K-type star.
+High resolution spectra, however, indicate a higher temperature 4900 K lower log(g) sub-giant star \citep{kawahara2013starspots}
+\citet{vanlieshout2016kic1255} analyze the light curve with a dust model and find a constraint on the semi-major axis which, in term, constraints the density of the star.
+\citet{vanlieshout2016kic1255} find that the stellar density is only consistent with a main-sequence star with log(g) $\gtrsim 4.4 \log($cm s$^{-2})$.
+They suggest an intriguing possibility that the high resolution spectrum of \shStar\ has contamination from dusty debris from the planet and thus appears as a sub-giant star.
+If true, this would suggest that high resolution spectra would be valuable tool to study the composition and dynamics of the material escaping \sha.
+
+\subsection{Observations}
 
 We decided to re-visit the high resolution spectrum from \citet{kawahara2013starspots} by downloading the raw data from the Subaru SMOKA database.
 We follow the \texttt{iraf} reduction techniques from the instrument manual\footnote{https://www.subarutelescope.org/Observing/Instruments/HDS/specana2014.10e.pdf}.
@@ -262,7 +265,18 @@ Some modifications to the manual were made, including a more aggressive -50/+50 
 We applied bad pixel masks and bias files to each CCD separately.
 Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678 (Kepler 211) to trace the spectrum and use this trace for \shStar.
 
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.4\textwidth]{images/subaru/2013_vs_2015/out_HDSA00094087.pdf}
+\includegraphics[width=0.4\textwidth]{images/subaru/2013_vs_2015/HDSA00111345.pdf}
+\includegraphics[width=0.45\textwidth]{images/subaru/2013_vs_2015/profile_comparison.pdf}
+\caption{Spectra images from 2013 versus 2015. The PSF profile (bottom panel) is much larger in 2013 is more difficult to fit with a tracing function.}\label{fig:mgTriplet}
+\end{centering}
+\end{figure}
+
 The 2013 HDS data for \shStar\ display as very strange PSF, so we begin with the 2015 HDS data on the Subaru archive.
+Figure \ref{fig:prof2013vs2015} shows an example blue-chip image from 2013 and 2015.
+The wider longer slit (2 $\times$ 30 mm) used in 2013 versus the narrower one in 2015 produce very different PSFs.
 The 2015 data has a much sharper PSF and and is easier to trace and calibrate without needing a brighter source for reference.
 For wavelength identification, a Thorium Argon reference is used.
 (Not to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas
@@ -270,7 +284,6 @@ The Th-Ar line identification was started with the atlas, rejecting high sigma p
 The final fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
 The final rms in this wavelength solution is 0.0021 $\AA$.
 After the reference spectrum is used to find a wavelength solution, the spectrum is examined some strong stellar lines, including the Na D$_1$/D$_2$ lines (Figure \ref{fig:naDlines} and the 
-
 
 \subsection{Comparison to Templates}
 
@@ -282,6 +295,13 @@ Then, we convolve with a Gaussian kernel with a standard deviation of 6 pixels.
 
 The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a much closer match in terms of line ratios to the higher log(g) =4.5 and T=4500 K spectrum from HIGHRES.
 The only mismatch between the 4500 K and log(g)=4.5 model and the HDS spectrum for \shStar\ is the overall line strengths.
+
+\begin{figure}{!hbtp}
+\begin{centering}
+\includegraphics[width=0.45\textwidth]{images/subaru/CaI6162_spec.pdf}
+\caption{Example spectrum of \shStar\ near Ca I 6162 $\AA$, another gravity sensitive line.}\label{fig:mgTriplet}
+\end{centering}
+\end{figure}
 
 \clearpage
 \section{Conclusions}\label{sec:conclusions}
