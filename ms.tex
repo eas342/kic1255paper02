@@ -220,7 +220,7 @@ These are not fully removed in the convolved spectrum.}\label{fig:naDlines}
 {\it Top:} The full resolution original spectrum (blue) is compared to the Mg lines (black) to check wavelength solutions.
 The points above a flux of 2.00 are marked as bad pixels and then linear interpolation is performed over these bad pixels to construct a cleaned spectrum (orange).
 {\it Bottom} A convolution kernel is applied to the spectrum in order to compare to to HIGHRES models.
-The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms of line ratios to the measured spectrum than the low surface gravity and higher temperature (3.9 $\pm$ 0.2, 4950 $\pm$ 50 K) reported in \citet{kawahara2013starspots}.}\label{fig:mgTriplet}
+The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms of line ratios but not the strength of the features.}\label{fig:mgTriplet}
 \end{centering}
 \end{figure}
 
@@ -260,7 +260,7 @@ If true, this would suggest that high resolution spectra would be valuable tool 
 \subsection{Observations}
 
 We decided to re-visit the high resolution spectrum from \citet{kawahara2013starspots} by downloading the raw data from the Subaru SMOKA database.
-We follow the \texttt{iraf} reduction techniques from the instrument manual\footnote{https://www.subarutelescope.org/Observing/Instruments/HDS/specana2014.10e.pdf}.
+We follow the \texttt{iraf} reduction techniques from the instrument manual\footnote{https://www.subarutelescope.org/Observing/Instruments/\\HDS/specana2014.10e.pdf}.
 Some modifications to the manual were made, including a more aggressive -50/+50 lower and upper window for bad pixel identification with \texttt{mkbadpx} on the red CCD.
 We applied bad pixel masks and bias files to each CCD separately.
 Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678 (Kepler 211) to trace the spectrum and use this trace for \shStar.
@@ -270,13 +270,13 @@ Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678
 \includegraphics[width=0.4\textwidth]{images/subaru/2013_vs_2015/out_HDSA00094087.pdf}
 \includegraphics[width=0.4\textwidth]{images/subaru/2013_vs_2015/HDSA00111345.pdf}
 \includegraphics[width=0.45\textwidth]{images/subaru/2013_vs_2015/profile_comparison.pdf}
-\caption{Spectra images from 2013 versus 2015. The PSF profile (bottom panel) is much larger in 2013 is more difficult to fit with a tracing function.}\label{fig:mgTriplet}
+\caption{Spectra images from 2013 versus 2015. The PSF profile (bottom panel) is much larger in 2013 is more difficult to fit with a tracing function.}\label{fig:prof2013vs2015}
 \end{centering}
 \end{figure}
 
 The 2013 HDS data for \shStar\ display as very strange PSF, so we begin with the 2015 HDS data on the Subaru archive.
 Figure \ref{fig:prof2013vs2015} shows an example blue-chip image from 2013 and 2015.
-The wider longer slit (2 $\times$ 30 mm) used in 2013 versus the narrower one in 2015 produce very different PSFs.
+The wider longer slit (2 $\times$ 30 mm) used in 2013 versus the narrower one in 2015 (0.3 $\times$ 3.5 mm) produce very different PSFs.
 The 2015 data has a much sharper PSF and and is easier to trace and calibrate without needing a brighter source for reference.
 For wavelength identification, a Thorium Argon reference is used.
 (Not to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas
@@ -293,10 +293,9 @@ To compare to some HIGHRES models \citep{coelho2014hires}, we first had to convo
 Also, we interpolated over any pixels above a normalized flux of 2.0 in Figure \ref{fig:mgTriplet} (top).
 Then, we convolve with a Gaussian kernel with a standard deviation of 6 pixels.
 
-The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a much closer match in terms of line ratios to the higher log(g) =4.5 and T=4500 K spectrum from HIGHRES.
-The only mismatch between the 4500 K and log(g)=4.5 model and the HDS spectrum for \shStar\ is the overall line strengths.
+The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a closer match in terms of line ratios to the higher log(g) =4.5 and T=4500 K spectrum from HIGHRES, but not the line strengths.
 
-\begin{figure}{!hbtp}
+\begin{figure}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/subaru/CaI6162_spec.pdf}
 \caption{Example spectrum of \shStar\ near Ca I 6162 $\AA$, another gravity sensitive line.}\label{fig:mgTriplet}
