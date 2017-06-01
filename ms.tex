@@ -270,16 +270,17 @@ Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678
 \includegraphics[width=0.4\textwidth]{images/subaru/2013_vs_2015/out_HDSA00094087.pdf}
 \includegraphics[width=0.4\textwidth]{images/subaru/2013_vs_2015/HDSA00111345.pdf}
 \includegraphics[width=0.45\textwidth]{images/subaru/2013_vs_2015/profile_comparison.pdf}
-\caption{Spectra images from 2013 versus 2015. The PSF profile (bottom panel) is much larger in 2013 is more difficult to fit with a tracing function.}\label{fig:prof2013vs2015}
+\caption{Spectra images from 2013 versus 2015. The PSF profile (bottom panel) is much wider in 2013 because an image slicer creates 3 traces for the one star. In 2015, a narrow slit is used instead.}\label{fig:prof2013vs2015}
 \end{centering}
 \end{figure}
 
-The 2013 HDS data for \shStar\ display as very strange PSF, so we begin with the 2015 HDS data on the Subaru archive.
+The 2013 HDS data and 2015 HDS data were taken in slightly different modes.
 Figure \ref{fig:prof2013vs2015} shows an example blue-chip image from 2013 and 2015.
-The wider longer slit (2 $\times$ 30 mm) used in 2013 versus the narrower one in 2015 (0.3 $\times$ 3.5 mm) produce very different PSFs.
-The 2015 data has a much sharper PSF and and is easier to trace and calibrate without needing a brighter source for reference.
+The 2015 data, with a narrow slit (0.3 $\times$ 3.5 mm) has a sharper PSF and and is easier to trace.
+The 2013 data was taken with an image slicer and a wider ((2 $\times$ 30 mm)) slit, which create 3 parallel traces for \shStar.
+A flat field with a narrower (0.3 mm) slit is needed to create a trace for use with the image slicer.
 For wavelength identification, a Thorium Argon reference is used.
-(Not to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas
+(Not to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas.
 The Th-Ar line identification was started with the atlas, rejecting high sigma points and then used to find the rest of the lines automatically.
 The final fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
 The final rms in this wavelength solution is 0.0021 $\AA$.
