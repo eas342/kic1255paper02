@@ -289,13 +289,13 @@ The 2013 HDS data and 2015 HDS data were taken in slightly different modes.
 Figure \ref{fig:prof2013vs2015} shows an example blue-chip image from 2013 and 2015.
 The 2015 data, with a narrow slit (0.3 $\times$ 3.5 mm) has a sharper PSF and and is easier to trace.
 The 2013 data was taken with a wider (2 $\times$ 30 mm) slit and an image slicer, which create 3 parallel traces for \shStar.
-A flat field with a narrower (0.3 mm) slit is needed to create a trace for use with the image slicer.
+The \texttt{iraf} tracing routines fail with the image slicer, so we use a a flat field with a narrower (0.3 mm) slit to create traces for the 2013 data with the image slicer.
 For wavelength identification, a Thorium Argon reference is used.
-(Not to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas.
+(Note to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas.
 The Th-Ar line identification was started with the atlas, rejecting high sigma points and then used to find the rest of the lines automatically.
 The final fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
 The final rms in this wavelength solution is 0.0021 $\AA$.
-After the reference spectrum is used to find a wavelength solution, the spectrum is examined some strong stellar lines, including the Na D$_1$/D$_2$ lines (Figure \ref{fig:naDlines} and the 
+After the reference spectrum is used to find a wavelength solution, the spectrum is examined some strong stellar lines, including the Na D$_1$/D$_2$ lines (Figure \ref{fig:naDlines}), the Mg Triplet (Figure \ref{fig:mgTriplet}) and the Ca I 6262 $\AA$ line (Figure \ref{fig:CaILine}).
 
 \subsection{Comparison to Templates}
 
@@ -310,19 +310,21 @@ The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a closer match i
 \begin{figure}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/subaru/CaI6162_spec.pdf}
-\caption{Example spectrum of \shStar\ near Ca I 6162 $\AA$, another gravity sensitive line.}\label{fig:mgTriplet}
+\caption{Example spectrum of \shStar\ near Ca I 6162 $\AA$, another gravity sensitive line.}\label{fig:CaILine}
 \end{centering}
 \end{figure}
 
 \subsection{Comparison to BOSZ}
-
+K Masuda independently reduced the \shStar\ Subaru data to examine if there could be an orbiting body on a highly eccentric star-grazing orbit that would reveal itself through radial velocity variations.
+The K Masuda reduction masks all telluric emission features and any outliers, producing cleaner spectra.
+These high resolution spectra can be compared to the BOSZ models which are calculated up to $R = 300,000$.
 The BOSZ models \citep{bohlin2017bosz} are calculated up to a resolution of 300,000, so we use these to compare to the measured spectra.
-We start by comparing R=100,000 models with the measured spectrum of \shStar\ near the Mg triplet, shown in Figure \ref{fig:mgTriplet}.
+We start by comparing R=100,000 models with the measured spectrum of \shStar\ near the Mg triplet, shown in Figure \ref{fig:mgTripletBOSZ}.
 
 \begin{figure}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/subaru/bosz_mg_triplet.pdf}
-\caption{Example spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTriplet}
+\caption{Example spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTripletBOSZ}
 \end{centering}
 \end{figure}
 
