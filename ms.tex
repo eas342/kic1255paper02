@@ -314,11 +314,15 @@ The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a closer match i
 \end{centering}
 \end{figure}
 
-\subsection{Comparison to BOSZ}
+\subsection{Independent Reduction}
 K Masuda independently reduced the \shStar\ Subaru data to examine if there could be an orbiting body on a highly eccentric star-grazing orbit that would reveal itself through radial velocity variations.
 The K Masuda reduction masks all telluric emission features and any outliers, producing cleaner spectra.
-These high resolution spectra can be compared to the BOSZ models which are calculated up to $R = 300,000$.
-The BOSZ models \citep{bohlin2017bosz} are calculated up to a resolution of 300,000, so we use these to compare to the measured spectra.
+Time-variable outliers like cosmic rays are removed by measuring deviations from the median spectrum for the night.
+The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
+All OH and O$_2$ lines are removed regardless if they are visible in the spectrum of \shStar.
+
+\subsection{Comparison to BOSZ}
+The BOSZ  \citep{bohlin2017bosz} model database is calculated up to $R = 300,000$ so it can be compared to the measurements without convolving the Subaru spectra.
 We start by comparing R=100,000 models with the measured spectrum of \shStar\ near the Mg triplet, shown in Figure \ref{fig:mgTripletBOSZ}.
 
 \begin{figure}[!hbtp]
