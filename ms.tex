@@ -334,12 +334,24 @@ All OH and O$_2$ lines are removed regardless if they are visible in the spectru
 \subsection{Comparison to BOSZ}
 The BOSZ  \citep{bohlin2017bosz} model database is calculated up to $R = 300,000$ so it can be compared to the measurements without convolving the Subaru spectra.
 We start by comparing R=100,000 models with the measured spectrum of \shStar\ near the Mg triplet, shown in Figure \ref{fig:mgTripletBOSZ}.
-The models are convolved with a R=57,700 Gaussian to obtain a resolution of 50,000.
+The models are convolved with a Gaussian that has a standard deviation $\sigma_G = 1/57700$  to obtain a resolution of 50,000.
 
 \begin{figure}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/subaru/bosz_mg_triplet.pdf}
 \caption{Example spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTripletBOSZ}
+\end{centering}
+\end{figure}
+
+We tweak the resolution of the convolution kernel used with the models slightly to obtain a final resolution of 55,000.
+Also, we average ll available spectra from the Masuda reduction to increate the signal to noise.
+The median spectrum with tweaked Gaussian kernel on the models if visible in Figure \ref{fig:mgTripletBOSZMedian}.
+Interestingly, the median spectrum has weaker features than the individual spectrum, perhaps because it is variable but also it could be part of the median process.
+
+\begin{figure}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.45\textwidth]{images/subaru/bosz_mg_triplet_median_spec.pdf}
+\caption{Example spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTripletBOSZMedian}
 \end{centering}
 \end{figure}
 
