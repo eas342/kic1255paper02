@@ -282,7 +282,7 @@ If true, high resolution spectra would be valuable tool to study the composition
 
 \subsection{Subaru HDS Spectra}
 
-We decided to re-visit the stellar parameters by examining the high spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
+We decided to re-visit the stellar parameters by examining the spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
 There is one set of data taken on 2013-06-22 discussed in \citet{kawahara2013starspots}.
 Additionally, there is one set of observations from 2015-08-28 that was taken to understand the kinematics of the system.
 Both of these observations happened after the reaction wheel failure on 2015-05-11\footnote{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html}, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
@@ -296,14 +296,14 @@ Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678
 
 
 The 2013 HDS data and 2015 HDS data were taken in slightly different modes.
-Figure \ref{fig:prof2013vs2015} shows an example blue-chip image from 2013 and 2015.
-The 2015 data, with a narrow slit (0.3 $\times$ 3.5 mm, R=50,000\footnote{https://www.subarutelescope.org/Observing/Instruments/HDS/ume/node16.html}) has a sharper PSF and and is easier to trace.
+Figure \ref{fig:prof2013vs2015} shows an example blue-chip images from 2013 and 2015.
+The 2015 data, with a narrow slit (0.3 $\times$ 3.5 mm, R=50,000)\footnote{https://www.subarutelescope.org/Observing/Instruments/\\HDS/ume/node16.html} has a sharper PSF and and is easier to trace.
 The 2013 data was taken with a wider (2 $\times$ 30 mm) slit and an image slicer, which create 3 parallel traces for \shStar.
 The \texttt{iraf} tracing routines fail with the image slicer, so we use a a flat field with a narrower (0.3 mm) slit to create traces for the 2013 data with the image slicer.
 For wavelength identification, a Thorium Argon reference is used.
 (Note to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas.
 The Th-Ar line identification was started with the atlas, rejecting high sigma points and then used to find the rest of the lines automatically.
-The final fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
+The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
 The final rms in this wavelength solution is 0.0021 $\AA$.
 After the reference spectrum is used to find a wavelength solution, the spectrum is examined near some strong stellar lines, including the Na D$_1$/D$_2$ lines (Figure \ref{fig:naDlines}), the Mg Triplet (Figure \ref{fig:mgTriplet}) and the Ca I 6262 $\AA$ line (Figure \ref{fig:CaILine}).
 
