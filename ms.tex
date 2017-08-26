@@ -292,8 +292,6 @@ Both of these observations happened after the reaction wheel failure on 2015-05-
 In one independent analysis (E Schlawin), we we follow the \texttt{iraf} reduction techniques from the instrument manual\footnote{https://www.subarutelescope.org/Observing/Instruments/\\HDS/specana2014.10e.pdf}.
 Some modifications to the manual were made, including a more aggressive -50/+50 lower and upper window for bad pixel identification with \texttt{mkbadpx} on the red CCD.
 We applied bad pixel masks and bias files to each CCD (red and blue sides) separately.
-Since \shStar\ is smaller than the background flux, we use a spectrum of KOI-678 (Kepler 211) to trace the spectrum and use this trace for \shStar.
-
 
 The 2013 HDS data and 2015 HDS data were taken in slightly different modes.
 Figure \ref{fig:prof2013vs2015} shows an example blue-chip images from 2013 and 2015.
@@ -316,6 +314,8 @@ Also, we interpolated over any pixels above a normalized flux of 2.0 in Figure \
 Then, we convolve with a Gaussian kernel with a standard deviation of 6 pixels.
 
 The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a closer match in terms of line ratios to the higher log(g) =4.5 and T=4500 K spectrum from HIGHRES, but not the line strengths.
+In figure \ref{fig:CaILine} we zoom in on the Ca I 6162 $\AA$ feature.
+Again, there is no clear match to either BOSZ model.
 
 \begin{figure}[!hbtp]
 \begin{centering}
@@ -326,15 +326,18 @@ The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a closer match i
 
 \subsection{Independent Reduction}
 K Masuda independently reduced the \shStar\ Subaru data to examine if there could be an orbiting body on a highly eccentric star-grazing orbit that would reveal itself through radial velocity variations.
-The K Masuda reduction masks all telluric emission features and any outliers, producing cleaner spectra.
+This more sophisticated reduction masks all telluric emission features and any outliers, producing cleaner spectra.
 Time-variable outliers like cosmic rays are removed by measuring deviations from the median spectrum for the night.
 The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
 All OH and O$_2$ lines are removed regardless if they are visible in the spectrum of \shStar.
+Also, we found the median spectrum for the night (2015-05-11) to increase the signal to noise and perform outlier rejection.
+The median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
 
 \subsection{Comparison to BOSZ}
-The BOSZ  \citep{bohlin2017bosz} model database is calculated up to $R = 300,000$ so it can be compared to the measurements without convolving the Subaru spectra.
+The BOSZ  \citep{bohlin2017bosz} model database is calculated up to $R = 300,000$ so it should be comparable to measurements without smoothing the Subaru spectra as was necessary for the HIGHRES models above.
 We start by comparing R=100,000 models with the measured spectrum of \shStar\ near the Mg triplet, shown in Figure \ref{fig:mgTripletBOSZ}.
 The models are convolved with a Gaussian that has a standard deviation $\sigma_G = \lambda/57700$  to obtain a resolution of 50,000.
+
 
 \begin{figure}[!hbtp]
 \begin{centering}
@@ -343,36 +346,17 @@ The models are convolved with a Gaussian that has a standard deviation $\sigma_G
 \end{centering}
 \end{figure}
 
-We tweak the resolution of the convolution kernel used with the models slightly to obtain a final resolution of 55,000.
-Also, we average ll available spectra from the Masuda reduction to increate the signal to noise.
-The median spectrum with tweaked Gaussian kernel on the models if visible in Figure \ref{fig:mgTripletBOSZMedian}.
-The small difference visible between the median spectrum and the single spectrum is caused by the normalization process, but the lines appear at the same strength.
+The BOSZ models appear much smoother than the measured spectrum, even if we use them at the full R=100,000.
+\textbf{Perhaps the micro-turbulent velocity (2 km/s) for all models is too high?}
+In order for us to compare the BOSZ models and our data, we have to convolve the Subaru spectrum.
+They match best if we convolve the data with a R=40,000 kernel so that we could compare the data to the BOSZ models.
+Then, we explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M] to constrain these parameters in \shStar.
+For each parameter, we change the models by about 2 steps in the BOSZ grid.
+For a quantitative measure of the goodness-of-fit, we calculate a $\chi^2$ over the Mg triplet lines from 5160 to 5190 $\AA$.
+The errors are estimated from the standard deviation of the spectra over the night.
 
-\begin{figure}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/bosz_mg_triplet_median_spec.pdf}
-\caption{Example spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTripletBOSZMedian}
-\end{centering}
-\end{figure}
-
-As before, we also compare the data to a BOSZ model with T=5000 K and log(g)=4.5, shown in Figure \ref{fig:mgTripletBOSZMedianW5000}.
-The line ratios appear to match the BOSZ model with T=4500 K much better.
-
-\begin{figure}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/bosz_mg_triplet_median_spec_w_5000.pdf}
-\caption{Example spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to a 4500 K BOSZ and a 5000 K BOSZ model.}\label{fig:mgTripletBOSZMedianW5000}
-\end{centering}
-\end{figure}
-
-This motivates a check on the temperatures, so we compare 3 models all with log(g)=4.5 and 
-
-\clearpage
-
-\subsection{BOSZ Model Exploration}
-
-We also convolve the data with a R=40,000 kernel so that we could compare the data to the BOSZ models.
-Then, we explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M].
+The sensitivity to each parameter for the BOSZ models are shown in Figure \ref{fig:boszModelParamsMedianSpec}.
+A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0.5), low $\alpha$ enrichment ($\alpha \approx -0.25$ and solar Carbon to metals ([C/M] $\approx$ 0) are favored by the models.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -384,6 +368,8 @@ Then, we explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], 
 \caption{BOSZ parameter exploration.}\label{fig:boszModelParamsMedianSpec}
 \end{centering}
 \end{figure*}
+
+\clearpage
 
 \section{Conclusions}\label{sec:conclusions}
 
