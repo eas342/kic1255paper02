@@ -354,6 +354,7 @@ Then, we explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], 
 For each parameter, we change the models by about 2 steps in the BOSZ grid.
 For a quantitative measure of the goodness-of-fit, we calculate a $\chi^2$ over the Mg triplet lines from 5160 to 5190 $\AA$.
 The errors are estimated from the standard deviation of the spectra over the night.
+For now, we ignore the smoothing of the data that creates non-zero off-diagonal terms in the covariance matrix.
 
 The sensitivity to each parameter for the BOSZ models are shown in Figure \ref{fig:boszModelParamsMedianSpec}.
 A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0.5), low $\alpha$ enrichment ($\alpha \approx -0.25$ and solar Carbon to metals ([C/M] $\approx$ 0) are favored by the models.
@@ -368,6 +369,10 @@ A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0
 \caption{BOSZ parameter exploration.}\label{fig:boszModelParamsMedianSpec}
 \end{centering}
 \end{figure*}
+
+\subsubsection{$\chi^2$ Minimization}
+We downloaded a grid of BOSZ models with temperatures ranging from 4250 K to 4750 K, Log(g) from 4.0 to 4.5, [M/H] from 0.0 to 0.5, [C/M]=0.0 and [$\alpha$/M] = -0.25 to 0.0.
+As discussed above, we use an approximate $\chi^2$ statistic over the wavelength range covering the Mg triplet (5160 $\AA$ to 5190 $\AA$).
 
 \clearpage
 
