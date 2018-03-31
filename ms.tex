@@ -105,7 +105,7 @@ There were two intervals near obits 50 and 1950 that showed shallower (0.1\%) th
 Subsequently, \citet{schlawin2016kic1255} observed 8 total transits of the system for 4 nights in 2013 and 4 nights in 2014 for the $r'$ band using the MORIS imager \citep{Gulbis2011} on SpeX/IRTF \citep{rayner03}.
 \citet{schlawin2016kic1255} found that the transit depths were all weaker than $0.43\%$ and that the probably of this randomly occurring based on random behavior from Kepler statistics was around 0.2\%.
 This was evidence that the observations occured during weaker periods (as found in \citet{vanWerkhoven2014}'s 15 Kepler quarter analysis) or that the disintegration activity was falling off with time.
-We performed follow-up $R$ band photometry of the \shStar\ system to explore whether the disintegration activity is shutting off with time.
+We performed follow-up $R$ band photometry of the \shStar\ system to explore whether the disintegration activity was decreasing as a function of time.
 We also analyze high resolution spectroscopy of the system to help resolve some of the different stellar parameters reported in the literature.
 
 \begin{deluxetable}{lr}
@@ -198,6 +198,12 @@ All source radius, background start and background annulus end parameters were 9
 \end{figure*}
 
 Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ showing transits.
+We use the following planet transit ephemeris, using the flux minimum from Kepler data \citep{schlawin2016kic1255} and the orbital period from \citet{vanWerkhoven2014}.
+\begin{equation}
+T = T_0 + n P
+\end{equation}
+where $T_0 = 2454833.039$ BJD$_{TDB}$ and $P = 0.653 553 8 \pm 0.000 000 1$ days.
+
 The expected transit epochs from the ephemeris in \citep{vanWerkhoven2014} are shown for reference.
 Typical uncertainties for the Kepler ephemeris are $\sim$ 1 minute at these dates (considering only the uncertainty in period since the transit center is ill-defined).
 The ``transit duration'' from Kepler light curves is around 0.05 days, which is consistent with these transit durations.
@@ -205,12 +211,14 @@ The ``transit duration'' from Kepler light curves is around 0.05 days, which is 
 \begin{figure*}
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{images/all_kic1255_phot/all_kic1255_refcor.pdf}
-\caption{Reference-corrected time series photometry \shStar\ for all nights.
+\caption{Reference-corrected time series photometry \shStar\ for all nights (blue circles).
+Orange squares mark 20 minute flux bins.
 The expected transit epochs from the Kepler-based ephemeris \citep{vanWerkhoven2014} are shown as vertical red bars.
 We also show the average Short Cadence Kepler light curves for each of the transit events for comparison with the average.
 Transits are clearly visible for all five nights except for UT2016-06-14.}\label{fig:allNightrefCorrect}
 \end{centering}
 \end{figure*}
+
 
 \clearpage
 
