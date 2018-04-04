@@ -996,7 +996,7 @@ Typeset using \LaTeX\ {\bf modern} style in AASTeX61}
      \setcounter{footnote}{\thefront@matter@foot@note}%
      \let\footnotetext=\old@foot@note@text
      \let\footnotemark=\old@foot@note@mark
-   \clearpage
+   %\clearpage
    \if@two@col
    \twocolumngrid
    \fi
@@ -1184,7 +1184,7 @@ the#1\endcsname}
 \goodbreak
     \hbox to\textwidth{\hss\normalsize REFERENCES\hss}
 \vspace{6pt}\parskip=0pt
-\twocolumngrid 
+%\twocolumngrid 
 \par
  \raggedright
 \small
@@ -6204,8 +6204,8 @@ needed. It will not do anything.^^J Please use
 \if@firstsection
   \let\abstract\@undefined\let\endabstract\@undefined
   \titlepage@sw{%
-   \vfil
-   \clearpage
+  %\vfil
+  % \clearpage
   }{}%
 \fi
 }%
@@ -6236,7 +6236,7 @@ needed. It will not do anything.^^J Please use
 \ifnum\AuthorCollaborationLimit>0
 \ifnumlines\nolinenumbers\fi
 \onecolumngrid
-\clearpage
+%\clearpage
 \AuthorCollaborationLimit=100
 \largestAffilNum=100
 {\vskip6pt\vskip1sp\centerline{\large\bf All Authors and
