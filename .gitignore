@@ -8,9 +8,11 @@
 *.tui
 *-mpgraph.mp
 *.DS_Store
+supplement*.pdf
 ms*.pdf
 image_backups/*
 sync_bib.sh
+supplementNotes.bib
 msNotes.bib
 *~
 images/all_kic1255_phot/all_kic1255_refcor_sigreject?.pdf
