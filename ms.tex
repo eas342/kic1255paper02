@@ -391,6 +391,25 @@ The constraint is even tighter assuming a circular orbit.
 \end{centering}
 \end{figure*}
 
+\subsection{Specmatch}\label{sec:SpecMatch}
+
+We also use the \texttt{specmatch} tool \citep{yee2017specMatch} to estimate the stellar parameters using the Subaru spectrum.
+\texttt{specmatch} uses a library of Keck HIRES spectra to match the spectrum and derive stellar parameters.
+As with the comparisons to the BOSZ models, we first convolve the median spectrum from \citet{masuda2018rvKIC1255} with a R=40,000 kernel.
+We cut the spectrum to a region from 5140~$\AA$ to 5190~$\AA$ to focus on the gravity-sensitive Mg triplet.
+
+Figure \ref{fig:specMatch} shows the chi-squared differences between the median Subaru spectrum and the models.
+The effective temperature radius show clear global $\chi^2$ minima for the HIRES spectral libraries.
+The resulting best-fit parameters are T$_{eff}$=4500 K, [Fe/H]=-0.1$\pm$0.1, log(g)=4.5$\pm$0.1, R=0.7 $\pm$ 0.1 R$_\odot$.
+We summarize these \texttt{specmatch} and BOSZ results in Table \ref{tab:stellObsParams}.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{images/subaru/spec_chi_min.pdf}
+\caption{$\chi^2$ as a function of stellar parameters found by \texttt{specmatch}.
+The effective temperature and radii show clear global minima.}\label{fig:specMatch}
+\end{centering}
+\end{figure*}
 
 \section{Conclusions}\label{sec:conclusions}
 
