@@ -40,7 +40,7 @@
 \begin{document}
 
 
-\title{Back to Normal Transits for the Disintegrating Planet Candidate KIC 12557548 b}
+\title{Back to ``Normal'' for the Disintegrating Planet Candidate KIC 12557548 b}
 
 %% Use \author, \affil, and the \and command to format
 %% author and affiliation information.
@@ -369,27 +369,6 @@ We downloaded a grid of BOSZ models with temperatures ranging from 4250 K to 475
 As discussed above, we use an approximate $\chi^2$ statistic over the wavelength range covering the Mg triplet (5160 $\AA$ to 5190 $\AA$).
 The minimum $\chi^2$ model for this entire grid is the same as shown in Figure \ref{fig:boszModelParamsMedianSpec}: T=4500 K, Log(g)=4.5, M/H=0.0, C/M=0.0, $\alpha=-0.25$.
 
-\clearpage
-
-\section{Kepler Re-analysis}
-We examine the 17 total quarters of Kepler data.
-There is not detectable secondary eclipse at $\lesssim 50$ ppm, seen in Figure \ref{fig:secEclipse}. 
-The constraint is even tighter assuming a circular orbit.
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.8\textwidth]{images/kepler/secondary_eclipse.pdf}
-\caption{Secondary eclipse found by averaging the light curve from 17 quarters of Kepler data.}\label{fig:secEclipse}
-\end{centering}
-\end{figure*}
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/photometry_riverplot.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
-\caption{Cleaned Kepler Long-cadence data and PCA analysis.}\label{fig:kepPCA}
-\end{centering}
-\end{figure*}
 
 \subsection{Specmatch}\label{sec:SpecMatch}
 
@@ -408,6 +387,45 @@ We summarize these \texttt{specmatch} and BOSZ results in Table \ref{tab:stellOb
 \includegraphics[width=0.8\textwidth]{images/subaru/spec_chi_min.pdf}
 \caption{$\chi^2$ as a function of stellar parameters found by \texttt{specmatch}.
 The effective temperature and radii show clear global minima.}\label{fig:specMatch}
+\end{centering}
+\end{figure*}
+
+
+\clearpage
+
+\section{Kepler Re-analysis}
+We examine the 17 total quarters of Kepler data.
+There is not detectable secondary eclipse at $\lesssim 50$ ppm, seen in Figure \ref{fig:secEclipse}. 
+The constraint is even tighter assuming a circular orbit.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.45\textwidth]{images/kepler/secondary_eclipse.pdf}
+\caption{Secondary eclipse found by averaging the light curve from 17 quarters of Kepler data.}\label{fig:secEclipse}
+\end{centering}
+\end{figure*}
+
+We create a cleaned Kepler long-cadence data set by interpolating all time series data onto a fixed phase grid with a spacing of 30 minutes.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/photometry_riverplot.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/model_riverplot.pdf}
+\caption{Cleaned Kepler Long-cadence data (Left) and model fit (Right).}\label{fig:kepPCA}
+\end{centering}
+\end{figure*}
+
+We take the dot product ($\bullet$) with the first principal component to create an amplitude time series.
+\begin{equation}
+A = \frac{(f - 1) \bullet c_1}{c_1 \bullet c_1},
+\end{equation}
+where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $c_1$ is the vector of the first principal component .
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
+\includegraphics[width=0.45\textwidth]{images/kepler/amplitude_series.pdf}
+\caption{Principal component eigenvectors (Left) and amplitude time series (Right).}\label{fig:secEclipse}
 \end{centering}
 \end{figure*}
 
