@@ -425,18 +425,32 @@ where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
 \includegraphics[width=0.45\textwidth]{images/kepler/amplitude_series.pdf}
-\caption{Principal component eigenvectors (Left) and amplitude time series (Right).}\label{fig:secEclipse}
+\caption{Principal component eigenvectors (Left) and amplitude time series (Right).}\label{fig:PCAamp}
+\end{centering}
+\end{figure*}
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/amplitude_periodogram.pdf}
+\caption{Periodogram of the amplitude time series shown in Figure \ref{fig:PCAamp}
+Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
+The peak at 0.65 days is the orbital period.
+The peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.}\label{fig:periodogram}
 \end{centering}
 \end{figure*}
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/amplitude_histogram.pdf}
-\caption{Histogram of transit amplitudes.
+\includegraphics[width=0.49\textwidth]{images/kepler/deconvolved_hist.pdf}
+\caption{(Lef) Histogram of transit amplitudes.
 An amplitude of 1.0 corresponds to the average light curve (with flux minimum of 99.53\% or 0.47\% transit depth).
-A comparison histogram is shown from the Kepler Secondary eclipses to show the photon noise.}\label{fig:secEclipse}
+A comparison histogram is shown from the Kepler Secondary eclipses to show the photon noise.
+(Right) The primary transit histogram is de-convolved by the secondary eclipse histogram to attempt to measure the intrinsic astrophysical variability.}\label{fig:histoGrams}
 \end{centering}
 \end{figure*}
+
+
 
 
 \section{Conclusions}\label{sec:conclusions}
