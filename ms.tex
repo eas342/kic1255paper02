@@ -394,18 +394,34 @@ The effective temperature and radii show clear global minima.}\label{fig:specMat
 \clearpage
 
 \section{Kepler Re-analysis}
-We examine the 17 total quarters of Kepler data.
-There is not detectable secondary eclipse at $\lesssim 50$ ppm, seen in Figure \ref{fig:secEclipse}. 
+We examine the 17 total quarters of Kepler data for three purposes:
+\begin{enumerate}
+	\item To understand the statistics of the transits and put our 2013-2016 observations in context. Mainly, how likely/unlikely were the weak transits observed in 2013-2014?
+	\item To measure the radius of the planet or put an upper limit on its radius by examining any possible transit beneath the dust signal
+	\item Identify any new patterns or observations from the Kepler data that might occur along the way
+\end{enumerate}
+
+We downloaded all 17 quarters of Kepler Long-Cadence data from the MAST archive beginning on 2009-05-13 and ending on 2013-04-08 for a total of 1425 days or 2181.5 orbits.
+The Kepler data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
+A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 with thin the $\pm$ 0.28 window.
+All points are divided by this baseline to produce a normalized flux transit or eclipse profile.
+The secondary eclipses are used to quantify the noise in the transit depths.
+
+We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected a at $\lesssim 50$ ppm, seen in Figure \ref{fig:secEclipse}. 
 The constraint is even tighter assuming a circular orbit.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/kepler/secondary_eclipse.pdf}
-\caption{Secondary eclipse found by averaging the light curve from 17 quarters of Kepler data.}\label{fig:secEclipse}
+\caption{No secondary eclipse ( $\lesssim$ 50 ppm) is detected from a phase range of -0.25 to 0.75, even with 17 quarters (4 years) of Kepler Long Cadence data.
+Here the data are binned to orbital phases of 0.1 or 1.5 minutes and errors calculated from the standard error in the mean of the data.
+}\label{fig:secEclipse}
 \end{centering}
 \end{figure*}
 
-We create a cleaned Kepler long-cadence data set by interpolating all time series data onto a fixed phase grid with a spacing of 30 minutes.
+In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
+We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 30 minutes and put together all the time series that have no gaps into this two dimensional grid.
+This cleaned Kepler long-cadence array is shown in Figure \ref{fig:kepPCA}.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
