@@ -93,20 +93,21 @@ Surprisingly, the flux dips are neither symmetric in shape nor constant in ampli
 The amplitudes of the flux dips are highly stochastic and unpredictable from one event to the next 0.653 days later.
 This indicates the creation and clearing of material that can cover up to 1\% of the star in $\lesssim$ 1 day timescales.
 These unusual light curve behaviors are best explained as dust extinction from material that is escaping a rocky planet (KIC 12557548 b, hereafter \sha) in a short period orbit.
-The \shStar\ system has the exciting possibility of being an opportunity to study a planet that has been peeled away layer by layer to reveal an interior core.
+The KIC 12557548 system (hereafter \shStar) has the exciting possibility of being an opportunity to study a planet that has been peeled away layer by layer to reveal an interior core.
 
 The discovery of K2-22b \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating}, KOI 2700 \citep{rappaport2014KOI2700} showed that other systems have similar light curves and that other disintegrating planet systems may be useful laboratories for understanding disintegrating planets.
 Multi-wavelength light curve measurements show that the dust particles can have wavelength-dependent transmission, as predicted from sub-micron dust particles \citep{bochinski2015evolving,sanchis-ojedak2-22}.
 
 Furthermore, there are perplexing systems that also display stochastic transit behavior but for which there are still no agreed-upon explanations: KIC 8462852 (ie. Boyajian's star) \citep{boyajian846}, RIK-210 \citep{david2017rik210} and PTFO 8-8695 \citep{vanEyken2012ptfTTauri}.
 KIC 8462852 may be a family of comets from one or more parent bodies that recently were broken apart.
-RIK-210 and PTFO 8-8695 are both in young systems ($\lesssim$ 10 and $\lesssim$3 Myr respectively) so they may be proto-planet candidates.
-RIK-210 may have accreting material that causes variable extinction while PTFO 8-8695's orbit may be precessing and causing variations in transit depth depending on its longitude.
+RIK-210 and PTFO 8-8695 are both in young systems ($\lesssim$ 10 and $\lesssim$3 Myr respectively) so they may be proto-planet candidates or structures within a protoplanetary disk.
+RIK-210 could be accreting material that causes variable extinction while PTFO 8-8695's orbit may be precessing and causing variations in transit depth depending on its longitude.
 
 The underlying planet candidate \sha\ has not been detected directly, but several observational constraints have placed upper limits on its size and mass.
-High precision radial velocity measurements of the host star put an upper limit on the reflex motion due to the planet and constrains the mass to be $\lesssim 1.2 M_{\mathrm Jup}$ \citep{croll2014}.
+High precision radial velocity measurements of the host star with Keck/HIRES put an upper limit on the reflex motion due to the planet and constrains the mass to be $\lesssim 1.2 M_{\mathrm Jup}$ \citep{croll2014}.
+\citet{masuda2018rvKIC1255} find that the upper limit on the radial velocity semi-amplitude is 86 km/s corresponding to a planet mass $\lesssim 0.28 M_{\mathrm Jup}$ using the Subaru High Dispersion Spectrometer (HDS).
 There is no detection of secondary eclipses of \sha\ with a 3$\sigma$ upper limit of $5 \times 10^{-5}$ in the Kepler bandpass, which means that for an albedo of 0.5, the radius of the planet must be smaller than 4600 km \citep{vanWerkhoven2014}.
-The timescale of the variability of the transits gives a mass lot rate of order $\sim M_\oplus/Gyr$, which would indicate a present-day mass of 0.014 $M_\oplus$ when using a radiative-hydrodynamic wind model \citep{perez-becker}.
+The timescale of the variability of the transits gives a mass lot rate of $\sim M_\oplus/Gyr$, which would indicate a present-day mass of 0.014 $M_\oplus$ when using a radiative-hydrodynamic wind model \citep{perez-becker}.
 
 The Kepler spacecraft performed near-continuous long cadence photometry for KIC 12557548 during its entire main mission lifetime from 2009 to 2013.
 During this time, the transit depths averaged around $\sim$0.6\% but varied stochastically from just one 15.7 hour orbit to the next.
@@ -148,25 +149,26 @@ Table \ref{tab:photSummary} shows a summary of our observations and the UT dates
 For the photometric reduction, we used the \texttt{ccdproc} package to generate master flat field and bias files.
 They were combined with an average with a low threshold of 2$\sigma$ and a high threshold of 5$\sigma$.
 12 stable reference stars with similar R band brightnesses were used to construct a reference time series to correct for variable telluric and instrument throughput.
+The reference stars are identified in Figure \ref{fig:refStars}.
 These 12 reference stars' time series were combined with a weighted average and this combined time series was divided into the target, \sha.
 
 For the photometric reduction, we used the \texttt{ccdproc} package to generate master flat field and bias files.
-I combined with an average with a low threshold of 2$\sigma$ and a high threshold of 5$\sigma$.
+We combined the flat fields and bias files with a a sigma-clipped average with a low threshold of 2$\sigma$ and a high threshold of 5$\sigma$.
 
 \begin{figure}
 \begin{centering}
-\includegraphics[width=0.5\textwidth]{images/ut2016_07_14_clouds/figure_index_152.pdf}
-\includegraphics[width=0.5\textwidth]{images/stamps_kic1255_UT2016_07_14.pdf}
+\includegraphics[width=0.49\textwidth]{images/ut2016_07_14_clouds/figure_index_152.pdf}
+\includegraphics[width=0.49\textwidth]{images/stamps_kic1255_UT2016_07_14.pdf}
 \caption{Target (src) and reference stars (numbered) used on UT 2016-07-14.
 The reference stars were chosen to have similar count levels as the source. 
-}\label{fig:ut2016-07-14cloudImg}
+}\label{fig:refStars}
 \end{centering}
 \end{figure}
 
-All nights light curves are shown in Figure \ref{fig:allNightallStar}.
-These are the same reference stars shown in Figure \ref{fig:ut2016-07-14cloudImg}.
-The nights two nights in June, 2016 show greater overall stability than the ones in July, 2016.
-I suspect that this can mostly be explained by moisture and clouds (such as the ones that caused huge drops in flux on UT2016-07-14.
+All light curves are shown in Figure \ref{fig:allNightallStar}.
+These are the same reference stars shown in Figure \ref{fig:refStars}.
+The nights two nights 2016-06-12 and 2016-06-14 show greater overall stability than the ones in July, 2016.
+We suspect that the higher moisture levels and occasional cloud passages (such as the ones that caused huge drops in flux on UT2016-07-14) affected the later observations.
 
 \begin{figure*}
 \begin{centering}
@@ -177,17 +179,22 @@ All source radius, background start and background annulus end parameters were 9
 \end{centering}
 \end{figure*}
 
-
-Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ for all 5 nights which were timed with transits.
+Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ for all nights.
 We use the following planet transit ephemeris, using the flux minimum ``transit center'' from Kepler data \citep{schlawin2016kic1255} and the orbital period from \citet{vanWerkhoven2014}.
 \begin{equation}
 T = T_0 + n P
 \end{equation}
 where $T_0 = 2454833.039$ BJD$_{TDB}$ and $P = 0.653 553 8 \pm 0.000 000 1$ days.
-
-The expected transit epochs from the ephemeris in \citep{vanWerkhoven2014} are shown for reference.
-Typical uncertainties for the Kepler ephemeris are $\sim$ 1 minute at these dates (considering only the uncertainty in period since the transit center is ill-defined).
+The expected transit epochs from the ephemeris in \citep{vanWerkhoven2014} are shown for reference as vertical red bars.
+Typical uncertainties for the Kepler ephemeris are $\sim$ 1 minute at these dates due to the large number of transits measured by the Kepler observatory over nearly 4 years.
 The ``transit duration'' from Kepler light curves is around 0.05 days, which is consistent with these transit durations.
+
+We also overlay the average Kepler short cadence light curves on the measured light curves.
+To ease the comparison of the average Kepler light curve and measured data, we bin the 61-inch Mont4K data into 20 minute long bins.
+Obvious cosmic ray outliers were discarded by removing points with fluxes below 0.98 and above 1.02 times the median flux.
+The error bars for the binned data are calculated from the standard error in the mean for each bin.
+When comparing the average Kepler Short Cadence light curve and the measured light curves that the measured light curves represent typical KIC 12557548 b transits.
+Only 2016-06-14 appears to have a non-detection.
 
 \begin{figure*}
 \begin{centering}
