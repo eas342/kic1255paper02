@@ -8,7 +8,7 @@
 *.tui
 *-mpgraph.mp
 *.DS_Store
-supplement*.pdf
+draft*.pdf
 ms*.pdf
 image_backups/*
 sync_bib.sh

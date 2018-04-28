@@ -272,7 +272,7 @@ The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms 
   \citet{rappaport}       & 4300 $\pm$ 250    &                            & main-sequence star & low-resolution spectroscopy \\
   \citet{kawahara2013starspots} & 4950 $\pm$ 70 & 3.9 $\pm$ 0.2 & sub-giant          & high-resolution spectroscopy \\
   \citet{huber2014kicprop} & 4550$^{+140}_{-131} $ & 4.622$^{+0.043}_{-0.036} $& main-sequence star & photometry \\
-  This work - Specmatch	& 4500 	& 4.63	& main-sequence star & high-resolution spectroscopy\\
+  This work - Specmatch	& 4500 $\pm$110 	& 4.63 $\pm$ 0.1 & main-sequence star & high-resolution spectroscopy\\
   This work - BOSZ		& 4500	& 4.5		& main-sequence star & high-resolution spectroscopy\\
 \enddata
 \tablenotetext{}{While most of the photometric results show a surface gravity of a main sequence star, the high resolution analysis from \citet{kawahara2013starspots} indicates a gravity consistent with a sub-giant star.}\label{tab:stellObsParams}
@@ -396,7 +396,7 @@ We cut the spectrum to a region from 5140~$\AA$ to 5190~$\AA$ to focus on the gr
 
 Figure \ref{fig:specMatch} shows the chi-squared differences between the median Subaru spectrum and the models.
 The effective temperature radius show clear global $\chi^2$ minima for the HIRES spectral libraries.
-The resulting best-fit parameters are T$_{eff}$=4500 K, [Fe/H]=-0.1$\pm$0.1, log(g)=4.5$\pm$0.1, R=0.7 $\pm$ 0.1 R$_\odot$.
+The resulting best-fit parameters are T$_{eff}$=4500 K $\pm$ 110 K, [Fe/H]=-0.1$\pm$0.1, log(g)=4.5$\pm$0.1, R=0.7 $\pm$ 0.1 R$_\odot$.
 We summarize these \texttt{specmatch} and BOSZ results in Table \ref{tab:stellObsParams}.
 
 \begin{figure*}[!hbtp]
@@ -406,6 +406,14 @@ We summarize these \texttt{specmatch} and BOSZ results in Table \ref{tab:stellOb
 The effective temperature and radii show clear global minima.}\label{fig:specMatch}
 \end{centering}
 \end{figure*}
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{images/subaru/lincomb_kic1255.pdf}
+\caption{Linear combination of templates that best matches KIC 1255.}\label{fig:specMatch}
+\end{centering}
+\end{figure*}
+
 
 
 \clearpage
