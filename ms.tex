@@ -454,9 +454,11 @@ This cleaned Kepler long-cadence array is shown in Figure \ref{fig:kepPCA}.
 \includegraphics[width=0.49\textwidth]{images/kepler/photometry_riverplot.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/model_riverplot.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/residual_riverplot.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/residual_after_shifted_model.pdf}
 \caption{Cleaned Kepler Long-cadence data (Top Left) and model fit (Top Right).
-The residual is shown with a different scaling below.
-In this fitting process, no adjustments were made for timing, which is apparent in the residuals.}\label{fig:kepPCA}
+(Bottom Left) The residual is shows some periodic behavior.
+(Bottom Right) If we allow for shifting in the model with cross-correlation, the periodic behavior is even stronger.
+This is likely an erroneous alias caused by a an early typo in the phase grid of 30 seconds instead of 30 minutes.}\label{fig:riverPlots}
 \end{centering}
 \end{figure*}
 
