@@ -440,23 +440,22 @@ Both have the same quadratic baseline removal process over the same time interva
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/kepler/secondary_eclipse.pdf}
 \caption{No secondary eclipse ( $\lesssim$ 50 ppm) is detected from a phase range of -0.25 to 0.75, even with 17 quarters (4 years) of Kepler Long Cadence data.
-Here, the data are binned to orbital phases of 0.1 or 1.5 minutes and errors calculated from the standard error in the mean of the data within a bin.
+Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calculated from the standard error in the mean of the data within a bin.
 }\label{fig:secEclipse}
 \end{centering}
 \end{figure*}
 
 In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
-We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 30 minutes and put together all the time series that have no gaps into this two dimensional grid.
-This cleaned Kepler long-cadence array is shown in Figure \ref{fig:kepPCA}.
+We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
+This cleaned Kepler long-cadence array is shown in Figure \ref{fig:riverPlots}.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/photometry_riverplot.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/model_riverplot.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/residual_riverplot.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/residual_after_shifted_model.pdf}
 \caption{Cleaned Kepler Long-cadence data (Top Left) and model fit (Top Right).
-(Bottom Left) The residual is shows some periodic behavior.
+(Bottom) The residual is shows some periodic behavior.
 (Bottom Right) If we allow for shifting in the model with cross-correlation, the periodic behavior is even stronger.
 This is likely an erroneous alias caused by a an early typo in the phase grid of 30 seconds instead of 30 minutes.}\label{fig:riverPlots}
 \end{centering}
@@ -476,13 +475,27 @@ where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time
 \end{centering}
 \end{figure*}
 
+We also perform PCA along the time axis.
+This gives the principal components shown in Figure \ref{fig:PCAtime}.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/pca_time_direction.pdf}
+\caption{Principal components for orbital phase when working along the time axis.}\label{fig:PCAtime}
+\end{centering}
+\end{figure*}
+
+In Figure \ref{fig:ampPeriodogram} we show the periodogram of amplitudes that have peaks at 0.654, 22.9, 153 and 750 days.
+The 22.9 day peak is consistent with the \citet{kawahara2013starspots} that shows amplitudes are anti-correlated with 
+
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/amplitude_periodogram.pdf}
 \caption{Periodogram of the amplitude time series shown in Figure \ref{fig:PCAamp}
 Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
-The peak at 0.65 days is the orbital period.
-The peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.}\label{fig:periodogram}
+The peak at 0.654 days is the orbital period.
+The peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.
+The 22.9 day peak is consistent with the \citet{kawahara2013starspots} peak that is co-incident with the stellar rotation period.}\label{fig:PCAamp}
 \end{centering}
 \end{figure*}
 
