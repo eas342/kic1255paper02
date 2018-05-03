@@ -272,6 +272,7 @@ The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms 
   \citet{rappaport}       & 4300 $\pm$ 250    &                            & main-sequence star & low-resolution spectroscopy \\
   \citet{kawahara2013starspots} & 4950 $\pm$ 70 & 3.9 $\pm$ 0.2 & sub-giant          & high-resolution spectroscopy \\
   \citet{huber2014kicprop} & 4550$^{+140}_{-131} $ & 4.622$^{+0.043}_{-0.036} $& main-sequence star & photometry \\
+  \citet{morton2016falsePos} & 4677 		& 4.61		& main-sequence star	& photometry \\
   This work - Specmatch	& 4500 $\pm$110 	& 4.63 $\pm$ 0.1 & main-sequence star & high-resolution spectroscopy\\
   This work - BOSZ		& 4500	& 4.5		& main-sequence star & high-resolution spectroscopy\\
 \enddata
@@ -280,7 +281,7 @@ The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms 
 
 
 The host star \shStar\ has been characterized by both photometry and spectroscopy.
-Table \ref{tab:stellObsParams} shows the summary of observations and analyses compiled in \citet{vanlieshout2016kic1255} for the stellar properties, re-produced here.
+Table \ref{tab:stellObsParams} shows the summary of observations and analyses compiled in \citet{vanlieshout2016kic1255} for the stellar properties, re-produced here with additional results added from .
 In the photometric analysis and low resolution spectroscopy, the spectra are consistent with a 4500 K main sequence K-type star.
 High resolution spectra, however, indicate a higher temperature 4900 K lower log(g) sub-giant star \citep{kawahara2013starspots}.
 \citet{vanlieshout2016kic1255} analyzed the light curve with a dust model to put constraints on the semi-major axis, which in turn constrains the density of the star when combined with Kepler's third law \citep{seager2003uniqueSolution}.
@@ -291,9 +292,9 @@ If true, high resolution spectra would be valuable tool to study the composition
 \subsection{Subaru HDS Spectra}
 
 We decided to re-visit the stellar parameters by examining the spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
-There is one set of data taken on 2013-06-22 discussed in \citet{kawahara2013starspots}.
-Additionally, there is one set of observations from 2015-08-28 that was taken to understand the kinematics of the system.
-Both of these observations happened after the reaction wheel failure on 2015-05-11\footnote{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html}, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
+There is one set of data taken on 2013-06-22 (UT) discussed in \citet{kawahara2013starspots}, including 4 exposures each 2700 seconds in duration.
+Additionally, there are two set of observations from 2015-08-28 (UT) and 2015-08-29 (UT) that were taken to understand the kinematics of the system \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
+The second set of observations happened after the reaction wheel failure on 2015-05-11\footnote{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
 
 \subsection{Independent Iraf Reduction}
 
@@ -495,7 +496,7 @@ The 22.9 day peak is consistent with the \citet{kawahara2013starspots} that show
 Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
 The peak at 0.654 days is the orbital period.
 The peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.
-The 22.9 day peak is consistent with the \citet{kawahara2013starspots} peak that is co-incident with the stellar rotation period.}\label{fig:PCAamp}
+The 22.9 day peak is consistent with the \citet{kawahara2013starspots} peak that is co-incident with the stellar rotation period.}\label{fig:ampPeriodogram}
 \end{centering}
 \end{figure*}
 
