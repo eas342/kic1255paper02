@@ -293,7 +293,9 @@ If true, high resolution spectra would be valuable tool to study the composition
 
 We decided to re-visit the stellar parameters by examining the spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
 There is one set of data taken on 2013-06-22 (UT) discussed in \citet{kawahara2013starspots}, including 4 exposures each 2700 seconds in duration.
+For this 2013 observation, the instrument was configured to use an image slicer unit \#2, which has a resolving power R$\approx$80,000.
 Additionally, there are two set of observations from 2015-08-28 (UT) and 2015-08-29 (UT) that were taken to understand the kinematics of the system \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
+The instrument 
 The second set of observations happened after the reaction wheel failure on 2015-05-11\footnote{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
 
 \subsection{Independent Iraf Reduction}
@@ -334,7 +336,7 @@ Again, there is no clear match to either BOSZ model.
 \end{figure}
 
 \subsection{Independent Reduction}
-K Masuda independently reduced the \shStar\ Subaru data to examine if there could be an orbiting body on a highly eccentric star-grazing orbit that would reveal itself through radial velocity variations.
+K Masuda independently reduced the \shStar\ Subaru data to examine if there could be an orbiting body on a highly eccentric star-grazing orbit that would reveal itself through radial velocity variations \citep{masuda2018rvKIC1255}.
 This more sophisticated reduction masks all telluric emission features and any outliers, producing cleaner spectra.
 Time-variable outliers like cosmic rays are removed by measuring deviations from the median spectrum for the night.
 The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
@@ -351,8 +353,8 @@ The models are convolved with a Gaussian that has a standard deviation $\sigma_G
 
 \begin{figure}[!hbtp]
 \begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/bosz_mg_triplet.pdf}
-\caption{Example spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTripletBOSZ}
+\includegraphics[width=0.45\textwidth]{images/subaru/bosz_mg_triplet_median_spec_w_5000.pdf}
+\caption{Median spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTripletBOSZ}
 \end{centering}
 \end{figure}
 
