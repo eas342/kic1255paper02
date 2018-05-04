@@ -62,7 +62,10 @@
 \affiliation{Department of Earth and Planetary Sciences, Tokyo Institute of Technology, Tokyo 152-8550, Japan}
 
 \author{Hajima Kawahara?}
-\affiliation{Department of Earth and Planetary Science, The University of Tokyo, Tokyo 113-0033, Japan;}
+\affiliation{Department of Earth and Planetary Science, The University of Tokyo, Tokyo 113-0033, Japan}
+
+\author{Johanna Teske?}
+\affiliation{Department of Terrestrial Magnetism, Carnegie Institution for Science, 5241 Broad Branch Road, NW, Washington, DC 20015}
 
 \author{Betsy Green?}
 \affiliation{Steward Observatory, Tucson AZ 85721}
@@ -77,7 +80,7 @@
 KIC 12557548 b is one of several disintegrating planet candidates which lose mass in the form of dust particles escaping their surface.
 Photometric monitoring of KIC 12557548 b originally showed evidence for a slowdown of integration activity in 2013 and 2014.
 Here, we report 2016 measurements that are consistent with photometry from the Kepler spacecraft in 2009-2013.
-We also evaluate high resolution spectra from the Subaru HDS spectrograph and find spectra consistent with a main-sequence T=4500 K, main-sequence star.	
+We also evaluate high resolution spectra from the Subaru HDS spectrograph and find spectra consistent with a main-sequence T=4500 $\pm$110 K, main-sequence star.	
 \end{abstract}
 
 
@@ -95,7 +98,7 @@ This indicates the creation and clearing of material that can cover up to 1\% of
 These unusual light curve behaviors are best explained as dust extinction from material that is escaping a rocky planet (KIC 12557548 b, hereafter \sha) in a short period orbit.
 The KIC 12557548 system (hereafter \shStar) has the exciting possibility of being an opportunity to study a planet that has been peeled away layer by layer to reveal an interior core.
 
-The discovery of K2-22b \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating}, KOI 2700 \citep{rappaport2014KOI2700} showed that other systems have similar light curves and that other disintegrating planet systems may be useful laboratories for understanding disintegrating planets.
+The discovery of K2-22b \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating}, KOI 2700 \citep{rappaport2014KOI2700} showed that other systems have similar light curves and that other disintegrating planet systems may be useful laboratories for understanding planet evolution and composition.
 Multi-wavelength light curve measurements show that the dust particles can have wavelength-dependent transmission, as predicted from sub-micron dust particles \citep{bochinski2015evolving,sanchis-ojedak2-22}.
 
 Furthermore, there are perplexing systems that also display stochastic transit behavior but for which there are still no agreed-upon explanations: KIC 8462852 (ie. Boyajian's star) \citep{boyajian846}, RIK-210 \citep{david2017rik210} and PTFO 8-8695 \citep{vanEyken2012ptfTTauri}.
@@ -107,17 +110,30 @@ The underlying planet candidate \sha\ has not been detected directly, but severa
 High precision radial velocity measurements of the host star with Keck/HIRES put an upper limit on the reflex motion due to the planet and constrains the mass to be $\lesssim 1.2 M_{\mathrm Jup}$ \citep{croll2014}.
 \citet{masuda2018rvKIC1255} find that the upper limit on the radial velocity semi-amplitude is 86 km/s corresponding to a planet mass $\lesssim 0.28 M_{\mathrm Jup}$ using the Subaru High Dispersion Spectrometer (HDS).
 There is no detection of secondary eclipses of \sha\ with a 3$\sigma$ upper limit of $5 \times 10^{-5}$ in the Kepler bandpass, which means that for an albedo of 0.5, the radius of the planet must be smaller than 4600 km \citep{vanWerkhoven2014}.
-The timescale of the variability of the transits gives a mass lot rate of $\sim M_\oplus/Gyr$, which would indicate a present-day mass of 0.014 $M_\oplus$ when using a radiative-hydrodynamic wind model \citep{perez-becker}.
+A radiative-hydrodynamic wind model predicts that the mass loss rate will be a strong function of planet mass and for the present-day mass loss rate of $\sim$ M$_\oplus/Gyr$, the modeled mass is 0.014 $M_\oplus$.
+
+One possible explanation of for the planet disintegration is that it is tied to stellar activity.
+\citet{kawahara2013starspots} found an anti-correlation between stellar flux and the depth of transit events, which suggested that the alignment of the planet's position (true anomaly) causes disintegration.
+The alignment of spots and disintegration activity could be due to XUV photoevaporation or magnetic reconnection events.
+The anti-correlation between stellar flux and transit depth was confirmed by \citet{croll2015starspots} though they find that occultations of star spots can also modulate the transit depth at the 22.9 day rotation period of the star.
 
 The Kepler spacecraft performed near-continuous long cadence photometry for KIC 12557548 during its entire main mission lifetime from 2009 to 2013.
 During this time, the transit depths averaged around $\sim$0.6\% but varied stochastically from just one 15.7 hour orbit to the next.
 \citet{vanWerkhoven2014} analyzed 15 of the total 17 quarters of data and calculated every transit depth during this period.
-There were two intervals near obits 50 and 1950 that showed shallower (0.1\%) than average transit depths for roughly one month.
+There were two intervals near obits 50 and 1950 that showed shallower (0.1\%) than average transit depths for roughly one month in duration.
 
-Subsequently, \citet{schlawin2016kic1255} observed 8 total transits of the system for 4 nights in 2013 and 4 nights in 2014 for the $r'$ band using the MORIS imager \citep{Gulbis2011} on SpeX/IRTF \citep{rayner03}.
+The Kepler data was used to put constraints on the particle size distribution and composition of the dust particles.
+\citet{budaj12} and \citet{brogi2012} modeled the light curve, which includes a slight increase in flux prior before the transit begins.
+This pre-ingress flux increase is caused by forward scattering dust particles and the scattering function is sensitive to particle size modulo composition.
+\citet{budaj12} and \citet{brogi2012} find particle sizes $\sim$0.1 to $\sim$1.0$\mu$m in size based on this method.
+Subsequently, \citet{croll2014} obtained a $K'$-band light curve simultaneously with the Kepler spacecraft to put a constraint on the dust extinction as a function of wavelength.
+\citet{croll2014} find a particle size distribution of $\gtrsim 0.5\mu$m.
+
+\citet{schlawin2016kic1255} observed 8 total transits of the system for 4 nights in 2013 and 4 nights in 2014 for the $r'$ band using the MORIS imager \citep{Gulbis2011} on SpeX/IRTF \citep{rayner03}.
 \citet{schlawin2016kic1255} found that the optical transit depths were all weaker than $0.43\%$ and that the probably of this randomly occurring based on random behavior from Kepler statistics was around 0.2\%.
 This was evidence that the observations occurred during weaker periods (as found in \citet{vanWerkhoven2014}'s 15 Kepler quarter analysis) or that the disintegration activity was falling off with time.
 We performed follow-up $R$ band photometry of the \shStar\ system to explore the second hypothesis: that the disintegration activity decreases as function of time.
+We also examine archival Subaru High Dispersion Spectrograph (HDS) spectra of the star to improve the stellar parameters from the data.
 
 \begin{deluxetable}{lrr}
 \tablecaption{List of observations}\label{tab:photSummary}
@@ -281,7 +297,7 @@ The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms 
 
 
 The host star \shStar\ has been characterized by both photometry and spectroscopy.
-Table \ref{tab:stellObsParams} shows the summary of observations and analyses compiled in \citet{vanlieshout2016kic1255} for the stellar properties, re-produced here with additional results added from .
+Table \ref{tab:stellObsParams} shows the summary of observations and analyses compiled in \citet{vanlieshout2016kic1255} for the stellar properties, re-produced here with additional results added from \citet{morton2016falsePos} and this work.
 In the photometric analysis and low resolution spectroscopy, the spectra are consistent with a 4500 K main sequence K-type star.
 High resolution spectra, however, indicate a higher temperature 4900 K lower log(g) sub-giant star \citep{kawahara2013starspots}.
 \citet{vanlieshout2016kic1255} analyzed the light curve with a dust model to put constraints on the semi-major axis, which in turn constrains the density of the star when combined with Kepler's third law \citep{seager2003uniqueSolution}.
@@ -424,14 +440,14 @@ The effective temperature and radii show clear global minima.}\label{fig:specMat
 \section{Kepler Re-analysis}
 We examine the 17 total quarters of Kepler data for three purposes:
 \begin{enumerate}
-	\item To understand the statistics of the transits and put our 2013-2016 observations in context. Mainly, how likely/unlikely were the weak transits observed in 2013-2014?
+	\item To understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, how likely/unlikely were the weak transits observed in 2013-2014?
 	\item To measure the radius of the planet or put an upper limit on its radius by examining any possible transit beneath the dust signal
 	\item Identify any new patterns or observations from the Kepler data that might occur along the way
 \end{enumerate}
 
 We downloaded all 17 quarters of Kepler Long-Cadence data from the MAST archive beginning on 2009-05-13 and ending on 2013-04-08 for a total of 1425 days or 2181.5 orbits.
 The Kepler data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
-A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 within the $\pm$ 0.28 window.
+A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 within the $\pm$ 0.28 phase window.
 All points are divided by this baseline to produce a normalized flux transit or eclipse profile.
 The secondary eclipses are used to quantify the noise in the transit depths.
 
@@ -545,9 +561,9 @@ In contrast, the 2016 photometric results in this work are consistent with the K
 \section{Conclusions}\label{sec:conclusions}
 
 \section{Acknowledgements}
-Thanks to Alessondra Springman for good resources on core and mantle compositions and the gases that could sublimate off of them.
+%Thanks to Alessondra Springman for good resources on core and mantle compositions and the gases that could sublimate off of them.
 %Thanks to Jonathan Fraine and Rafia Bushra for help with observing at the 61-inch Kuiper telescope on Mt Bigelow.
-MCMC fitting makes use of \texttt{emcee} \citep{foreman-mackey2013emcee} and the covariance plot was made with \texttt{corner.py} \citep{foremanCorner}.
+%MCMC fitting makes use of \texttt{emcee} \citep{foreman-mackey2013emcee} and the covariance plot was made with \texttt{corner.py} \citep{foremanCorner}.
 Funding for the E Schlawin is provided by NASA Goddard Spaceflight Center.
 This research made use of the \texttt{astropy} package \citep{astropy2013}.
 
