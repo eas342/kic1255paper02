@@ -468,23 +468,30 @@ In order to perform some analysis techniques on the data and to study the transi
 We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
 This cleaned Kepler long-cadence array is shown in Figure \ref{fig:riverPlots}.
 
+We start by taking the average transit light curve of all the long cadence data (the mean of the 2D grid along the transit number axis).
+We then take the dot product ($\bullet$) with this average light curve to create an amplitude time series.
+\begin{equation}
+A = \frac{(f - 1) \bullet a}{a \bullet a},
+\end{equation}
+where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $a$ is the average spectrum.
+This dot product is then multiplied by the average transit light curve to create a 2D model grid.
+The residual of this model shows substantial deviations from white noise, so we explore more sophisticated models than the average light curve.
+
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/photometry_riverplot.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/model_riverplot.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/residual_riverplot.pdf}
-\caption{Cleaned Kepler Long-cadence data (Top Left) and model fit (Top Right).
-(Bottom) The residual is shows some periodic behavior.
-(Bottom Right) If we allow for shifting in the model with cross-correlation, the periodic behavior is even stronger.
-This is likely an erroneous alias caused by a an early typo in the phase grid of 30 seconds instead of 30 minutes.}\label{fig:riverPlots}
+\caption{Cleaned Kepler Long-cadence data (Top Left) and model fit using the average light curve (Top Right).
+(Bottom) The residuals show significant deviations at phases of -0.5 and 0.05.
+}\label{fig:riverPlots}
 \end{centering}
 \end{figure*}
 
-We take the dot product ($\bullet$) with the first principal component to create an amplitude time series.
-\begin{equation}
-A = \frac{(f - 1) \bullet c_1}{c_1 \bullet c_1},
-\end{equation}
-where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $c_1$ is the vector of the first principal component .
+As another way of analyzing the light curve data, we apply Principal Component Analysis (PCA) to this two dimensional grid.
+We start by rescaling the two dimensional grid to have zero mean and a variance of 1.0 along the Transit Number axis.
+Next, we perform PCA on the two dimensional grid to identify eigenvectors as a function of orbital phase and then the principal components as a function of transit number.
+
 
 \begin{figure*}[!hbtp]
 \begin{centering}
