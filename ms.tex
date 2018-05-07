@@ -451,6 +451,8 @@ A quadratic baseline is fit to all the points before a phase of 0.12 and after a
 All points are divided by this baseline to produce a normalized flux transit or eclipse profile.
 The secondary eclipses are used to quantify the noise in the transit depths.
 
+\subsection{Kepler Secondary Eclipse}
+
 We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected a at $\lesssim 50$ ppm, seen in Figure \ref{fig:secEclipse}. 
 We then use the secondary eclipses as a way to characterize the noise of the primary eclipses.
 Both have the same quadratic baseline removal process over the same time intervals.
@@ -464,6 +466,8 @@ Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calc
 \end{centering}
 \end{figure*}
 
+\subsection{PCA Analysis}
+
 In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
 We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
 This cleaned Kepler long-cadence array is shown in Figure \ref{fig:riverPlots}.
@@ -475,7 +479,7 @@ A = \frac{(f - 1) \bullet a}{a \bullet a},
 \end{equation}
 where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $a$ is the average spectrum.
 This dot product is then multiplied by the average transit light curve to create a 2D model grid.
-The residual of this model shows substantial deviations from white noise, so we explore more sophisticated models than the average light curve.
+The residual of this model shows substantial deviations from white noise, so we explore more sophisticated models than the average light curve below.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -489,7 +493,8 @@ The residual of this model shows substantial deviations from white noise, so we 
 \end{figure*}
 
 As another way of analyzing the light curve data, we apply Principal Component Analysis (PCA) to this two dimensional grid.
-We start by rescaling the two dimensional grid to have zero mean and a variance of 1.0 along the Transit Number axis.
+We start by rescaling the two dimensional grid to have zero mean and a variance of 1.0 along the Transit Number axis, while saving the transformation to return to the original flux units.
+This first rescaling step will remove the constants from the transit light curve (such as the planet candidate's transit curve).
 Next, we perform PCA on the two dimensional grid to identify eigenvectors as a function of orbital phase and then the principal components as a function of transit number.
 
 
@@ -498,6 +503,17 @@ Next, we perform PCA on the two dimensional grid to identify eigenvectors as a f
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
 \includegraphics[width=0.45\textwidth]{images/kepler/amplitude_series.pdf}
 \caption{Principal component eigenvectors (Left) and amplitude time series (Right).}\label{fig:PCAamp}
+\end{centering}
+\end{figure*}
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/photometry_riverplot.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/pca_model_2D.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/pca_resid_2D.pdf}
+\caption{Cleaned Kepler Long-cadence data (Top Left) and model fit using 4 Principal Components (Top Right).
+(Bottom) The residuals show smaller residuals than the average model.
+}\label{fig:riverPlotsPCA}
 \end{centering}
 \end{figure*}
 
