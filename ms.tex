@@ -289,6 +289,7 @@ The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms 
   \citet{kawahara2013starspots} & 4950 $\pm$ 70 & 3.9 $\pm$ 0.2 & sub-giant          & high-resolution spectroscopy \\
   \citet{huber2014kicprop} & 4550$^{+140}_{-131} $ & 4.622$^{+0.043}_{-0.036} $& main-sequence star & photometry \\
   \citet{morton2016falsePos} & 4677 		& 4.61		& main-sequence star	& photometry \\
+  \citet{vanlieshout2016kic1255} & 		& $\gtrsim 4.4$	& main-sequence star	& transit light curve \\
   This work - Specmatch	& 4500 $\pm$110 	& 4.63 $\pm$ 0.1 & main-sequence star & high-resolution spectroscopy\\
   This work - BOSZ		& 4500	& 4.5		& main-sequence star & high-resolution spectroscopy\\
 \enddata
@@ -307,12 +308,13 @@ If true, high resolution spectra would be valuable tool to study the composition
 
 \subsection{Subaru HDS Spectra}
 
-We decided to re-visit the stellar parameters by examining the spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
-There is one set of data taken on 2013-06-22 (UT) discussed in \citet{kawahara2013starspots}, including 4 exposures each 2700 seconds in duration.
+We evaluate the stellar parameters by examining the spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
+There is one set of data taken on 2013-06-22 (UT) discussed in \citet{kawahara2013starspots}, including 2 exposures each 2700 seconds in duration.
 For this 2013 observation, the instrument was configured to use an image slicer unit \#2, which has a resolving power R$\approx$80,000.
 Additionally, there are two set of observations from 2015-08-28 (UT) and 2015-08-29 (UT) that were taken to understand the kinematics of the system \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
-The instrument 
+The instrument was configured with a 0.3 mm (0.6\arcsec) wide and 30 mm long (60\arcsec) slit, which has a resolving power of R $\approx$60,000.
 The second set of observations happened after the reaction wheel failure on 2015-05-11\footnote{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
+None of the observations was timed during a primary transit (0.0) or secondary eclipse (0.5).
 
 \subsection{Independent Iraf Reduction}
 
@@ -322,8 +324,8 @@ We applied bad pixel masks and bias files to each CCD (red and blue sides) separ
 
 The 2013 HDS data and 2015 HDS data were taken in slightly different modes.
 Figure \ref{fig:prof2013vs2015} shows an example blue-chip images from 2013 and 2015.
-The 2015 data, with a narrow slit (0.3 $\times$ 3.5 mm, R=50,000)\footnote{https://www.subarutelescope.org/Observing/Instruments/\\HDS/ume/node16.html} has a sharper PSF and and is easier to trace.
-The 2013 data was taken with a wider (2 $\times$ 30 mm) slit and an image slicer, which create 3 parallel traces for \shStar.
+The 2015 data, with a narrow slit (0.3 $\times$ 30 mm, has a sharper PSF and and is easier to trace.
+The 2013 data was taken with  an image slicer, which create 3 parallel traces for \shStar.
 The \texttt{iraf} tracing routines fail with the image slicer, so we use a a flat field with a narrower (0.3 mm) slit to create traces for the 2013 data with the image slicer.
 For wavelength identification, a Thorium Argon reference is used.
 (Note to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas.
@@ -334,15 +336,14 @@ After the reference spectrum is used to find a wavelength solution, the spectrum
 
 \subsection{Comparison to Templates}
 
-The Mg Triplet (Figure \ref{fig:mgTriplet}) is diagnostic of spectral type and may help resolve some of the conflicts in the literature about the gravity of the host star.
-\citet{kawahara2013starspots} find a log(g) = 3.9 $\pm$ 0.2, whereas \citet{rappaport} find a log(g)=4.63.
+The Mg Triplet (Figure \ref{fig:mgTriplet}) is diagnostic of spectral type and may help resolve some of the conflicts (or variability in interpretation due to planet disintegration) in the literature about the gravity of the host star as listed in Table \ref{tab:stellObsParams}.
 To compare to some HIGHRES models \citep{coelho2014hires}, we first had to convolve the spectrum.
 Also, we interpolated over any pixels above a normalized flux of 2.0 in Figure \ref{fig:mgTriplet} (top).
 Then, we convolve with a Gaussian kernel with a standard deviation of 6 pixels.
 
 The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a closer match in terms of line ratios to the higher log(g) =4.5 and T=4500 K spectrum from HIGHRES, but not the line strengths.
 In figure \ref{fig:CaILine} we zoom in on the Ca I 6162 $\AA$ feature.
-Again, there is no clear match to either BOSZ model.
+Again, there is no clear match to either HIGHRES model.
 
 \begin{figure}[!hbtp]
 \begin{centering}
