@@ -397,7 +397,7 @@ Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calc
 \end{centering}
 \end{figure*}
 
-\subsection{PCA Analysis}
+\subsection{Average Light Curve Analysis}
 
 In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
 We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
@@ -414,26 +414,35 @@ The residual of this model shows substantial deviations from white noise, so we 
 
 \begin{figure*}[!hbtp]
 \begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/photometry_riverplot.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/model_riverplot.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/residual_riverplot.pdf}
-\caption{Cleaned Kepler Long-cadence data (Top Left) and model fit using the average light curve (Top Right).
-(Bottom) The residuals show significant deviations at phases of -0.5 and 0.05.
+\includegraphics[width=0.3\textwidth]{images/kepler/photometry_riverplot.pdf}
+\includegraphics[width=0.3\textwidth]{images/kepler/model_riverplot.pdf}
+\includegraphics[width=0.3\textwidth]{images/kepler/residual_riverplot.pdf}
+\caption{Cleaned Kepler Long-cadence data (Left) and model fit using the average light curve (Middle).
+(Right) The residuals show significant deviations at phases of -0.5 and 0.05.
 }\label{fig:riverPlots}
 \end{centering}
 \end{figure*}
 
-As another way of analyzing the light curve data, we apply Principal Component Analysis (PCA) to this two dimensional grid.
-We start by rescaling the two dimensional grid to have zero mean and a variance of 1.0 along the Transit Number axis, while saving the transformation to return to the original flux units.
-This first rescaling step will remove the constants from the transit light curve (such as the planet candidate's transit curve).
-Next, we perform PCA on the two dimensional grid to identify eigenvectors as a function of orbital phase and then the principal components as a function of transit number.
+\subsection{Principal Component Analysis}
 
+As another way of analyzing the light curve data, we apply Principal Component Analysis (PCA) to this two dimensional grid.
+Here, we are assuming that the grid of orbital phases (spaced by 15 minutes) contains random correlated variables with different realizations along the transit number axis.
+The first principal component eigenvector is the linear combination of these random variables that maximizes the variance in the data.
+The second principal component eigenvector is the linear combination of these random variables with the next-highest variance while being orthogonal to the first principal component.
+This continues up to some finite number of principal components, with the hope that we can use just a few orthogonal light curves to adequately describe the data \citep[e.g.][]{jolliffe2002pca}.
+We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn} to calculate the principal components and eigenvectors.
+
+It is customary with PCA to scale the variables to have zero mean and a variance of 1.0 (ie. along the Transit Number axis) before performing PCA.
+However, we elect to keep the original variables without scaling each column in this 2D grid by its standard deviation, since that would magnify the contribution of photon noise in out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$-0.1 to $\sim$ 0.1).
+Next, we perform PCA on the two dimensional grid to identify eigenvectors as a function of orbital phase and then the principal components as a function of transit number.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
-\includegraphics[width=0.45\textwidth]{images/kepler/amplitude_series.pdf}
-\caption{Principal component eigenvectors (Left) and amplitude time series (Right).}\label{fig:PCAamp}
+\includegraphics[width=0.49\textwidth]{images/kepler/pc1_pc2_acive_quiescent.pdf}
+\caption{Principal component eigenvectors (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scatterg.
+The first two principal components (Right) do not isolate any separate populations of transits.
+As expected, the quiescent periods show up as low principal component contributions from both of the two eigenvectors (ie. a flatter light curve)}.
 \end{centering}
 \end{figure*}
 
@@ -612,6 +621,16 @@ This research made use of the \texttt{astropy} package \citep{astropy2013}.
 %% in parentheses, after the keyword, but they will not be verified.
 
 %{\it Facilities:} \facility{Nickel}, \facility{HST (STIS)}, \facility{CXO (ASIS)}.
+
+\facility{Subaru}
+
+\software{astropy \citep{astropy2013}, 
+	\texttt{scikit-learn} \citep{pedregosa2011scikit-learn},
+	\texttt{iraf},
+	\texttt{specmatch} tool \citep{yee2017specMatch} 
+          %\texttt{emcee} \citep{foreman-mackey2013emcee}, 
+          }
+
 
 %% Appendix material should be preceded with a single \appendix command.
 %% There should be a \section command for each appendix. Mark appendix
