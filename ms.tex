@@ -236,44 +236,11 @@ Transits are clearly visible for all five nights except for UT2016-06-14.}\label
 
 \clearpage
 
-
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.4\textwidth]{images/subaru/2013_vs_2015/out_HDSA00094087.pdf}
-\includegraphics[width=0.4\textwidth]{images/subaru/2013_vs_2015/HDSA00111345.pdf}
-\includegraphics[width=0.45\textwidth]{images/subaru/2013_vs_2015/profile_comparison.pdf}
-\caption{Spectra images from 2013 versus 2015. The PSF profile (bottom panel) is much wider in 2013 because an image slicer creates 3 traces for the one star. In 2015, a narrow slit is used instead.}\label{fig:prof2013vs2015}
-\end{centering}
-\end{figure}
-
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/Na_D_spec_interp.pdf}
-\includegraphics[width=0.45\textwidth]{images/subaru/Na_D_spec.pdf}
-\caption{{\it Top:} Example spectrum of \shStar\ near the Na D$_1$ and D$_2$ lines (black vertical lines).
-There are many bad pixels, which are preliminarily discarded for fluxes above 1.25.
-{\it Bottom:} The measured spectrum is convolved with a Gaussian kernel to match the resolution of the HIGHRES models which are calculated for log(g)=4.5 and 4.0.
-The measured Na D$_1$ and D$_2$ lines are deeper than either model, but have similar line ratios to the 4500 K log(g)=4.5 model.}\label{fig:naDlines}
-\end{centering}
-\end{figure}
-
-\begin{figure}
-\begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/Mg_triplet_spec_interp.pdf}
-\includegraphics[width=0.45\textwidth]{images/subaru/Mg_triplet_spec.pdf}
-\caption{Example spectrum of \shStar\ near the Mg triplet.
-{\it Top:} The full resolution original spectrum (blue) is compared to the Mg lines (black) to check wavelength solutions.
-The points above a flux of 2.00 are marked as bad pixels and then linear interpolation is performed over these bad pixels to construct a cleaned spectrum (orange).
-{\it Bottom} A convolution kernel is applied to the spectrum in order to compare to to HIGHRES models.
-The HIGHRES model witha T=4500 K and log(g)=4.5 is a much closer match in terms of line ratios but not the strength of the features.}\label{fig:mgTriplet}
-\end{centering}
-\end{figure}
-
 \section{Stellar Characterization}
 \subsection{Previous Observations}
 
 \begin{deluxetable*}{lcrrr}
-\tablecaption{Observational estimates of the stellar parameters of KIC~12557548 from \citet{vanlieshout2016kic1255}}
+\tablecaption{Observational estimates of the stellar parameters of \shStar, adapted from \citet{vanlieshout2016kic1255}}
 \tablewidth{0pt}
 \tablehead{
 \colhead{Reference} &
@@ -313,55 +280,18 @@ There is one set of data taken on 2013-06-22 (UT) discussed in \citet{kawahara20
 For this 2013 observation, the instrument was configured to use an image slicer unit \#2, which has a resolving power R$\approx$80,000.
 Additionally, there are two set of observations from 2015-08-28 (UT) and 2015-08-29 (UT) that were taken to understand the kinematics of the system \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
 The instrument was configured with a 0.3 mm (0.6\arcsec) wide and 30 mm long (60\arcsec) slit, which has a resolving power of R $\approx$60,000.
-The second set of observations happened after the reaction wheel failure on 2015-05-11\footnote{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
+The second set of observations happened after the reaction wheel failure on 2013-05-11\footnote{\href{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
 None of the observations was timed during a primary transit (0.0) or secondary eclipse (0.5).
 
-\subsection{Independent Iraf Reduction}
-
-In one independent analysis (E Schlawin), we we follow the \texttt{iraf} reduction techniques from the instrument manual\footnote{https://www.subarutelescope.org/Observing/Instruments/\\HDS/specana2014.10e.pdf}.
-Some modifications to the manual were made, including a more aggressive -50/+50 lower and upper window for bad pixel identification with \texttt{mkbadpx} on the red CCD.
-We applied bad pixel masks and bias files to each CCD (red and blue sides) separately.
-
-The 2013 HDS data and 2015 HDS data were taken in slightly different modes.
-Figure \ref{fig:prof2013vs2015} shows an example blue-chip images from 2013 and 2015.
-The 2015 data, with a narrow slit (0.3 $\times$ 30 mm, has a sharper PSF and and is easier to trace.
-The 2013 data was taken with  an image slicer, which create 3 parallel traces for \shStar.
-The \texttt{iraf} tracing routines fail with the image slicer, so we use a a flat field with a narrower (0.3 mm) slit to create traces for the 2013 data with the image slicer.
-For wavelength identification, a Thorium Argon reference is used.
-(Note to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas.
-The Th-Ar line identification was started with the atlas, rejecting high sigma points and then used to find the rest of the lines automatically.
-The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
-The final rms in this wavelength solution is 0.0021 $\AA$.
-After the reference spectrum is used to find a wavelength solution, the spectrum is examined near some strong stellar lines, including the Na D$_1$/D$_2$ lines (Figure \ref{fig:naDlines}), the Mg Triplet (Figure \ref{fig:mgTriplet}) and the Ca I 6262 $\AA$ line (Figure \ref{fig:CaILine}).
-
-\subsection{Comparison to Templates}
-
-The Mg Triplet (Figure \ref{fig:mgTriplet}) is diagnostic of spectral type and may help resolve some of the conflicts (or variability in interpretation due to planet disintegration) in the literature about the gravity of the host star as listed in Table \ref{tab:stellObsParams}.
-To compare to some HIGHRES models \citep{coelho2014hires}, we first had to convolve the spectrum.
-Also, we interpolated over any pixels above a normalized flux of 2.0 in Figure \ref{fig:mgTriplet} (top).
-Then, we convolve with a Gaussian kernel with a standard deviation of 6 pixels.
-
-The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a closer match in terms of line ratios to the higher log(g) =4.5 and T=4500 K spectrum from HIGHRES, but not the line strengths.
-In figure \ref{fig:CaILine} we zoom in on the Ca I 6162 $\AA$ feature.
-Again, there is no clear match to either HIGHRES model.
-
-\begin{figure}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/CaI6162_spec.pdf}
-\caption{Example spectrum of \shStar\ near Ca I 6162 $\AA$, another gravity sensitive line.}\label{fig:CaILine}
-\end{centering}
-\end{figure}
-
-\subsection{Independent Reduction}
-K Masuda independently reduced the \shStar\ Subaru data to examine if there could be an orbiting body on a highly eccentric star-grazing orbit that would reveal itself through radial velocity variations \citep{masuda2018rvKIC1255}.
-This more sophisticated reduction masks all telluric emission features and any outliers, producing cleaner spectra.
+\subsection{Data Reduction}
+The Subaru data to examine if there could be an orbiting body on a highly eccentric star-grazing orbit that would reveal itself through radial velocity variations \citep{masuda2018rvKIC1255}.
+All telluric emission features and outliers are masked in this analysis to remove these components.
 Time-variable outliers like cosmic rays are removed by measuring deviations from the median spectrum for the night.
 The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
 All OH and O$_2$ lines are removed regardless if they are visible in the spectrum of \shStar.
 Also, we found the median spectrum for the night (2015-05-11) to increase the signal to noise and perform outlier rejection.
 The median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
 
-\clearpage
 \subsection{Comparison to BOSZ}
 The BOSZ  \citep{bohlin2017bosz} model database is calculated up to $R = 300,000$ so it should be comparable to measurements without smoothing the Subaru spectra as was necessary for the HIGHRES models above.
 We start by comparing R=100,000 models with the measured spectrum of \shStar\ near the Mg triplet, shown in Figure \ref{fig:mgTripletBOSZ}.
@@ -370,7 +300,7 @@ The models are convolved with a Gaussian that has a standard deviation $\sigma_G
 
 \begin{figure}[!hbtp]
 \begin{centering}
-\includegraphics[width=0.45\textwidth]{images/subaru/bosz_mg_triplet_median_spec_w_5000.pdf}
+\includegraphics[width=0.7\textwidth]{images/subaru/bosz_mg_triplet_median_spec_w_5000.pdf}
 \caption{Median spectrum of \shStar\ (reduced by Kento Masuda) near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTripletBOSZ}
 \end{centering}
 \end{figure}
