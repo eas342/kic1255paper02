@@ -455,17 +455,22 @@ The second principal component eigenvector is the linear combination of these ra
 This continues up to some finite number of principal components, with the hope that we can use just a few orthogonal light curves to adequately describe the data \citep[e.g.][]{jolliffe2002pca}.
 We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn} to calculate the principal components and eigenvectors.
 
-It is customary with PCA to scale the variables to have zero mean and a variance of 1.0 (ie. along the Transit Number axis) before performing PCA.
-However, we elect to keep the original variables without scaling each column in this 2D grid by its standard deviation, since that would magnify the contribution of photon noise in out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$-0.1 to $\sim$ 0.1).
-Next, we perform PCA on the two dimensional grid to identify eigenvectors as a function of orbital phase and then the principal components as a function of transit number.
+We use a covariance matrix as opposed to correlation matrix to calculate the principal component eigenvectors.
+In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
+However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units, flux.
+If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$-0.12 to $\sim$0.15).
+
+Figure \ref{fig:pcaVectorsComp} shows the calculated 4 eigenvectors as a function of orbital phase and the corresponding 4 principal components as a function of transit number.
+We weight each eigenvectors by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
+The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/pc1_pc2_acive_quiescent.pdf}
-\caption{Principal component eigenvectors (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scatterg.
+\caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scatterg.
 The first two principal components (Right) do not isolate any separate populations of transits.
-As expected, the quiescent periods show up as low principal component contributions from both of the two eigenvectors (ie. a flatter light curve)}.
+As expected, the quiescent periods show up as low principal component contributions from both of the two first two eigenvectors (ie. a flatter light curve)}\label{fig:pcaVectorsComp}
 \end{centering}
 \end{figure*}
 
@@ -490,7 +495,7 @@ The 22.9 day peak is consistent with the \citet{kawahara2013starspots} that show
 Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
 The peak at 0.654 days is the orbital period.
 The peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.
-The 22.9 day peak is consistent with the \citet{kawahara2013starspots} peak that is co-incident with the stellar rotation period.}\label{fig:ampPeriodogram}
+The 22.9 day peak is consistent with \citet{kawahara2013starspots}, who notice that this period is co-incident with the stellar rotation period.}\label{fig:ampPeriodogram}
 \end{centering}
 \end{figure*}
 
