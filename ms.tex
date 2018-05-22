@@ -282,10 +282,11 @@ For this 2013 observation, the instrument was configured to use an image slicer 
 Additionally, there are two set of observations from 2015-08-28 (UT) and 2015-08-29 (UT) that were taken to test if the planet could be on a high eccentricity grazing orbit \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
 The instrument was configured with a 0.3 mm (0.6\arcsec) wide and 30 mm long (60\arcsec) slit, which has a resolving power of R $\approx$60,000.
 The second set of observations happened after the reaction wheel failure on 2013-05-11\footnote{\href{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
-The orbital phases during the observations were in the range f
+We list the observing log in Table \ref{}
 None of the observations was timed during a primary transit (0.0) or secondary eclipse (0.5).
 
 \begin{deluxetable}{cccccccc}
+\tablecaption{List of Spectroscopic Observations}
 \tablefontsize{\scriptsize}
 \tablehead{\colhead{Exposure Number} & \colhead{ExpTime} & \colhead{UT Date} & \colhead{UT Start} & \colhead{Image Slicer} & \colhead{Slit Width} & \colhead{Orbital Phase} & \colhead{Resolving Power}\\
 	& (s)	& & & & (mm) & & R}
@@ -303,6 +304,7 @@ None of the observations was timed during a primary transit (0.0) or secondary e
 111549 & 2400 & 2015 Aug 29 & 00:32 & N & 0.3 & 0.382 & 60,000 \\
 111553 & 2400 & 2015 Aug 29 & 00:15 & N & 0.3 & 0.428 & 60,000 \\
 \enddata
+\tablenotetext{}{Observing log of the Subaru HDS spectroscopic observations.}\label{tab:specObs}
 \end{deluxetable}
 
 
@@ -468,7 +470,7 @@ The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a tota
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/pc1_pc2_acive_quiescent.pdf}
-\caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scatterg.
+\caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scattering.
 The first two principal components (Right) do not isolate any separate populations of transits.
 As expected, the quiescent periods show up as low principal component contributions from both of the two first two eigenvectors (ie. a flatter light curve)}\label{fig:pcaVectorsComp}
 \end{centering}
