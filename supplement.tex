@@ -312,12 +312,14 @@ Some modifications to the manual were made, including a more aggressive -50/+50 
 We applied bad pixel masks and bias files to each CCD (red and blue sides) separately.
 
 The 2013 HDS data and 2015 HDS data were taken in slightly different modes.
-Figure \ref{fig:prof2013vs2015} shows example blue-chip images from 2013 and 2015.
-The 2015 data, with a narrow slit (0.3 $\times$ 3.5 mm, R=50,000)\footnote{https://www.subarutelescope.org/Observing/Instruments/\\HDS/ume/node16.html} has a sharper PSF and and is easier to trace.
-The 2013 data was taken with a wider (2 $\times$ 30 mm) slit and an image slicer, which create 3 parallel traces for \shStar.
+Figure \ref{fig:prof2013vs2015} shows an example blue-chip images from 2013 and 2015.
+The 2015 data, with a narrow slit (0.3 $\times$ 30 mm, has a sharper PSF and and is easier to trace.
+The 2013 data was taken with  an image slicer, which create 3 parallel traces for \shStar.
 The \texttt{iraf} tracing routines fail with the image slicer, so we use a a flat field with a narrower (0.3 mm) slit to create traces for the 2013 data with the image slicer.
 For wavelength identification, a Thorium Argon reference is used.
-(Note to self:) The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas.
+(Note to self: The IRAF order 39 appears to be near 6370 $\AA$ to 6450 $\AA$ which is Order 95/Aperture 16 in the Subaru HDS Th-Ar atlas.
+For the blue arm, I find IRAF aperture 1 for the data is Aperture 16, Order 95 in the Subaru HDS Th-Ar atlas.)
+
 The Th-Ar line identification was started with the atlas, rejecting high sigma points and then used to find the rest of the lines automatically.
 The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
 The final rms in this wavelength solution is 0.0021 $\AA$.
@@ -325,15 +327,14 @@ After the reference spectrum is used to find a wavelength solution, the spectrum
 
 \subsection{Comparison to Templates}
 
-The Mg Triplet (Figure \ref{fig:mgTriplet}) is diagnostic of spectral type and may help resolve some of the conflicts in the literature about the gravity of the host star.
-\citet{kawahara2013starspots} find T$_{eff}$=4950 $\pm$ 70 K, whereas \citet{rappaport} find a T$_{eff}$=4400 $\pm$200.
+The Mg Triplet (Figure \ref{fig:mgTriplet}) is diagnostic of spectral type and may help resolve some of the conflicts (or variability in interpretation due to planet disintegration) in the literature about the gravity of the host star as listed in Table \ref{tab:stellObsParams}.
 To compare to some HIGHRES models \citep{coelho2014hires}, we first had to convolve the spectrum.
 Also, we interpolated over any pixels above a normalized flux of 2.0 in Figure \ref{fig:mgTriplet} (top).
 Then, we convolve with a Gaussian kernel with a standard deviation of 6 pixels.
 
 The region near the Mg triplet in Figure \ref{fig:mgTriplet} is a closer match in terms of line ratios to the higher log(g) =4.5 and T=4500 K spectrum from HIGHRES, but not the line strengths.
 In figure \ref{fig:CaILine} we zoom in on the Ca I 6162 $\AA$ feature.
-Again, there is no clear match to either BOSZ model.
+Again, there is no clear match to either HIGHRES model.
 
 \begin{figure}[!hbtp]
 \begin{centering}
@@ -349,7 +350,23 @@ Time-variable outliers like cosmic rays are removed by measuring deviations from
 The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
 All OH and O$_2$ lines are removed regardless if they are visible in the spectrum of \shStar.
 Also, we found the median spectrum for the night (2015-05-11) to increase the signal to noise and perform outlier rejection.
-The median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
+The median spectrum is visible in Figure \ref{fig:mgTripletBOSZMedianW5000}.
+
+\subsection{Another Reduction}
+T Hirano reduced the 2013 and 2015 data and made these available.
+A comparison of the E Schlawin (ES) and T Hirano (TH) spectra can be seen.
+The 
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.9\textwidth]{images/subaru/es_and_th_comparison.pdf}
+\includegraphics[width=0.9\textwidth]{images/subaru/es_and_th_comparison_aperture_22.pdf}
+\caption{(Top Panel): Comparison between the T Hirano spectrum (Aperture 24) and E Schlawin one (Aperture 23).
+There is likely a mistake in the wavelength calibration.
+(Bottom Panel:) Comparing the extracted pixels for Aperture 23 and 24 shows that both recover the Mg Triplet.
+The two are shifted likely because they use different traces and apertures.}\label{fig:CaILine}
+\end{centering}
+\end{figure*}
 
 \subsection{Comparison to BOSZ}
 The BOSZ  \citep{bohlin2017bosz} model database is calculated up to $R = 300,000$ so it should be comparable to measurements without smoothing the Subaru spectra as was necessary for the HIGHRES models above.
