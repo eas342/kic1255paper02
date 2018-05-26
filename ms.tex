@@ -80,7 +80,7 @@
 KIC 12557548 b is one of several disintegrating planet candidates which lose mass in the form of dust particles escaping their surface.
 Photometric monitoring of KIC 12557548 b originally showed evidence for a slowdown of integration activity in 2013 and 2014.
 Here, we report 2016 measurements that are consistent with photometry from the Kepler spacecraft in 2009-2013.
-We also evaluate high resolution spectra from the Subaru HDS spectrograph and find spectra consistent with a main-sequence T=4500 $\pm$110 K, main-sequence star.	
+We also evaluate high resolution archival spectra from the Subaru HDS spectrograph and find spectra consistent with a main-sequence T=4500 $\pm$110 K star.
 \end{abstract}
 
 
@@ -264,7 +264,7 @@ Transits are clearly visible for all five nights except for UT2016-06-14.}\label
 \end{deluxetable*}
 
 
-The host star \shStar\ has been characterized by both photometry and spectroscopy.
+The host star \shStar\ has been characterized by both photometry and spectroscopy to better understand the system and parameters of the disintegrating planet and debris.
 Table \ref{tab:stellObsParams} shows the summary of observations and analyses compiled in \citet{vanlieshout2016kic1255} for the stellar properties, re-produced here with additional results added from \citet{morton2016falsePos} and this work.
 In the photometric analysis and low resolution spectroscopy, the spectra are consistent with a 4500 K main sequence K-type star.
 High resolution spectra, however, indicate a higher temperature 4900 K lower log(g) sub-giant star \citep{kawahara2013starspots}.
@@ -276,14 +276,14 @@ In this section, we analyze available high resolution spectra to put new constra
 
 \subsection{Subaru HDS Spectra}
 
-We evaluate the stellar parameters by examining the spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
+We evaluate the stellar parameters by examining the archival spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
+An observing log of the 3 nights is summarized in Table \ref{tab:specObs}.
 There is one set of data taken on 2013-06-22 (UT) discussed in \citet{kawahara2013starspots}, including 2 exposures each 2700 seconds in duration.
 For this 2013 observation, the instrument was configured to use an image slicer unit \#2, which has a resolving power R$\approx$80,000.
 Additionally, there are two set of observations from 2015-08-28 (UT) and 2015-08-29 (UT) that were taken to test if the planet could be on a high eccentricity grazing orbit \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
 The instrument was configured with a 0.3 mm (0.6\arcsec) wide and 30 mm long (60\arcsec) slit, which has a resolving power of R $\approx$60,000.
-The second set of observations happened after the reaction wheel failure on 2013-05-11\footnote{\href{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}{https://www.nasa.gov/mission\_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy.
-We list the observing log in Table \ref{}
-None of the observations was timed during a primary transit (0.0) or secondary eclipse (0.5).
+The second set of observations happened after the reaction wheel failure on 2013-05-11\footnote{\url{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy to assess disintegration activity preceding or following the spectra.
+None of the observations was timed during a primary transit (phase = 0.0) or secondary eclipse (phase = 0.5 for a circular orbit).
 
 \begin{deluxetable}{cccccccc}
 \tablecaption{List of Spectroscopic Observations}
@@ -309,18 +309,26 @@ None of the observations was timed during a primary transit (0.0) or secondary e
 
 
 \subsection{Data Reduction}
-The Subaru data to examine if there could be an orbiting body on a highly eccentric star-grazing orbit that would reveal itself through radial velocity variations \citep{masuda2018rvKIC1255}.
+For the 2015 data, we use the same spectra as in \citep{masuda2018rvKIC1255}.
 All telluric emission features and outliers are masked in this analysis to remove these components.
 Time-variable outliers like cosmic rays are removed by measuring deviations from the median spectrum for the night.
 The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
 All OH and O$_2$ lines are removed regardless if they are visible in the spectrum of \shStar.
-Also, we found the median spectrum for the night (2015-05-11) to increase the signal to noise and perform outlier rejection.
-The median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
+To combine the observations, we found the median spectrum for UT dates 2015 Aug 28 and 2015 Aug 29 to robustly combine the data.
+This median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
+
+For the 2013 data, we follow the \texttt{iraf} reduction techniques from the instrument manual V2.0.0  \footnote{\url{https://www.subarutelescope.org/Observing/Instruments/HDS/}}.
+Some modifications to the manual were made, including a more aggressive -50/+50 lower and upper window for bad pixel identification with \texttt{mkbadpx} on the red CCD.
+We applied bad pixel masks and bias files to each CCD (red and blue sides) separately.
+
+We performed wavelength calibration with a Thorium Argon reference spectrum.
+The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
 
 \subsection{Comparison to BOSZ}
-The BOSZ  \citep{bohlin2017bosz} model database is calculated up to $R = 300,000$ so it should be comparable to measurements without smoothing the Subaru spectra as was necessary for the HIGHRES models above.
-We start by comparing R=100,000 models with the measured spectrum of \shStar\ near the Mg triplet, shown in Figure \ref{fig:mgTripletBOSZ}.
-The models are convolved with a Gaussian that has a standard deviation $\sigma_G = \lambda/57700$  to obtain a resolution of 50,000.
+We first evaluate stellar parameters by comparing to the high resolving power ($R=100,000$) BOSZ grids of ATLAS-APOGEE ATLAS9 models \citep{bohlin2017bosz}.
+Since the discrepancies in the literature are mostly differences in the surface gravity (see Table \ref{tab:stellObsParams}), we study the gravity-sensitive Mg triplet near 517 nm.
+The $R=100,000$ models are convolved with a Gaussian that has a standard deviation $\sigma_G = \lambda/161,000 \approx 0.03 \AA$ to best match the data.
+This was a smaller than one might expect from combining inverse resolving powers in quadrature, which would use an $R=75,000 $ kernel.
 
 
 \begin{figure}[!hbtp]
@@ -330,15 +338,10 @@ The models are convolved with a Gaussian that has a standard deviation $\sigma_G
 \end{centering}
 \end{figure}
 
-The BOSZ models appear much smoother than the measured spectrum, even if we use them at the full R=100,000.
-\textbf{Perhaps the micro-turbulent velocity (2 km/s) for all models is too high?}
-In order for us to compare the BOSZ models and our data, we have to convolve the Subaru spectrum.
-They match best if we convolve the data with a R=40,000 kernel so that we could compare the data to the BOSZ models.
-Then, we explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M] to constrain these parameters in \shStar.
+We explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M] to constrain these parameters in \shStar.
 For each parameter, we change the models by about 2 steps in the BOSZ grid.
 For a quantitative measure of the goodness-of-fit, we calculate a $\chi^2$ over the Mg triplet lines from 5160 to 5190 $\AA$.
 The errors are estimated from the standard deviation of the spectra over the night.
-For now, we ignore the smoothing of the data that creates non-zero off-diagonal terms in the covariance matrix.
 
 The sensitivity to each parameter for the BOSZ models are shown in Figure \ref{fig:boszModelParamsMedianSpec}.
 A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0.5), low $\alpha$ enrichment ($\alpha \approx -0.25$ and solar Carbon to metals ([C/M] $\approx$ 0) are favored by the models.
