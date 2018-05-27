@@ -324,11 +324,24 @@ We applied bad pixel masks and bias files to each CCD (red and blue sides) separ
 We performed wavelength calibration with a Thorium Argon reference spectrum.
 The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
 
+We compare the 2013 and 2015 data to search for any variability in the absorption lines, as seen in Figure \ref{fig:spec2013vs2015}.
+Absorption line variability could be caused by disintegration activity of the planet that escapes as dusty material and then sublimates into gas.
+This gas absorption could potentially provide kinematic information on escaping material provided that the sublimated gas has sufficient optical depth.
+We find no statistically significant differences between the 2013 and 2015 spectra, as shown in Figure \ref{fig:spec2013vs2015}.
+We then proceed with the 2015 data to constrain stellar models since it has 6.7 hours of total exposure time compared (compared to 1.5 hours in 2013).
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=1.0\textwidth]{images/subaru/2013_vs_2015/2013_vs_2015_spec.pdf}
+\caption{Comparison between the 2013 spectrum and 2015 spectrum of \shStar\ near the Mg I triplet. The two are consistent within the larger noise of the 2013 data.}\label{fig:spec2013vs2015}
+\end{centering}
+\end{figure*}
+
 \subsection{Comparison to BOSZ}
-We first evaluate stellar parameters by comparing to the high resolving power ($R=100,000$) BOSZ grids of ATLAS-APOGEE ATLAS9 models \citep{bohlin2017bosz}.
+We first evaluate stellar parameters by comparing to the high resolving power ($R=100,000$) BOSZ grids of ATLAS-APOGEE ATLAS9 models \citep{bohlin2017bosz} to the median spectrum from 2015.
 Since the discrepancies in the literature are mostly differences in the surface gravity (see Table \ref{tab:stellObsParams}), we study the gravity-sensitive Mg triplet near 517 nm.
 The $R=100,000$ models are convolved with a Gaussian that has a standard deviation $\sigma_G = \lambda/161,000 \approx 0.03 \AA$ to best match the data.
-This was a smaller than one might expect from combining inverse resolving powers in quadrature, which would use an $R=75,000 $ kernel.
+This was a smaller we expected from combining inverse resolving powers in quadrature, which would imply that an $R=75,000 $ kernel convolved with an $R=100,000$ spectrum would result in a $R=60,000$ spectrum.
 
 
 \begin{figure}[!hbtp]
@@ -339,12 +352,12 @@ This was a smaller than one might expect from combining inverse resolving powers
 \end{figure}
 
 We explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M] to constrain these parameters in \shStar.
+The sensitivity to each parameter for the BOSZ models are shown in Figure \ref{fig:boszModelParamsMedianSpec}.
 For each parameter, we change the models by about 2 steps in the BOSZ grid.
 For a quantitative measure of the goodness-of-fit, we calculate a $\chi^2$ over the Mg triplet lines from 5160 to 5190 $\AA$.
 The errors are estimated from the standard deviation of the spectra over the night.
 
-The sensitivity to each parameter for the BOSZ models are shown in Figure \ref{fig:boszModelParamsMedianSpec}.
-A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0.5), low $\alpha$ enrichment ($\alpha \approx -0.25$ and solar Carbon to metals ([C/M] $\approx$ 0) are favored by the models.
+%A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0.5), low $\alpha$ enrichment ($\alpha \approx -0.25$ and solar Carbon to metals ([C/M] $\approx$ 0) are favored by the models.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -355,21 +368,22 @@ A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0
 \includegraphics[width=0.45\textwidth]{images/bosz_model_exploration/CM_exploration.pdf}
 \includegraphics[width=0.45\textwidth]{images/bosz_model_exploration/FINAL_exploration.pdf}
 \caption{The BOSZ models are explored over the parameter space to search for a best fit as well as visualize how much each parameter affects the spectrum.
-The final plot shows the best-fit BOSZ model, but it still under-predicts and over-predicts some line strengths.}\label{fig:boszModelParamsMedianSpec}
+The bottom right plot shows the best-fit BOSZ model, but it still under-predicts and over-predicts some line strengths.}\label{fig:boszModelParamsMedianSpec}
 \end{centering}
 \end{figure*}
 
-\subsubsection{$\chi^2$ Minimization}
-We downloaded a grid of BOSZ models with temperatures ranging from 4250 K to 4750 K, Log(g) from 4.0 to 4.5, [M/H] from 0.0 to 0.5, [C/M]=0.0 and [$\alpha$/M] = -0.25 to 0.0.
+After initial constraints on the models from the sensitivity to parameters search, we downloaded a grid of BOSZ models with temperatures ranging from 4250 K to 4750 K, Log(g) from 4.0 to 4.5, [M/H] from 0.0 to 0.5, [C/M]=0.0 and [$\alpha$/M] = -0.25 to 0.0.
+We found the model with the  $\chi^2$ statistic over the Mg triple lines from 5160 to 51690 $\AA$
 As discussed above, we use an approximate $\chi^2$ statistic over the wavelength range covering the Mg triplet (5160 $\AA$ to 5190 $\AA$).
-The minimum $\chi^2$ model for this entire grid is the same as shown in Figure \ref{fig:boszModelParamsMedianSpec}: T=4500 K, Log(g)=4.5, M/H=0.0, C/M=0.0, $\alpha=-0.25$.
+The minimum $\chi^2$ model for this entire grid is the same as shown in Figure \ref{fig:boszModelParamsMedianSpec} on the Bottom Right: T=4500 K, Log(g)=4.5, M/H=0.0, C/M=0.0, $\alpha=-0.25$.
 
 
 \subsection{Specmatch}\label{sec:SpecMatch}
 
 We also use the \texttt{specmatch} tool \citep{yee2017specMatch} to estimate the stellar parameters using the Subaru spectrum.
 \texttt{specmatch} uses a library of Keck HIRES spectra to match the spectrum and derive stellar parameters.
-As with the comparisons to the BOSZ models, we first convolve the median spectrum from \citet{masuda2018rvKIC1255} with a R=40,000 kernel.
+The median spectrum from 2015 has a resolution of $R=60,000$, which is close to the \texttt{specmatch} grid of $R=55,000$, so we do not convolve the input data for \texttt{specmatch}.
+%We first convolve the median spectrum from \citet{masuda2018rvKIC1255} with a R=40,000 kernel to better match .
 We cut the spectrum to a region from 5140~$\AA$ to 5190~$\AA$ to focus on the gravity-sensitive Mg triplet.
 
 Figure \ref{fig:specMatch} shows the chi-squared differences between the median Subaru spectrum and the models.
@@ -392,15 +406,7 @@ The effective temperature and radii show clear global minima.}\label{fig:specMat
 \end{centering}
 \end{figure*}
 
-We compare the 2013 and 2015 data to search for any variability in the absorption lines.
-Absorption line variability could be caused by variable disintegration activity of the planet and dusty material that sublimates into gas and absorbs against the stellar spectrum.
-We compare the 2013 and 2015 data in Figure \ref{fig:spec2013vs2015}.
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=1.0\textwidth]{images/subaru/2013_vs_2015/2013_vs_2015_spec.pdf}
-\caption{Comparison between the 2013 spectrum and 2015 spectrum of \shStar\ near the Mg I triplet. The two are consistent within the larger noise of the 2013 data.}\label{fig:spec2013vs2015}
-\end{centering}
-\end{figure*}
+
 
 \clearpage
 
