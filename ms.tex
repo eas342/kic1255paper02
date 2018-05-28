@@ -267,22 +267,22 @@ Transits are clearly visible for all five nights except for UT2016-06-14.}\label
 The host star \shStar\ has been characterized by both photometry and spectroscopy to better understand the system and parameters of the disintegrating planet and debris.
 Table \ref{tab:stellObsParams} shows the summary of observations and analyses compiled in \citet{vanlieshout2016kic1255} for the stellar properties, re-produced here with additional results added from \citet{morton2016falsePos} and this work.
 In the photometric analysis and low resolution spectroscopy, the spectra are consistent with a 4500 K main sequence K-type star.
-High resolution spectra, however, indicate a higher temperature 4900 K lower log(g) sub-giant star \citep{kawahara2013starspots}.
+High resolution spectra, however, indicated a higher temperature 4900 K lower log(g) sub-giant star \citep{kawahara2013starspots}.
 \citet{vanlieshout2016kic1255} analyzed the light curve with a dust model to put constraints on the semi-major axis in terms of stellar radii, which can be combined with Kepler's third law to calculate the stellar density \citep{seager2003uniqueSolution}.
 \citet{vanlieshout2016kic1255} find that the stellar density is only consistent with a main-sequence star with log(g) $\gtrsim 4.4 \log($cm s$^{-2})$.
 They suggest an intriguing possibility that the high resolution spectrum of \shStar\ has contamination from dusty debris from the planet and thus appears as a sub-giant star.
 If true, high resolution spectra would be valuable tool to study the composition and dynamics of the material escaping \sha.
-In this section, we analyze available high resolution spectra to put new constraints on the stellar temperature and surface gravity.
+In this section, we analyze archival high resolution spectra to put new constraints on the stellar temperature and surface gravity.
 
 \subsection{Subaru HDS Spectra}
 
 We evaluate the stellar parameters by examining the archival spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
 An observing log of the 3 nights is summarized in Table \ref{tab:specObs}.
-There is one set of data taken on 2013-06-22 (UT) discussed in \citet{kawahara2013starspots}, including 2 exposures each 2700 seconds in duration.
+There is one set of data taken on 2013 June 22 (UT) discussed in \citet{kawahara2013starspots}, including 2 exposures each 2700 seconds in duration.
 For this 2013 observation, the instrument was configured to use an image slicer unit \#2, which has a resolving power R$\approx$80,000.
-Additionally, there are two set of observations from 2015-08-28 (UT) and 2015-08-29 (UT) that were taken to test if the planet could be on a high eccentricity grazing orbit \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
+Additionally, there are two sets of observations from 2015 Aug 28 (UT) and 2015 Aug 29 (UT) that were taken to test if the planet could be on a high eccentricity grazing orbit \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
 The instrument was configured with a 0.3 mm (0.6\arcsec) wide and 30 mm long (60\arcsec) slit, which has a resolving power of R $\approx$60,000.
-The second set of observations happened after the reaction wheel failure on 2013-05-11\footnote{\url{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy to assess disintegration activity preceding or following the spectra.
+The second set of observations happened after the reaction wheel failure on 2013 May 11\footnote{\url{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy to assess disintegration activity preceding or following the spectra.
 None of the observations was timed during a primary transit (phase = 0.0) or secondary eclipse (phase = 0.5 for a circular orbit).
 
 \begin{deluxetable}{cccccccc}
@@ -323,26 +323,29 @@ We applied bad pixel masks and bias files to each CCD (red and blue sides) separ
 
 We performed wavelength calibration with a Thorium Argon reference spectrum.
 The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
+This polynomial fit has a RMS error of 0.02$\AA$.
 
 We compare the 2013 and 2015 data to search for any variability in the absorption lines, as seen in Figure \ref{fig:spec2013vs2015}.
 Absorption line variability could be caused by disintegration activity of the planet that escapes as dusty material and then sublimates into gas.
-This gas absorption could potentially provide kinematic information on escaping material provided that the sublimated gas has sufficient optical depth.
+This gas absorption could provide kinematic information on escaping material provided that the sublimated gas has sufficient optical depth.
 We find no statistically significant differences between the 2013 and 2015 spectra, as shown in Figure \ref{fig:spec2013vs2015}.
 We then proceed with the 2015 data to constrain stellar models since it has 6.7 hours of total exposure time compared (compared to 1.5 hours in 2013).
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=1.0\textwidth]{images/subaru/2013_vs_2015/2013_vs_2015_spec.pdf}
-\caption{Comparison between the 2013 spectrum and 2015 spectrum of \shStar\ near the Mg I triplet. The two are consistent within the larger noise of the 2013 data.}\label{fig:spec2013vs2015}
+\caption{Comparison between the 2013 spectrum and 2015 median spectrum of \shStar\ near the Mg I triplet. The two are consistent within the larger noise of the 2013 data.}\label{fig:spec2013vs2015}
 \end{centering}
 \end{figure*}
 
 \subsection{Comparison to BOSZ}
 We first evaluate stellar parameters by comparing to the high resolving power ($R=100,000$) BOSZ grids of ATLAS-APOGEE ATLAS9 models \citep{bohlin2017bosz} to the median spectrum from 2015.
 Since the discrepancies in the literature are mostly differences in the surface gravity (see Table \ref{tab:stellObsParams}), we study the gravity-sensitive Mg triplet near 517 nm.
-The $R=100,000$ models are convolved with a Gaussian that has a standard deviation $\sigma_G = \lambda/161,000 \approx 0.03 \AA$ to best match the data.
+The $R=100,000$ models are convolved with a Gaussian kernel that has a standard deviation $\sigma_K = \lambda/161,000 \approx 0.03 \AA$ to best match the data.
 This was a smaller we expected from combining inverse resolving powers in quadrature, which would imply that an $R=75,000 $ kernel convolved with an $R=100,000$ spectrum would result in a $R=60,000$ spectrum.
-
+We start by comparing the measured spectrum with two BOSZ models in Figure \ref{fig:mgTripletBOSZ}.
+Here, the two BOSZ models are broadly representative of the two types of results in Table \ref{tab:stellObsParams} (log(g)=4.5 and log(g)=4.0).
+The higher gravity log(g)=4.5 model appears to match the data better in terms of line ratios but does not explain all of the line depths in the spectrum.
 
 \begin{figure}[!hbtp]
 \begin{centering}
@@ -376,20 +379,21 @@ After initial constraints on the models from the sensitivity to parameters searc
 We found the model with the  $\chi^2$ statistic over the Mg triple lines from 5160 to 51690 $\AA$
 As discussed above, we use an approximate $\chi^2$ statistic over the wavelength range covering the Mg triplet (5160 $\AA$ to 5190 $\AA$).
 The minimum $\chi^2$ model for this entire grid is the same as shown in Figure \ref{fig:boszModelParamsMedianSpec} on the Bottom Right: T=4500 K, Log(g)=4.5, M/H=0.0, C/M=0.0, $\alpha=-0.25$.
-
+This is similar to the log(g)$\approx$4.6, T=4500 stellar parameters derived from photometry and low resolution spectroscopy listed in Table \ref{tab:stellObsParams}.
 
 \subsection{Specmatch}\label{sec:SpecMatch}
 
-We also use the \texttt{specmatch} tool \citep{yee2017specMatch} to estimate the stellar parameters using the Subaru spectrum.
+We also use the open-source \texttt{specmatch} tool \citep{yee2017specMatch} to estimate the stellar parameters using the Subaru spectrum.
 \texttt{specmatch} uses a library of Keck HIRES spectra to match the spectrum and derive stellar parameters.
-The median spectrum from 2015 has a resolution of $R=60,000$, which is close to the \texttt{specmatch} grid of $R=55,000$, so we do not convolve the input data for \texttt{specmatch}.
-%We first convolve the median spectrum from \citet{masuda2018rvKIC1255} with a R=40,000 kernel to better match .
+%The median spectrum from 2015 has a resolution of $R=60,000$, which is close to the \texttt{specmatch} grid of $R=55,000$, so we do not convolve the input data for \texttt{specmatch}.
 We cut the spectrum to a region from 5140~$\AA$ to 5190~$\AA$ to focus on the gravity-sensitive Mg triplet.
 
 Figure \ref{fig:specMatch} shows the chi-squared differences between the median Subaru spectrum and the models.
-The effective temperature radius show clear global $\chi^2$ minima for the HIRES spectral libraries.
-The resulting best-fit parameters are T$_{eff}$=4500 K $\pm$ 110 K, [Fe/H]=-0.1$\pm$0.1, log(g)=4.5$\pm$0.1, R=0.7 $\pm$ 0.1 R$_\odot$.
-We summarize these \texttt{specmatch} and BOSZ results in Table \ref{tab:stellObsParams}.
+The effective temperature and radius parameters show clear global $\chi^2$ minima for the HIRES spectral libraries.
+However, the metallicity is less well constrained.
+The resulting best-fit parameters from \texttt{specmatch} are T$_{eff}$=4500 K $\pm$ 110 K, [Fe/H]=-0.1$\pm$0.1, log(g)=4.5$\pm$0.1, R=0.7 $\pm$ 0.1 R$_\odot$ and Mass=0.7 $\pm 0.1 $M$_\odot$.
+The output \texttt{specmatch} age constraint of 9.6 $\pm$ 0.2 Gyr is likely an underestimated error in the age.
+Figure \ref{fig:specMatchComb} shows the linear combination of spectra that best-fit \shStar\ from \texttt{specmatch}.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -399,10 +403,15 @@ The effective temperature and radii show clear global minima.}\label{fig:specMat
 \end{centering}
 \end{figure*}
 
+We summarize these \texttt{specmatch} and BOSZ results in Table \ref{tab:stellObsParams}, which both favor a main-sequence log(g) $\approx$ 4.6 star.
+Our analysis of the median 2015 spectrum therefore indicates that the stellar spectrum shows no strong contamination from planet disintegration activity.
+Unfortunately, this makes diagnosing the gaseous material evaporating from sublimated dust grains challenging to detect.
+A brighter transiting disintegrating system may reveal itself more strongly, if discovered in the TESS field.
+
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.8\textwidth]{images/subaru/lincomb_kic1255.pdf}
-\caption{Linear combination of templates that best matches KIC 1255.}\label{fig:specMatch}
+\caption{Linear combination of templates that best matches KIC 1255.}\label{fig:specMatchComb}
 \end{centering}
 \end{figure*}
 
@@ -534,7 +543,7 @@ A comparison histogram is shown from the Kepler Secondary eclipses to show the p
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/amp_distributions_comparison.pdf}
 \caption{Normalized frequency of 3 different distributions: 1) all of the Kepler Long Cadence data from 2009 to 2013, 2) the 8 night ground-based IRTF campaign in the summers of 2013 and 2014 from \citet{schlawin2016kic1255} (S16) and 3) the 5 night Kuiper observatory campaign in the summer of 2016.
-The \citet{schlawin2016kic1255} (S16) evens give a Kolmogorov Smirnov p value of 0.001 of the null hypothesis that the S16 results are drawn from the same distribution as the Kepler Long Cadence.
+The \citet{schlawin2016kic1255} (S16) events give a Kolmogorov Smirnov p value of 0.001 of the null hypothesis that the S16 results are drawn from the same distribution as the Kepler Long Cadence.
 In contrast, the 2016 photometric results in this work are consistent with the Kepler Long Cadence data, giving a  p value of 0.5 of the null hypothesis.}\label{fig:histoPhot}
 \end{centering}
 \end{figure*}
