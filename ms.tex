@@ -140,7 +140,7 @@ This would enable compositional and kinematic studies of the disintegrating plan
 Here, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of the star to assess the stellar parameters and explore the possibility that sublimated gases appear in the high resolution spectrum.
 
 \begin{deluxetable}{lrr}
-\tablecaption{List of observations}\label{tab:photSummary}
+\tablecaption{List of photometric observations}\label{tab:photSummary}
 \tablewidth{0pt}
 \tablehead{
 \colhead{Date} &
@@ -149,42 +149,42 @@ Here, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of t
 \colhead{UT} & & \\
  }
 \startdata
-2016-06-10 & Clouds	& \nodata \\
-2016-06-12 & Clear 		& 0.94 $\pm$ 0.16 \\
-2016-06-14 & Clear 		&0.70 $\pm$ 0.18\\
-2016-07-12 & Clear 		& 0.78 $\pm$ 0.14 \\
-2016-07-14 & Mostly clear	& 1.33 $\pm$ 0.14 \\
-2016-07-16 & Clear 		& 2.14 $\pm$ 0.19 \\
+2016 Jun 10 & Clouds	& \nodata \\
+2016 Jun 12 & Clear 		& 0.94 $\pm$ 0.16 \\
+2016 Jun 14 & Clear 		&0.70 $\pm$ 0.18\\
+2016 Jul 12 & Clear 		& 0.78 $\pm$ 0.14 \\
+2016 Jul 14 & Mostly clear	& 1.33 $\pm$ 0.14 \\
+2016 Jul 16 & Clear 		& 2.14 $\pm$ 0.19 \\
 \enddata
-\tablenotetext{}{Summary of observations and conditions in this work.}
+\tablenotetext{}{Summary of the attempted photometric observations of \shStar\ with the 61-inch Kuiper observatory.}
 \end{deluxetable}
 
 \section{Observations}
-We observed \sha\ with the Mont4k imager on the 61-inch Kuiper observatory located on Mt Bigelow, Arizona on UT dates 2016-06-12, 2016-06-14, 2016-07-12, 2016-07-14, 2016-07-16.
+We attempted to observe 6 transit events of \sha\ with the Mont4k imager on the 61-inch Kuiper observatory located on Mt Bigelow, Arizona on UT using the f/13.5 Cassegrain focus.
 On all nights we used 90 second exposures using a Harris-R filter to best approximate the $r'$ filter used in \citet{schlawin2016kic1255}.
-The nights were clear with the exception of a few passing clouds on 2016-07-14.
-We also attempted photometry on 2016-06-10, but clouds prevented precision time series.
+5 of the 6 nights were clear with the exception of a few passing clouds on UT 2016 Jul 14.
+Cloudy skies on UT 2016 Jun 10 that prevented high precision time series.
 Table \ref{tab:photSummary} shows a summary of our observations and the UT dates.
 The data was taken in a 3x3 binning mode resulting in an effective 0.43"/pixel plate scale.
-We used a photometric aperture of 9 pixels (3.9") and a background annulus from 9 to 12 pixels (3.9" to 5.2") on all stars and nights.
 
 \subsection{Photometric Pipeline}
 
-For the photometric reduction, we used the \texttt{ccdproc} package to generate master flat field and bias files.
+For the photometric reduction, we used the Python \texttt{ccdproc} package \citep{craig2015ccdproc} to generate master flat field and bias files.
 They were combined with an average with a low threshold of 2$\sigma$ and a high threshold of 5$\sigma$.
+
+We used the \texttt{photutils v0.3} \citep{bradley2016photutilsv0p3} package to centroid and extract fluxes of the \shStar\ and the reference stars.
+We used a photometric aperture of 9 pixels (3.9") and a background annulus from 9 to 12 pixels (3.9" to 5.2") on all stars and nights.
 12 stable reference stars with similar R band brightnesses were used to construct a reference time series to correct for variable telluric and instrument throughput.
 The reference stars are identified in Figure \ref{fig:refStars}.
-These 12 reference stars' time series were combined with a weighted average and this combined time series was divided into the target, \sha.
-
-For the photometric reduction, we used the \texttt{ccdproc} package to generate master flat field and bias files.
-We combined the flat fields and bias files with a a sigma-clipped average with a low threshold of 2$\sigma$ and a high threshold of 5$\sigma$.
+These 12 reference stars' time series were combined with a weighted average and this combined time series was divided into the target, \shStar.
 
 \begin{figure}
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/ut2016_07_14_clouds/figure_index_152.pdf}
 \includegraphics[width=0.49\textwidth]{images/stamps_kic1255_UT2016_07_14.pdf}
-\caption{Target (src) and reference stars (numbered) used on UT 2016-07-14.
-The reference stars were chosen to have similar count levels as the source. 
+\caption{{\it Left:} \shStar\ (src) and reference stars (numbered) used on UT 2016-07-14 are shown over the full 9.8\arcmin $\times$ 9.8\arcmin\ Field of View of Mont4K.
+{\it Right:} Postage stamp zoom-ins for the source and reference stars show the point spread functions for each star.
+The reference stars were chosen to have similar count levels as \shStar.
 }\label{fig:refStars}
 \end{centering}
 \end{figure}
@@ -691,8 +691,11 @@ Funding for the E Schlawin is provided by NASA Goddard Spaceflight Center.
 
 \facility{Subaru}
 
-\software{astropy \citep{astropy2013}, 
+\software{
+	\texttt{ccdproc} \citep{craig2015ccdproc},
+	\texttt{astropy} \citep{astropy2013}, 
 	\texttt{scikit-learn} \citep{pedregosa2011scikit-learn},
+	\texttt{photutils v0.3} \citep{bradley2016photutilsv0p3},
 	\texttt{iraf},
 	\texttt{SpecMatch-Emp} \citep{yee2017specMatch} 
           %\texttt{emcee} \citep{foreman-mackey2013emcee}, 
