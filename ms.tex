@@ -172,10 +172,10 @@ The data was taken in a 3x3 binning mode resulting in an effective 0.43"/pixel p
 For the photometric reduction, we used the Python \texttt{ccdproc} package \citep{craig2015ccdproc} to generate master flat field and bias files.
 They were combined with an average with a low threshold of 2$\sigma$ and a high threshold of 5$\sigma$.
 
-We used the \texttt{photutils v0.3} \citep{bradley2016photutilsv0p3} package to centroid and extract fluxes of the \shStar\ and the reference stars.
+We used the Python \texttt{photutils v0.3} \citep{bradley2016photutilsv0p3} package to centroid and extract fluxes of the \shStar\ and the reference stars.
 We used a photometric aperture of 9 pixels (3.9") and a background annulus from 9 to 12 pixels (3.9" to 5.2") on all stars and nights.
 12 stable reference stars with similar R band brightnesses were used to construct a reference time series to correct for variable telluric and instrument throughput.
-The reference stars are identified in Figure \ref{fig:refStars}.
+The reference stars are identified Figure \ref{fig:refStars} across the 9.8\arcmin $\times$ 9.8 \arcmin\ Mont4K field of view.
 These 12 reference stars' time series were combined with a weighted average and this combined time series was divided into the target, \shStar.
 
 \begin{figure}
@@ -191,8 +191,8 @@ The reference stars were chosen to have similar count levels as \shStar.
 
 All light curves for \shStar\ and the 12 reference stars are shown in Figure \ref{fig:allNightallStar}.
 These are the same reference stars shown in Figure \ref{fig:refStars}.
-The two nights 2016-06-12 and 2016-06-14 show greater overall stability than the ones in July, 2016.
-We suspect that the higher moisture levels and occasional cloud passages (such as the ones that caused huge drops in flux on UT2016-07-14) affected the later observations.
+The two nights 2016 Jun 12 and 2016 Jun 14 show greater overall stability than the 3 nights in July, 2016.
+We suspect that the higher moisture levels and occasional cloud passages (such as the ones that caused huge drops in flux on UT 2016 Jul 14) affected the later observations.
 
 \begin{figure*}
 \begin{centering}
@@ -204,11 +204,11 @@ All source radius, background start and background annulus end parameters were 9
 \end{figure*}
 
 Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ for all nights.
-We use the following planet transit ephemeris, using the flux minimum ``transit center'' from Kepler data \citep{schlawin2016kic1255} and the orbital period from \citet{vanWerkhoven2014}.
+We use the planet transit ephemeris from \citet{croll2015starspots} where the Kepler flux minimum is the ``transit center'':
 \begin{equation}
 T = T_0 + n P
 \end{equation}
-where $T_0 = 2454833.039$ BJD$_{TDB}$ and $P = 0.653 553 8 \pm 0.000 000 1$ days.
+where $T_0 = 2 454 968.982 0 \pm 0.000 7$ BJD$_{TDB}$ and $P = 0.653 553 4 \pm 0.000 000 2$ days.
 The expected transit epochs from the ephemeris in \citep{vanWerkhoven2014} are shown for reference as vertical red bars.
 Typical uncertainties for the Kepler ephemeris are $\sim$ 1 minute at these dates due to the large number of transits measured by the Kepler observatory over nearly 4 years.
 The ``transit duration'' from Kepler light curves is around 0.05 days, which is consistent with these transit durations.
