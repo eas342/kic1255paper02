@@ -145,7 +145,7 @@ Here, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of t
 \tablehead{
 \colhead{Date} &
 \colhead{Weather} &
-\colhead{Amplitude} \\
+\colhead{Amplitude, $A$} \\
 \colhead{UT} & & \\
  }
 \startdata
@@ -159,7 +159,7 @@ Here, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of t
 \tablenotetext{}{Summary of the attempted photometric observations of \shStar\ with the 61-inch Kuiper observatory.}
 \end{deluxetable}
 
-\section{Observations}
+\section{Photometric Observations}
 We attempted to observe 6 transit events of \sha\ with the Mont4k imager on the 61-inch Kuiper observatory located on Mt Bigelow, Arizona on UT using the f/13.5 Cassegrain focus.
 On all nights we used 90 second exposures using a Harris-R filter to best approximate the $r'$ filter used in \citet{schlawin2016kic1255}.
 5 of the 6 nights were clear with the exception of a few passing clouds on UT 2016 Jul 14.
@@ -196,12 +196,14 @@ We suspect that the higher moisture levels and occasional cloud passages (such a
 
 \begin{figure*}
 \begin{centering}
-\includegraphics[width=0.9\textwidth]{images/all_kic1255_phot/all_kic1255_allstar.pdf}
+\includegraphics[width=0.8\textwidth]{images/all_kic1255_phot/all_kic1255_allstar.pdf}
 \caption{Time series photometry for all stars and all nights nights.
 The nights in July appear more strongly affected by cloud/and or seeing variations, whereas the two nights in June are stable to within a few percent.
 All source radius, background start and background annulus end parameters were 9, 9 and 12 pixels respectively.}\label{fig:allNightallStar}
 \end{centering}
 \end{figure*}
+
+\subsection{Transit Depth Fitting}
 
 Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ for all nights.
 We use the planet transit ephemeris from \citet{croll2015starspots} where the Kepler flux minimum is the ``transit center'':
@@ -213,16 +215,19 @@ The expected transit epochs from the ephemeris in \citep{vanWerkhoven2014} are s
 Typical uncertainties for the Kepler ephemeris are $\sim$ 1 minute at these dates due to the large number of transits measured by the Kepler observatory over nearly 4 years.
 The ``transit duration'' from Kepler light curves is around 0.05 days, which is consistent with these transit durations.
 
-We also overlay the average Kepler short cadence light curves on the measured light curves.
-To ease the comparison of the average Kepler light curve and measured data, we bin the 61-inch Mont4K data into 20 minute long bins.
-Obvious cosmic ray outliers were discarded by removing points with fluxes below 0.98 and above 1.02 times the median flux.
-The error bars for the binned data are calculated from the standard error in the mean for each bin.
-When comparing the average Kepler Short Cadence light curve and the measured light curves that the measured light curves represent typical KIC 12557548 b transits.
-Only 2016-06-14 appears to have a non-detection.
+We find the best fit to each light curve using the average Kepler short cadence light curve as a model.
+We include a linear baseline so that the model is
+\begin{equation}
+F(t) = \left(A \cdot f_{SC}(t) + 1 \right)  (1 + B + C \cdot t),
+\end{equation}
+where $F(t)$ is the normalized flux at orbital phase $t$, $A$ is the amplitude parameter, $f_{SC}(t)$ is average Kepler short cadence light curve linearly interpolated at an orbital phase $t$, $B$ is the baseline offset and $C$ is the baseline slope.
+We use the Markov Chain Monte Carlo (MCMC) package \texttt{emcee} \citep{foreman-mackey2013emcee} to find the transit depth amplitude and uncertainty.
+We use 50 MCMC chains with 500 burn-in points and 1500 points to sample the posterior distribution.
+The best-fit light curves are shown in Figure \ref{fig:allNightrefCorrect}.
 
 \begin{figure*}
 \begin{centering}
-\includegraphics[width=0.9\textwidth]{images/all_kic1255_phot/all_kic1255_refcor.pdf}
+\includegraphics[width=0.8\textwidth]{images/all_kic1255_phot/all_kic1255_refcor.pdf}
 \caption{Reference-corrected time series photometry \shStar\ for all nights (blue circles).
 Orange squares mark 20 minute flux bins.
 The expected transit epochs from the Kepler-based ephemeris \citep{vanWerkhoven2014} are shown as vertical red bars.
@@ -230,6 +235,16 @@ We also show the average Short Cadence Kepler light curves for each of the trans
 Transits are clearly visible for all five nights except for UT2016-06-14.}\label{fig:allNightrefCorrect}
 \end{centering}
 \end{figure*}
+
+To ease the visual comparison of the models and measured data, we bin the 61-inch Mont4K data into 20 minute long bins.
+Obvious cosmic ray outliers were discarded by removing points with fluxes below 0.98 and above 1.02 times the median flux.
+The error bars for the binned data are calculated from the standard error in the mean for each bin.
+When calculating the best fit model and posterior distribution of parameter, however, the un-binned data is used.
+
+In contrast to \citet{schlawin2016kic1255}, the transit depths in 2016 June and 2016 July are similar to the distribution measured by the Kepler spacecraft from 2009 to 2013.
+\citet{schlawin2016kic1255} found significantly weaker transit depths that the Kepler spacecraft in 2013 Aug-Sep and 2014 Aug-Sep, which indicated that either disintegration activity was slowing down or that there were quiescent periods during those observations.
+The transit depths listed in Table \ref{tab:photSummary} are ``back to normal'' in that they are consistent with the Kepler results.
+We will revisit the statistics of these events in Section \ref{sec:Kepler}.
 
 \clearpage
 
@@ -421,7 +436,8 @@ We therefore conclude that the noise in the spectrum affected the stellar parame
 
 \clearpage
 
-\section{Kepler Re-analysis}
+\section{Kepler Re-analysis}\label{sec:Kepler}
+
 We examine the 17 total quarters of Kepler data for three purposes:
 \begin{enumerate}
 	\item To understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, how likely/unlikely were the weak transits observed in 2013-2014?
@@ -429,7 +445,7 @@ We examine the 17 total quarters of Kepler data for three purposes:
 	\item Identify any new patterns or observations from the Kepler data that might occur along the way
 \end{enumerate}
 
-We downloaded all 17 quarters of Kepler Long-Cadence data from the MAST archive beginning on 2009-05-13 and ending on 2013-04-08 for a total of 1425 days or 2181.5 orbits.
+We downloaded all 17 quarters of Kepler Long-Cadence data from the MAST archive beginning on 2009 May 13 and ending on 2013 April 08 for a total of 1425 days or 2181.5 orbits.
 The Kepler data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
 A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 within the $\pm$ 0.28 phase window.
 All points are divided by this baseline to produce a normalized flux transit or eclipse profile.
@@ -692,7 +708,7 @@ Funding for the E Schlawin is provided by NASA Goddard Spaceflight Center.
 	\texttt{photutils v0.3} \citep{bradley2016photutilsv0p3},
 	\texttt{iraf},
 	\texttt{SpecMatch-Emp} \citep{yee2017specMatch} 
-          %\texttt{emcee} \citep{foreman-mackey2013emcee}, 
+         \texttt{emcee} \citep{foreman-mackey2013emcee}, 
           }
 
 
