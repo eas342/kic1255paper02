@@ -213,7 +213,7 @@ T = T_0 + n P
 where $T_0 = 2 454 968.982 0 \pm 0.000 7$ BJD$_{TDB}$ and $P = 0.653 553 4 \pm 0.000 000 2$ days.
 The expected transit epochs from the ephemeris in \citep{vanWerkhoven2014} are shown for reference as vertical red bars.
 Typical uncertainties for the Kepler ephemeris are $\sim$ 1 minute at these dates due to the large number of transits measured by the Kepler observatory over nearly 4 years.
-The ``transit duration'' from Kepler light curves is around 0.05 days, which is consistent with these transit durations.
+The ``transit duration'' from Kepler light curves is about 0.06 days\footnote{We define the transit duration as the point at which the average light curve measured by the Kepler spacecraft drops below 99.95\% of the normalized flux as in \citet{schlawin2016kic1255}}, which is consistent with these transit durations.
 
 We find the best fit to each light curve using the average Kepler short cadence light curve as a model.
 We include a linear baseline so that the model is
@@ -223,7 +223,7 @@ F(t) = \left(A \cdot f_{SC}(t) + 1 \right)  (1 + B + C \cdot t),
 where $F(t)$ is the normalized flux at orbital phase $t$, $A$ is the amplitude parameter, $f_{SC}(t)$ is average Kepler short cadence light curve linearly interpolated at an orbital phase $t$, $B$ is the baseline offset and $C$ is the baseline slope.
 We use the Markov Chain Monte Carlo (MCMC) package \texttt{emcee} \citep{foreman-mackey2013emcee} to find the transit depth amplitude and uncertainty.
 We use 50 MCMC chains with 500 burn-in points and 1500 points to sample the posterior distribution.
-The best-fit light curves are shown in Figure \ref{fig:allNightrefCorrect}.
+The best-fit light curves are shown in Figure \ref{fig:allNightrefCorrect} and the best-fit amplitudes are listed in Table \ref{tab:photSummary}.
 
 \begin{figure*}
 \begin{centering}
@@ -247,6 +247,150 @@ The transit depths listed in Table \ref{tab:photSummary} are ``back to normal'' 
 We will revisit the statistics of these events in Section \ref{sec:Kepler}.
 
 \clearpage
+
+\section{Kepler Re-analysis}\label{sec:Kepler}
+
+We examine the 17 total quarters of Kepler data for three purposes:
+\begin{enumerate}
+	\item To understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, how likely/unlikely were the weak transits observed in 2013-2014?
+	\item To measure the radius of the planet or put an upper limit on its radius by examining any possible transit beneath the dust signal
+	\item Identify any new patterns or observations from the Kepler data that might occur along the way
+\end{enumerate}
+
+We downloaded all 17 quarters of Kepler Long-Cadence data from the MAST archive beginning on 2009 May 13 and ending on 2013 April 08 for a total of 1425 days or 2181.5 orbits.
+The Kepler data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
+A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 within the $\pm$ 0.28 phase window.
+All points are divided by this baseline to produce a normalized flux transit or eclipse profile.
+The secondary eclipses are used to quantify the noise in the transit depths.
+
+\subsection{Kepler Secondary Eclipse}
+
+We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected a at $\lesssim 50$ ppm, seen in Figure \ref{fig:secEclipse}. 
+We then use the secondary eclipses as a way to characterize the noise of the primary eclipses.
+Both have the same quadratic baseline removal process over the same time intervals.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.45\textwidth]{images/kepler/secondary_eclipse.pdf}
+\caption{No secondary eclipse ( $\lesssim$ 50 ppm) is detected from a phase range of -0.25 to 0.75, even with 17 quarters (4 years) of Kepler Long Cadence data.
+Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calculated from the standard error in the mean of the data within a bin.
+}\label{fig:secEclipse}
+\end{centering}
+\end{figure*}
+
+\subsection{Average Light Curve Analysis}
+
+In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
+We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
+This cleaned Kepler long-cadence array is shown in Figure \ref{fig:riverPlots}.
+
+We start by taking the average transit light curve of all the long cadence data (the mean of the 2D grid along the transit number axis).
+We then take the dot product ($\bullet$) with this average light curve to create an amplitude time series.
+\begin{equation}
+A = \frac{(f - 1) \bullet a}{a \bullet a},
+\end{equation}
+where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $a$ is the average spectrum.
+This dot product is then multiplied by the average transit light curve to create a 2D model grid.
+The residual of this model shows substantial deviations from white noise, so we explore more sophisticated models than the average light curve below.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
+\includegraphics[width=0.32\textwidth]{images/kepler/model_riverplot.pdf}
+\includegraphics[width=0.32\textwidth]{images/kepler/residual_riverplot.pdf}
+\caption{Cleaned Kepler Long-cadence data (Left) and model fit using the average light curve (Middle).
+(Right) The residuals show significant deviations near phases of -0.5 and 0.05.
+}\label{fig:riverPlots}
+\end{centering}
+\end{figure*}
+
+\subsection{Principal Component Analysis}
+
+As another way of analyzing the light curve data, we apply Principal Component Analysis (PCA) to this two dimensional grid.
+Here, we are assuming that the grid of orbital phases (spaced by 15 minutes) contains random correlated variables with different realizations along the transit number axis.
+The first principal component eigenvector is the linear combination of these random variables that maximizes the variance in the data.
+The second principal component eigenvector is the linear combination of these random variables with the next-highest variance while being orthogonal to the first principal component.
+This continues up to some finite number of principal components, with the hope that we can use just a few orthogonal light curves to adequately describe the data \citep[e.g.][]{jolliffe2002pca}.
+We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn} to calculate the principal components and eigenvectors.
+
+We use a covariance matrix as opposed to correlation matrix to calculate the principal component eigenvectors.
+In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
+However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units, flux.
+If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$-0.12 to $\sim$0.15).
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
+\includegraphics[width=0.32\textwidth]{images/kepler/pca_model_2D.pdf}
+\includegraphics[width=0.32\textwidth]{images/kepler/pca_resid_2D.pdf}
+\caption{Cleaned Kepler Long-cadence data (Top Left) and model fit using 4 Principal Components (Top Right).
+(Right) The residuals show smaller residuals than the average model.
+}\label{fig:riverPlotsPCA}
+\end{centering}
+\end{figure*}
+
+Figure \ref{fig:pcaVectorsComp} shows the calculated 4 eigenvectors as a function of orbital phase and the corresponding 4 principal components as a function of transit number.
+We weight each eigenvectors by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
+The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/pc1_pc2_acive_quiescent.pdf}
+\caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scattering.
+The first two principal components (Right) do not isolate any separate populations of transits.
+As expected, the quiescent periods show up as low principal component contributions from both of the two first two eigenvectors (ie. a flatter light curve)}\label{fig:pcaVectorsComp}
+\end{centering}
+\end{figure*}
+Figure \ref{fig:tserPC1} shows the time series of the first principal component, which tracks well with the dot product with the average light curve.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.99\textwidth]{images/kepler/pc_tser_w_quiescent.pdf}
+\caption{The first two principal component's time series.}\label{fig:tserPC1}
+\end{centering}
+\end{figure*}
+
+
+
+
+
+In Figure \ref{fig:ampPeriodogram} we show the periodogram of amplitudes that have peaks at 0.654, 22.9, 153 and 750 days.
+The 22.9 day peak is consistent with the \citet{kawahara2013starspots} and \citet{croll2015starspots} that shows amplitudes are anti-correlated with stellar flux.
+As suggested in \citet{kawahara2013starspots}, the anti-correlation points to a physical mechanism for the disintegration - such as magnetic activity or high energy flux associated with spots causing disintegration on the planet.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/amplitude_periodogram.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/pc2_periodogram.pdf}
+\caption{Periodogram of the amplitude time series shown in Figure \ref{fig:tserPC1}
+Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
+The peak at 0.654 days is the orbital period.
+The peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.
+The 22.9 day peak is consistent with \citet{kawahara2013starspots}, who notice that this period is co-incident with the stellar rotation period.}\label{fig:ampPeriodogram}
+\end{centering}
+\end{figure*}
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/amplitude_histogram.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/deconvolved_hist.pdf}
+\caption{(Left) Histogram of transit amplitudes.
+An amplitude of 1.0 corresponds to the average light curve (with flux minimum of 99.53\% or 0.47\% transit depth).
+A comparison histogram is shown from the Kepler Secondary eclipses to show the statistical noise.
+(Right) The primary transit histogram is de-convolved by the secondary eclipse histogram to attempt to measure the intrinsic astrophysical variability.}\label{fig:histograms}
+\end{centering}
+\end{figure*}
+
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/amp_distributions_comparison.pdf}
+\caption{Normalized frequency of 3 different distributions: 1) all of the Kepler Long Cadence data from 2009 to 2013, 2) the 8 night ground-based IRTF campaign in the summers of 2013 and 2014 from \citet{schlawin2016kic1255} (S16) and 3) the 5 night Kuiper observatory campaign in the summer of 2016.
+The \citet{schlawin2016kic1255} (S16) events give a Kolmogorov Smirnov p value of 0.001 of the null hypothesis that the S16 results are drawn from the same distribution as the Kepler Long Cadence.
+In contrast, the 2016 photometric results in this work are consistent with the Kepler Long Cadence data, giving a  p value of 0.5 of the null hypothesis.}\label{fig:histoPhot}
+\end{centering}
+\end{figure*}
+
 
 \section{Stellar Characterization}
 \subsection{Previous Observations}
@@ -434,150 +578,6 @@ The consequence of the increased noise in the 2013 spectra affected the interpre
 For example, the SNR of the Na D lines was $\sim$ 30, which is near the threshold needed for the \citet{takeda2005specFGKdwarfs} equivalent width method employed in the initial analysis.
 We therefore conclude that the noise in the spectrum affected the stellar parameters rather than gas absorption from sublimating dust grains.
 
-\clearpage
-
-\section{Kepler Re-analysis}\label{sec:Kepler}
-
-We examine the 17 total quarters of Kepler data for three purposes:
-\begin{enumerate}
-	\item To understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, how likely/unlikely were the weak transits observed in 2013-2014?
-	\item To measure the radius of the planet or put an upper limit on its radius by examining any possible transit beneath the dust signal
-	\item Identify any new patterns or observations from the Kepler data that might occur along the way
-\end{enumerate}
-
-We downloaded all 17 quarters of Kepler Long-Cadence data from the MAST archive beginning on 2009 May 13 and ending on 2013 April 08 for a total of 1425 days or 2181.5 orbits.
-The Kepler data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
-A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 within the $\pm$ 0.28 phase window.
-All points are divided by this baseline to produce a normalized flux transit or eclipse profile.
-The secondary eclipses are used to quantify the noise in the transit depths.
-
-\subsection{Kepler Secondary Eclipse}
-
-We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected a at $\lesssim 50$ ppm, seen in Figure \ref{fig:secEclipse}. 
-We then use the secondary eclipses as a way to characterize the noise of the primary eclipses.
-Both have the same quadratic baseline removal process over the same time intervals.
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.45\textwidth]{images/kepler/secondary_eclipse.pdf}
-\caption{No secondary eclipse ( $\lesssim$ 50 ppm) is detected from a phase range of -0.25 to 0.75, even with 17 quarters (4 years) of Kepler Long Cadence data.
-Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calculated from the standard error in the mean of the data within a bin.
-}\label{fig:secEclipse}
-\end{centering}
-\end{figure*}
-
-\subsection{Average Light Curve Analysis}
-
-In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
-We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
-This cleaned Kepler long-cadence array is shown in Figure \ref{fig:riverPlots}.
-
-We start by taking the average transit light curve of all the long cadence data (the mean of the 2D grid along the transit number axis).
-We then take the dot product ($\bullet$) with this average light curve to create an amplitude time series.
-\begin{equation}
-A = \frac{(f - 1) \bullet a}{a \bullet a},
-\end{equation}
-where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $a$ is the average spectrum.
-This dot product is then multiplied by the average transit light curve to create a 2D model grid.
-The residual of this model shows substantial deviations from white noise, so we explore more sophisticated models than the average light curve below.
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
-\includegraphics[width=0.32\textwidth]{images/kepler/model_riverplot.pdf}
-\includegraphics[width=0.32\textwidth]{images/kepler/residual_riverplot.pdf}
-\caption{Cleaned Kepler Long-cadence data (Left) and model fit using the average light curve (Middle).
-(Right) The residuals show significant deviations near phases of -0.5 and 0.05.
-}\label{fig:riverPlots}
-\end{centering}
-\end{figure*}
-
-\subsection{Principal Component Analysis}
-
-As another way of analyzing the light curve data, we apply Principal Component Analysis (PCA) to this two dimensional grid.
-Here, we are assuming that the grid of orbital phases (spaced by 15 minutes) contains random correlated variables with different realizations along the transit number axis.
-The first principal component eigenvector is the linear combination of these random variables that maximizes the variance in the data.
-The second principal component eigenvector is the linear combination of these random variables with the next-highest variance while being orthogonal to the first principal component.
-This continues up to some finite number of principal components, with the hope that we can use just a few orthogonal light curves to adequately describe the data \citep[e.g.][]{jolliffe2002pca}.
-We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn} to calculate the principal components and eigenvectors.
-
-We use a covariance matrix as opposed to correlation matrix to calculate the principal component eigenvectors.
-In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
-However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units, flux.
-If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$-0.12 to $\sim$0.15).
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
-\includegraphics[width=0.32\textwidth]{images/kepler/pca_model_2D.pdf}
-\includegraphics[width=0.32\textwidth]{images/kepler/pca_resid_2D.pdf}
-\caption{Cleaned Kepler Long-cadence data (Top Left) and model fit using 4 Principal Components (Top Right).
-(Right) The residuals show smaller residuals than the average model.
-}\label{fig:riverPlotsPCA}
-\end{centering}
-\end{figure*}
-
-Figure \ref{fig:pcaVectorsComp} shows the calculated 4 eigenvectors as a function of orbital phase and the corresponding 4 principal components as a function of transit number.
-We weight each eigenvectors by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
-The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/pc1_pc2_acive_quiescent.pdf}
-\caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scattering.
-The first two principal components (Right) do not isolate any separate populations of transits.
-As expected, the quiescent periods show up as low principal component contributions from both of the two first two eigenvectors (ie. a flatter light curve)}\label{fig:pcaVectorsComp}
-\end{centering}
-\end{figure*}
-Figure \ref{fig:tserPC1} shows the time series of the first principal component, which tracks well with the dot product with the average light curve.
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.99\textwidth]{images/kepler/pc_tser_w_quiescent.pdf}
-\caption{The first two principal component's time series.}\label{fig:tserPC1}
-\end{centering}
-\end{figure*}
-
-
-
-
-
-In Figure \ref{fig:ampPeriodogram} we show the periodogram of amplitudes that have peaks at 0.654, 22.9, 153 and 750 days.
-The 22.9 day peak is consistent with the \citet{kawahara2013starspots} and \citet{croll2015starspots} that shows amplitudes are anti-correlated with stellar flux.
-As suggested in \citet{kawahara2013starspots}, the anti-correlation points to a physical mechanism for the disintegration - such as magnetic activity or high energy flux associated with spots causing disintegration on the planet.
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/amplitude_periodogram.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/pc2_periodogram.pdf}
-\caption{Periodogram of the amplitude time series shown in Figure \ref{fig:tserPC1}
-Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
-The peak at 0.654 days is the orbital period.
-The peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.
-The 22.9 day peak is consistent with \citet{kawahara2013starspots}, who notice that this period is co-incident with the stellar rotation period.}\label{fig:ampPeriodogram}
-\end{centering}
-\end{figure*}
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/amplitude_histogram.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/deconvolved_hist.pdf}
-\caption{(Left) Histogram of transit amplitudes.
-An amplitude of 1.0 corresponds to the average light curve (with flux minimum of 99.53\% or 0.47\% transit depth).
-A comparison histogram is shown from the Kepler Secondary eclipses to show the statistical noise.
-(Right) The primary transit histogram is de-convolved by the secondary eclipse histogram to attempt to measure the intrinsic astrophysical variability.}\label{fig:histograms}
-\end{centering}
-\end{figure*}
-
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/amp_distributions_comparison.pdf}
-\caption{Normalized frequency of 3 different distributions: 1) all of the Kepler Long Cadence data from 2009 to 2013, 2) the 8 night ground-based IRTF campaign in the summers of 2013 and 2014 from \citet{schlawin2016kic1255} (S16) and 3) the 5 night Kuiper observatory campaign in the summer of 2016.
-The \citet{schlawin2016kic1255} (S16) events give a Kolmogorov Smirnov p value of 0.001 of the null hypothesis that the S16 results are drawn from the same distribution as the Kepler Long Cadence.
-In contrast, the 2016 photometric results in this work are consistent with the Kepler Long Cadence data, giving a  p value of 0.5 of the null hypothesis.}\label{fig:histoPhot}
-\end{centering}
-\end{figure*}
 
 
 %\begin{figure*}[!hbtp]
