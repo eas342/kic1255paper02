@@ -290,8 +290,11 @@ We then take the dot product ($\bullet$) with this average light curve to create
 A = \frac{(f - 1) \bullet a}{a \bullet a},
 \end{equation}
 where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $a$ is the average spectrum.
+
 This dot product is then multiplied by the average transit light curve to create a 2D model grid.
-The residual of this model shows substantial deviations from white noise, so we explore more sophisticated models than the average light curve below.
+The residual of this model (Figure \ref{fig:riverPlots}) shows significant $\pm$0.2\% deviations from white noise, indicating that the dusty tail surrounding \sha\ shanges in shape with time.
+We explore more sophisticated models than the average light curve below that are based on principal component analysis.
+However, this average model serves as a useful comparison to fitting lower-precision photometry, such as the ground-based light curves typical photometric scatter is $\sim$ 0.1 to 0.2\% for 20 minute timescales.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -316,14 +319,14 @@ We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn
 We use a covariance matrix as opposed to correlation matrix to calculate the principal component eigenvectors.
 In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
 However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units, flux.
-If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$-0.12 to $\sim$0.15).
+If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$ -0.12 to $\sim$0.15).
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
 \includegraphics[width=0.32\textwidth]{images/kepler/pca_model_2D.pdf}
 \includegraphics[width=0.32\textwidth]{images/kepler/pca_resid_2D.pdf}
-\caption{Cleaned Kepler Long-cadence data (Top Left) and model fit using 4 Principal Components (Top Right).
-(Right) The residuals show smaller residuals than the average model.
+\caption{Cleaned Kepler Long-cadence data (Left) and model fit using 4 Principal Components (Middle).
+The residuals (Right) have $\lesssim 0.1\%$ residuals in contrast to the average-light curve method used in Figure \ref{fig:riverPlots}.
 }\label{fig:riverPlotsPCA}
 \end{centering}
 \end{figure*}
@@ -360,7 +363,7 @@ As suggested in \citet{kawahara2013starspots}, the anti-correlation points to a 
 
 \begin{figure*}[!hbtp]
 \begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/amplitude_periodogram.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/pc1_periodogram.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/pc2_periodogram.pdf}
 \caption{Periodogram of the amplitude time series shown in Figure \ref{fig:tserPC1}
 Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
@@ -373,11 +376,10 @@ The 22.9 day peak is consistent with \citet{kawahara2013starspots}, who notice t
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/amplitude_histogram.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/deconvolved_hist.pdf}
 \caption{(Left) Histogram of transit amplitudes.
 An amplitude of 1.0 corresponds to the average light curve (with flux minimum of 99.53\% or 0.47\% transit depth).
-A comparison histogram is shown from the Kepler Secondary eclipses to show the statistical noise.
-(Right) The primary transit histogram is de-convolved by the secondary eclipse histogram to attempt to measure the intrinsic astrophysical variability.}\label{fig:histograms}
+A comparison histogram is shown from the Kepler Secondary eclipses to show the statistical photon noise that explains shy some transit depths appear less than 0.
+}\label{fig:histograms}
 \end{centering}
 \end{figure*}
 
