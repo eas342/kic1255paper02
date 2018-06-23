@@ -207,7 +207,7 @@ All source radius, background start and background annulus end parameters were 9
 \end{centering}
 \end{figure*}
 
-\subsection{Transit Depth Fitting}
+\subsection{Transit Depth Fitting}\label{sec:transFitting}
 
 Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ for all nights.
 We use the planet transit ephemeris from \citet{croll2015starspots} where the Kepler flux minimum is the ``transit center'':
@@ -283,6 +283,17 @@ Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calc
 \end{centering}
 \end{figure*}
 
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
+\includegraphics[width=0.32\textwidth]{images/kepler/model_riverplot.pdf}
+\includegraphics[width=0.32\textwidth]{images/kepler/residual_riverplot.pdf}
+\caption{Cleaned Kepler Long-cadence data (Left) and model fit using the average light curve (Middle).
+(Right) The residuals show significant deviations near phases of -0.5 and 0.05.
+}\label{fig:riverPlots}
+\end{centering}
+\end{figure*}
+
 \subsection{Average Light Curve Analysis}
 
 In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
@@ -298,22 +309,23 @@ where $\vec{a}$ is the amplitude vector, $f$ is the flux matrix with x indices o
 This dot product, $A'$ is comparable to the transit amplitude $A$ in Equation \ref{eq:transFitting}.
 
 This dot product is then multiplied by the average transit light curve to create a 2D model grid.
-The residual of this model (Figure \ref{fig:riverPlots}) shows significant $\pm$0.2\% deviations from white noise, indicating that the dusty tail surrounding \sha\ shanges in shape with time.
+The residual of this model (Figure \ref{fig:riverPlots}) shows significant $\pm$0.2\% deviations from white noise, indicating that the dusty tail surrounding \sha\ changes in shape with time.
 We explore more sophisticated models than the average light curve below that are based on principal component analysis.
-However, this average model serves as a useful comparison to fitting lower-precision photometry, such as the ground-based light curves typical photometric scatter is $\sim$ 0.1 to 0.2\% for 20 minute timescales.
+However, this average model serves as a useful comparison to fitting the transit depth for ground-based photometry, as performed in Section \ref{sec:transFitting}.
+The 0.2\% residuals with this average model are comparable with the typical photometric scatter of $\sim$ 0.1 to 0.2\% for 20 minute timescales in this work and \citet{schlawin2016kic1255}.
+We statistically compare the transit depths from the Kepler mission from 2009 to 2013 to the ground-based measurements from 2013 through 2016 in Section \ref{sec:statistics}.
 
+\subsection{Principal Component Analysis}
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
-\includegraphics[width=0.32\textwidth]{images/kepler/model_riverplot.pdf}
-\includegraphics[width=0.32\textwidth]{images/kepler/residual_riverplot.pdf}
-\caption{Cleaned Kepler Long-cadence data (Left) and model fit using the average light curve (Middle).
-(Right) The residuals show significant deviations near phases of -0.5 and 0.05.
-}\label{fig:riverPlots}
+\includegraphics[width=0.32\textwidth]{images/kepler/pca_model_2D.pdf}
+\includegraphics[width=0.32\textwidth]{images/kepler/pca_resid_2D.pdf}
+\caption{Cleaned Kepler Long-cadence data (Left) and model fit using 4 Principal Components (Middle).
+The residuals (Right) have $\lesssim 0.1\%$ residuals in contrast to the average-light curve method used in Figure \ref{fig:riverPlots}.
+}\label{fig:riverPlotsPCA}
 \end{centering}
 \end{figure*}
-
-\subsection{Principal Component Analysis}
 
 As another way of analyzing the light curve data, we apply Principal Component Analysis (PCA) to this two dimensional grid.
 Here, we are assuming that the grid of orbital phases (spaced by 15 minutes) contains random correlated variables with different realizations along the transit number axis.
@@ -330,23 +342,6 @@ The resulting model and residuals shown in Figure \ref{fig:riverPlotsPCA} are mu
 
 \begin{figure*}[!hbtp]
 \begin{centering}
-\includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
-\includegraphics[width=0.32\textwidth]{images/kepler/pca_model_2D.pdf}
-\includegraphics[width=0.32\textwidth]{images/kepler/pca_resid_2D.pdf}
-\caption{Cleaned Kepler Long-cadence data (Left) and model fit using 4 Principal Components (Middle).
-The residuals (Right) have $\lesssim 0.1\%$ residuals in contrast to the average-light curve method used in Figure \ref{fig:riverPlots}.
-}\label{fig:riverPlotsPCA}
-\end{centering}
-\end{figure*}
-
-Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
-We weight each eigenvectors by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
-The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
-We also show the first two principal components as a scatter plot in Figure \ref{fig:pcaVectorsComp}.
-The quiescent periods discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots} appear as low values for the first two principal components.
-
-\begin{figure*}[!hbtp]
-\begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/pc1_pc2_acive_quiescent.pdf}
 \caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scattering.
@@ -354,6 +349,16 @@ The first two principal components (Right) do not isolate any separate populatio
 As expected, the quiescent periods show up as low principal component contributions from both of the two first two eigenvectors (ie. a flatter light curve)}\label{fig:pcaVectorsComp}
 \end{centering}
 \end{figure*}
+
+Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
+We weight each eigenvectors by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
+The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
+The first eigenvector largely describes extinction from the core of the comet-like tail (modeled in \citet{rappaport}, \citet{brogi2012}, \citet{budaj12} and \citet{vanlieshout2016kic1255}, while the second one corresponds more the forward scattering component.
+We also show the first two principal components as a scatter plot in Figure \ref{fig:pcaVectorsComp}.
+In some applications of PCA, separate populations of behaviors can appear in these scatter plots (such as different modes of planet disintegration) but here there is a continuous distribution points.
+We also color the quiescent periods of very little \sha\ disintegration activity (discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}) and these quiescent periods appear as low values for the first two principal components.
+This indicates that 
+
 Figure \ref{fig:tserPC1} shows the time series of the first principal component, which tracks well with the dot product with the average light curve.
 
 \begin{figure*}[!hbtp]
@@ -394,6 +399,9 @@ A comparison histogram is shown from the Kepler Secondary eclipses to show the s
 \end{figure*}
 
 
+\subsection{Statistical Analysis of Ground-based Photometry}\label{sec:statistics}
+
+
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/amp_distributions_comparison.pdf}
@@ -402,7 +410,6 @@ The \citet{schlawin2016kic1255} (S16) events give a Kolmogorov Smirnov p value o
 In contrast, the 2016 photometric results in this work are consistent with the Kepler Long Cadence data, giving a  p value of 0.5 of the null hypothesis.}\label{fig:histoPhot}
 \end{centering}
 \end{figure*}
-
 
 \section{Stellar Characterization}
 \subsection{Previous Observations}
