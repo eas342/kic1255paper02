@@ -140,25 +140,27 @@ The high resolution spectrum of \shStar\ \citep{kawahara2013starspots} showed a 
 This would enable compositional and kinematic studies of the disintegrating planet.
 Here, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of the star to assess the stellar parameters and explore the possibility that sublimated gases appear in the high resolution spectrum.
 
-\begin{deluxetable}{lrrr}
+\begin{deluxetable}{lrrrr}
 \tablecaption{List of photometric observations}\label{tab:photSummary}
 \tablewidth{0pt}
 \tablehead{
 \colhead{Date} &
 \colhead{Weather} &
 \colhead{Airmass} &
+\colhead{Seeing} &
 \colhead{Amplitude, $A$} \\
-\colhead{UT} & & & \\
+\colhead{UT} & & & (\arcsec) & \\
  }
 \startdata
-2016 Jun 10 & Clouds	& \nodata &  \nodata \\
-2016 Jun 12 & Clear 	& 1.29 $\rightarrow$ 1.06 $\rightarrow$ 1.10	& 0.94 $\pm$ 0.16 \\
-2016 Jun 14 & Clear 	& 1.47 $\rightarrow$ 1.06 $\rightarrow$ 1.12	&0.70 $\pm$ 0.18\\
-2016 Jul 12 & Clear 		& 1.19 $\rightarrow$ 1.06 $\rightarrow$ 1..63	& 0.78 $\pm$ 0.14 \\
-2016 Jul 14 & Mostly clear	& 1.24 $\rightarrow$ 1.06 $\rightarrow$ 1.55 & 1.33 $\pm$ 0.14 \\
-2016 Jul 16 & Clear 		& 1.36 $\rightarrow$ 1.06 $\rightarrow$ 1.26	& 2.14 $\pm$ 0.19 \\
+2016 Jun 10 & Clouds	& \nodata & \nodata &  \nodata \\
+2016 Jun 12 & Clear 	& 1.29 $\rightarrow$ 1.06 $\rightarrow$ 1.10	& 1.3 &	0.94 $\pm$ 0.16 \\
+2016 Jun 14 & Clear 	& 1.47 $\rightarrow$ 1.06 $\rightarrow$ 1.12	& 1.4 &	0.70 $\pm$ 0.18\\
+2016 Jul 12 & Clear 		& 1.19 $\rightarrow$ 1.06 $\rightarrow$ 1.63	& 1.2 &	0.78 $\pm$ 0.14 \\
+2016 Jul 14 & Mostly clear	& 1.24 $\rightarrow$ 1.06 $\rightarrow$ 1.55 & 1.2 & 	1.33 $\pm$ 0.14 \\
+2016 Jul 16 & Clear 		& 1.36 $\rightarrow$ 1.06 $\rightarrow$ 1.26	& 1.4 & 	2.14 $\pm$ 0.19 \\
 \enddata
-\tablenotetext{}{Summary of the attempted photometric observations of \shStar\ with the 61-inch Kuiper observatory.}
+\tablenotetext{}{Summary of the attempted photometric observations of \shStar\ with the 61-inch Kuiper observatory.
+The seeing is expressed as the median FWHM for the night in arcseconds.}
 \end{deluxetable}
 
 \section{Photometric Observations}
@@ -209,7 +211,7 @@ All source radius, background start and background annulus end parameters were 9
 
 Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ for all nights.
 We use the planet transit ephemeris from \citet{croll2015starspots} where the Kepler flux minimum is the ``transit center'':
-\begin{equation}
+\begin{equation}\label{eq:ephem}
 T = T_0 + n P
 \end{equation}
 where $T_0 = 2 454 968.982 0 \pm 0.000 7$ BJD$_{TDB}$ and $P = 0.653 553 4 \pm 0.000 000 2$ days.
@@ -219,10 +221,11 @@ The ``transit duration'' from Kepler light curves is about 0.06 days\footnote{We
 
 We find the best fit to each light curve using the average Kepler short cadence light curve as a model.
 We include a linear baseline so that the model is
-\begin{equation}
+\begin{equation}\label{eq:transFitting}
 F(t) = \left(A \cdot f_{SC}(t) + 1 \right)  (1 + B + C \cdot t),
 \end{equation}
 where $F(t)$ is the normalized flux at orbital phase $t$, $A$ is the amplitude parameter, $f_{SC}(t)$ is average Kepler short cadence light curve linearly interpolated at an orbital phase $t$, $B$ is the baseline offset and $C$ is the baseline slope.
+We construct $f_{SC}(t)$ by phasing the Kepler time series with Equation \ref{eq:ephem}, normalizing by the median, removing a quadratic baseline from each transit, averaging the results and subtracting 1.0 to get the differential flux.
 We use the Markov Chain Monte Carlo (MCMC) package \texttt{emcee} \citep{foreman-mackey2013emcee} to find the transit depth amplitude and uncertainty.
 We use 50 MCMC chains with 500 burn-in points and 1500 points to sample the posterior distribution.
 The best-fit light curves are shown in Figure \ref{fig:allNightrefCorrect} and the best-fit amplitudes are listed in Table \ref{tab:photSummary}.
@@ -238,7 +241,7 @@ Transits are clearly visible for all five nights except for UT2016-06-14.}\label
 \end{centering}
 \end{figure*}
 
-To ease the visual comparison of the models and measured data, we bin the 61-inch Mont4K data into 20 minute long bins.
+To ease the visual comparison of the models and measured data, we bin the 61-inch Mont4K data into 20 minute long bins, shown in Figure \ref{fig:allNightrefCorrect}.
 Obvious cosmic ray outliers were discarded by removing points with fluxes below 0.98 and above 1.02 times the median flux.
 The error bars for the binned data are calculated from the standard error in the mean for each bin.
 When calculating the best fit model and posterior distribution of parameter, however, the un-binned data is used.
@@ -267,7 +270,7 @@ The secondary eclipses are used to quantify the noise in the transit depths.
 
 \subsection{Kepler Secondary Eclipse}
 
-We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected a at $\lesssim 50$ ppm, seen in Figure \ref{fig:secEclipse}. 
+We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected at $\lesssim 50$~ppm, seen in Figure \ref{fig:secEclipse}. 
 We then use the secondary eclipses as a way to characterize the noise of the primary eclipses.
 Both have the same quadratic baseline removal process over the same time intervals.
 
@@ -283,15 +286,16 @@ Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calc
 \subsection{Average Light Curve Analysis}
 
 In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
-We interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
+We linearly interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
 This cleaned Kepler long-cadence array is shown in Figure \ref{fig:riverPlots}.
 
 We start by taking the average transit light curve of all the long cadence data (the mean of the 2D grid along the transit number axis).
 We then take the dot product ($\bullet$) with this average light curve to create an amplitude time series.
 \begin{equation}
-A = \frac{(f - 1) \bullet a}{a \bullet a},
+A' \equiv \frac{(f - 1) \bullet \vec{a}}{\vec{a} \bullet \vec{a}},
 \end{equation}
-where $A$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $a$ is the average spectrum.
+where $\vec{a}$ is the amplitude vector, $f$ is the flux matrix with x indices of time and y indices of transit number and $a$ is the average spectrum.
+This dot product, $A'$ is comparable to the transit amplitude $A$ in Equation \ref{eq:transFitting}.
 
 This dot product is then multiplied by the average transit light curve to create a 2D model grid.
 The residual of this model (Figure \ref{fig:riverPlots}) shows significant $\pm$0.2\% deviations from white noise, indicating that the dusty tail surrounding \sha\ shanges in shape with time.
@@ -315,13 +319,15 @@ As another way of analyzing the light curve data, we apply Principal Component A
 Here, we are assuming that the grid of orbital phases (spaced by 15 minutes) contains random correlated variables with different realizations along the transit number axis.
 The first principal component eigenvector is the linear combination of these random variables that maximizes the variance in the data.
 The second principal component eigenvector is the linear combination of these random variables with the next-highest variance while being orthogonal to the first principal component.
-This continues up to some finite number of principal components, with the hope that we can use just a few orthogonal light curves to adequately describe the data \citep[e.g.][]{jolliffe2002pca}.
+This continues up to some finite number of principal components, with the hope that we can use a few orthogonal light curves to adequately describe the data \citep[e.g.][]{jolliffe2002pca}.
 We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn} to calculate the principal components and eigenvectors.
 
 We use a covariance matrix as opposed to correlation matrix to calculate the principal component eigenvectors.
 In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
 However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units, flux.
 If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$ -0.12 to $\sim$0.15).
+The resulting model and residuals shown in Figure \ref{fig:riverPlotsPCA} are much closer to white noise than the model that uses the dot product with the average light curve.
+
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
@@ -333,9 +339,11 @@ The residuals (Right) have $\lesssim 0.1\%$ residuals in contrast to the average
 \end{centering}
 \end{figure*}
 
-Figure \ref{fig:pcaVectorsComp} shows the calculated 4 eigenvectors as a function of orbital phase and the corresponding 4 principal components as a function of transit number.
+Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
 We weight each eigenvectors by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
 The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
+We also show the first two principal components as a scatter plot in Figure \ref{fig:pcaVectorsComp}.
+The quiescent periods discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots} appear as low values for the first two principal components.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
