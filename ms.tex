@@ -336,9 +336,9 @@ We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn
 
 We use a covariance matrix as opposed to correlation matrix to calculate the principal component eigenvectors.
 In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
-However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units, flux.
+However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units (normalized flux).
 If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$ -0.12 to $\sim$0.15).
-The resulting model and residuals shown in Figure \ref{fig:riverPlotsPCA} are much closer to white noise than the model that uses the dot product with the average light curve.
+The model using the first 4 principal components shown in Figure \ref{fig:riverPlotsPCA} better matches the data (with more degrees of freedom) and has residuals much closer to white noise than the model that uses the dot product with the average light curve.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -352,9 +352,10 @@ As expected, the quiescent periods show up as low principal component contributi
 \end{figure*}
 
 Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
-We weight each eigenvectors by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
+For the eigenvectors plot, we weight each eigenvector by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
 The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
-The first eigenvector largely describes extinction from the core of the comet-like tail (modeled in \citet{rappaport}, \citet{brogi2012}, \citet{budaj12} and \citet{vanlieshout2016kic1255}, while the second one corresponds more the forward scattering component.
+The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering whereas the second eigenvector corresponds to models of large dust grains with more forward scattering \citep[e.g.][]{budaj12}.
+
 We also show the first two principal components as a scatter plot in Figure \ref{fig:pcaVectorsComp}.
 In some applications of PCA, separate populations of behaviors can appear in these scatter plots (such as different modes of planet disintegration) but here there is a continuous distribution points.
 We also color the quiescent periods of very little \sha\ disintegration activity (discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}) and these quiescent periods appear as low values for the first two principal components.
@@ -370,9 +371,6 @@ Figure \ref{fig:tserPC1} shows the time series of the first principal component,
 \end{figure*}
 
 
-
-
-
 In Figure \ref{fig:ampPeriodogram} we show the periodogram of amplitudes that have peaks at 0.654, 22.9, 153 and 750 days.
 The 22.9 day peak is consistent with the \citet{kawahara2013starspots} and \citet{croll2015starspots} that shows amplitudes are anti-correlated with stellar flux.
 As suggested in \citet{kawahara2013starspots}, the anti-correlation points to a physical mechanism for the disintegration - such as magnetic activity or high energy flux associated with spots causing disintegration on the planet.
@@ -381,10 +379,11 @@ As suggested in \citet{kawahara2013starspots}, the anti-correlation points to a 
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pc1_periodogram.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/pc2_periodogram.pdf}
-\caption{Periodogram of the amplitude time series shown in Figure \ref{fig:tserPC1}
+\caption{Periodogram of the amplitude time series shown in Figure \ref{fig:tserPC1} show several significant peaks.
 Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
-The peak at 0.654 days is the orbital period.
-The peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.
+The first principal component's peak at 0.654 days is the orbital period (Left).
+The PC$_1$ peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.
+The second principal components shows one dominant peak at 491 days, in addition to the 0.654 orbital period.
 The 22.9 day peak is consistent with \citet{kawahara2013starspots}, who notice that this period is co-incident with the stellar rotation period.}\label{fig:ampPeriodogram}
 \end{centering}
 \end{figure*}
