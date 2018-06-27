@@ -309,10 +309,10 @@ where $\vec{a}$ is the amplitude vector, $f$ is the flux matrix with x indices o
 This dot product, $A'$ is comparable to the transit amplitude $A$ in Equation \ref{eq:transFitting}.
 
 This dot product is then multiplied by the average transit light curve to create a 2D model grid.
-The residual of this model (Figure \ref{fig:riverPlots}) shows significant $\pm$0.2\% deviations from white noise, indicating that the dusty tail surrounding \sha\ changes in shape with time.
+The residual of this model (Figure \ref{fig:riverPlots}) shows significant $\pm$0.2\% deviations from white noise, indicating that the dusty tail surrounding \sha\ changes in shape (or scattering properties) with time.
 We explore more sophisticated models than the average light curve below that are based on principal component analysis.
 However, this average model serves as a useful comparison to fitting the transit depth for ground-based photometry, as performed in Section \ref{sec:transFitting}.
-The 0.2\% residuals with this average model are comparable with the typical photometric scatter of $\sim$ 0.1 to 0.2\% for 20 minute timescales in this work and \citet{schlawin2016kic1255}.
+The 0.2\% residuals with this average model are comparable with the typical photometric scatter of $\sim$ 0.1\% to 0.2\% for 20 minute timescales in \citet{schlawin2016kic1255} and this work.
 We statistically compare the transit depths from the Kepler mission from 2009 to 2013 to the ground-based measurements from 2013 through 2016 in Section \ref{sec:statistics}.
 
 \subsection{Principal Component Analysis}
@@ -329,7 +329,7 @@ The residuals (Right) have $\lesssim 0.1\%$ residuals in contrast to the average
 
 As another way of analyzing the light curve data, we apply Principal Component Analysis (PCA) to this two dimensional grid.
 Here, we are assuming that the grid of orbital phases (spaced by 15 minutes) contains random correlated variables with different realizations along the transit number axis.
-The first principal component eigenvector is the linear combination of these random variables that maximizes the variance in the data.
+The first principal component eigenvector is the linear combination of these random variables that maximizes the variance in the flux.
 The second principal component eigenvector is the linear combination of these random variables with the next-highest variance while being orthogonal to the first principal component.
 This continues up to some finite number of principal components, with the hope that we can use a few orthogonal light curves to adequately describe the data \citep[e.g.][]{jolliffe2002pca}.
 We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn} to calculate the principal components and eigenvectors.
@@ -352,13 +352,13 @@ As expected, the quiescent periods show up as low principal component contributi
 \end{figure*}
 
 Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
-For the eigenvectors plot, we weight each eigenvector by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
+For the eigenvectors plot, we multiply each eigenvector by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
 The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
 The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering whereas the second eigenvector corresponds to models of large dust grains with more forward scattering \citep[e.g.][]{budaj12}.
 
 We also show the first two principal components as a scatter plot in Figure \ref{fig:pcaVectorsComp}.
 In some applications of PCA, separate populations of behaviors can appear in these scatter plots (such as different modes of planet disintegration) but here there is a continuous distribution points.
-We also color the quiescent periods of very little \sha\ disintegration activity (discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}) and these quiescent periods appear as low values for the first two principal components.
+We also color the quiescent periods of very little disintegration activity (discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}) and these quiescent periods appear as low values for the first two principal components.
 This indicates that 
 
 Figure \ref{fig:tserPC1} shows the time series of the first principal component, which tracks well with the dot product with the average light curve.
