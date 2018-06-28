@@ -344,24 +344,25 @@ The model using the first 4 principal components shown in Figure \ref{fig:riverP
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255_transformed.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/pc1_pc2_acive_quiescent.pdf}
-\caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Top Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scattering.
-The first two principal components (Bottom) do not isolate any separate populations of transits.
-As expected, the quiescent periods show up as low principal component contributions from both of the two first two eigenvectors (ie. a flatter light curve)}\label{fig:pcaVectorsComp}
+\caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scattering.
+When the eigenvectors are transformed into light curves, 
+}\label{fig:pcaVectorsComp}
 \end{centering}
 \end{figure*}
 
 Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
-For the eigenvectors plot, we multiply each eigenvector by the square root of the explained variance of each principal component, as is used in meteorology \citep{richman1986pcaRotation}.
-The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points in the phase grid from -0.25 to 0.25.
-The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering whereas the second eigenvector corresponds to models of large dust grains with more forward scattering \citep[e.g.][]{budaj12}.
+For the eigenvectors plot, we multiply each eigenvector by its eigenvalue, as is used in meteorology where the products of the eigenvalues and eigenvectors are sometimes called Empirical Orthogonal Functions \citep{richman1986pcaRotation}.
+The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points (variables) in the phase grid from -0.25 to 0.25.
+We also transform the eigenvectors into light curves by multiplying each eigenvector by the standard deviation of principal components and adding it to the average light curve.
+The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering whereas the second eigenvector corresponds to models of large dust grains with more forward scattering \citep[e.g. models from][]{budaj12}.
+The implication of the PCA then is that the dust particle sizes are changing with time.
 
-We also show the first two principal components as a scatter plot in Figure \ref{fig:pcaVectorsComp}.
-In some applications of PCA, separate populations of behaviors can appear in these scatter plots (such as different modes of planet disintegration) but here there is a continuous distribution points.
-We also color the quiescent periods of very little disintegration activity (discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}) and these quiescent periods appear as low values for the first two principal components.
-This indicates that 
-
-Figure \ref{fig:tserPC1} shows the time series of the first principal component, which tracks well with the dot product with the average light curve.
+Figure \ref{fig:tserPC1} shows the time series of the first two principal components.
+We highlight the quiescent periods also discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}.
+The first principal component largely tracks closely with the dot product of the average light curve.
+The quiescent periods show up as 14 to 36 day long intervals of low amplitude events.
+The second principal component shows some sinusoidal behavior at a $\sim$500 day period, indicating that the large particles may be evolving.
+However, the timescales are much longer than dynamical and sublimation times for this system.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -370,6 +371,9 @@ Figure \ref{fig:tserPC1} shows the time series of the first principal component,
 \end{centering}
 \end{figure*}
 
+%We also show the first two principal components as a scatter plot in Figure \ref{fig:pcaVectorsComp}.
+%In some applications of PCA, separate populations of behaviors can appear in these scatter plots (such as different modes of planet disintegration) but here there is a continuous distribution points.
+%We also color the quiescent periods of very little disintegration activity (discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}) and these quiescent periods appear as low values for the first two principal components.
 
 In Figure \ref{fig:ampPeriodogram} we show the periodogram of amplitudes that have peaks at 0.654, 22.9, 153 and 750 days.
 The 22.9 day peak is consistent with the \citet{kawahara2013starspots} and \citet{croll2015starspots} that shows amplitudes are anti-correlated with stellar flux.
