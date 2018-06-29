@@ -81,6 +81,8 @@ KIC 12557548 b is one of several disintegrating planet candidates which lose mas
 Photometric monitoring of KIC 12557548 b originally showed evidence for a slowdown of disintegration activity in 2013 and 2014.
 Here, we report 2016 measurements that are consistent with photometry from the Kepler spacecraft in 2009-2013.
 We also evaluate high resolution archival spectra from the Subaru HDS spectrograph and find spectra consistent with a main-sequence T=4500 $\pm$110 K star.
+We apply PCA to the Kepler long cadence data to understand the modes of disintegration.
+There is a tentative 491 day periodicity of the second principal component, which corresponds to possible long-term evolution of the dust grain sizes.
 \end{abstract}
 
 
@@ -333,6 +335,15 @@ The first principal component eigenvector is the linear combination of these ran
 The second principal component eigenvector is the linear combination of these random variables with the next-highest variance while being orthogonal to the first principal component.
 This continues up to some finite number of principal components, with the hope that we can use a few orthogonal light curves to adequately describe the data \citep[e.g.][]{jolliffe2002pca}.
 We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn} to calculate the principal components and eigenvectors.
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
+\includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255_transformed.pdf}
+\caption{The principal component eigenvectors scaled by their eigenvalues (Left), shows that the first component largely describes the extinction while the second shows the contributions from forward scattering.
+When the eigenvectors are transformed into light curves (Right), it can be seen that the first component corresponds to small dust particle sizes with negligible forward scattering and that the second component corresponds to large dust particle sizes with pronounced forward scattering before and after the transit mid-point.
+}\label{fig:pcaVectorsComp}
+\end{centering}
+\end{figure*}
 
 We use a covariance matrix as opposed to correlation matrix to calculate the principal component eigenvectors.
 In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
@@ -340,26 +351,16 @@ However, we do not scale the variables (columns) by variance and use a covarianc
 If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$ -0.12 to $\sim$0.15).
 The model using the first 4 principal components shown in Figure \ref{fig:riverPlotsPCA} better matches the data (with more degrees of freedom) and has residuals much closer to white noise than the model that uses the dot product with the average light curve.
 
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
-\includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255_transformed.pdf}
-\caption{The principal component eigenvectors scaled by the square root of the eigenvalues (Left), shows that the first component largely describes the extinction while the second and third show the contributions from forward scattering.
-When the eigenvectors are transformed into light curves, 
-}\label{fig:pcaVectorsComp}
-\end{centering}
-\end{figure*}
-
 Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
-For the eigenvectors plot, we multiply each eigenvector by its eigenvalue, as is used in meteorology where the products of the eigenvalues and eigenvectors are sometimes called Empirical Orthogonal Functions \citep{richman1986pcaRotation}.
+For the eigenvectors plot, we multiply each eigenvector by its eigenvalue to emphasize the covariances between the principal components and phase grid variables.
 The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points (variables) in the phase grid from -0.25 to 0.25.
 We also transform the eigenvectors into light curves by multiplying each eigenvector by the standard deviation of principal components and adding it to the average light curve.
 The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering whereas the second eigenvector corresponds to models of large dust grains with more forward scattering \citep[e.g. models from][]{budaj12}.
 The implication of the PCA then is that the dust particle sizes are changing with time.
 
-Figure \ref{fig:tserPC1} shows the time series of the first two principal components.
-We highlight the quiescent periods also discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}.
-The first principal component largely tracks closely with the dot product of the average light curve.
+Figure \ref{fig:tserPC} shows the time series of the first two principal components.
+We highlight the quiescent periods also discussed in \citet{kawahara2013starspots}, \citet{vanWerkhoven2014} and \citet{croll2015starspots}.
+The first principal component largely tracks closely with the dot product of the average light curve ($A'$).
 The quiescent periods show up as 14 to 36 day long intervals of low amplitude events.
 The second principal component shows some sinusoidal behavior at a $\sim$500 day period, indicating that the large particles may be evolving.
 However, the timescales are much longer than dynamical and sublimation times for this system.
@@ -367,7 +368,10 @@ However, the timescales are much longer than dynamical and sublimation times for
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.99\textwidth]{images/kepler/pc_tser_w_quiescent.pdf}
-\caption{The first two principal component's time series.}\label{fig:tserPC1}
+\caption{Time series of the transit amplitude and principals components.
+The amplitude is found with a dot product with the average light curve.
+Quiescent intervals with low transit activity are identified from the amplitude.
+The second principal component shows periodicity at 491 days, indicating possible long-term evolution of dust grain particle sizes.}\label{fig:tserPC}
 \end{centering}
 \end{figure*}
 
@@ -375,43 +379,54 @@ However, the timescales are much longer than dynamical and sublimation times for
 %In some applications of PCA, separate populations of behaviors can appear in these scatter plots (such as different modes of planet disintegration) but here there is a continuous distribution points.
 %We also color the quiescent periods of very little disintegration activity (discussed in \citet{vanWerkhoven2014} and \citet{croll2015starspots}) and these quiescent periods appear as low values for the first two principal components.
 
-In Figure \ref{fig:ampPeriodogram} we show the periodogram of amplitudes that have peaks at 0.654, 22.9, 153 and 750 days.
+In Figure \ref{fig:ampPeriodogram} we show the periodogram of the principal components.
+The peaks at 0.654 days in both the first and second principal components are the same as the orbital period and are the same as the sampling interval of the time series.
+The first component, corresponding to the transit depth, has peaks at 22.9, 153 and 750 days.
 The 22.9 day peak is consistent with the \citet{kawahara2013starspots} and \citet{croll2015starspots} that shows amplitudes are anti-correlated with stellar flux.
 As suggested in \citet{kawahara2013starspots}, the anti-correlation points to a physical mechanism for the disintegration - such as magnetic activity or high energy flux associated with spots causing disintegration on the planet.
+The second principal component's periodogram has a strong peak at 491 days.
+This singly-peaked periodogram implies that PC$_2$ is nearly sinusoidal.
+As shown in Figure \ref{fig:pcaVectorsComp}, the second principal component resembles models with larger dust grains, so the dust grain sizes could be evolving on long-term 491-day timescales.
+This is much longer than the dynamical and sublimation times of the system, so there is no obvious mechanism for the dust grain size evolution.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pc1_periodogram.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/pc2_periodogram.pdf}
-\caption{Periodogram of the amplitude time series shown in Figure \ref{fig:tserPC1} show several significant peaks.
-Bootstrap error estimates for the 2$\sigma$ and 3$\sigma$ confidence intervals are shown.
-The first principal component's peak at 0.654 days is the orbital period (Left).
-The PC$_1$ peaks at 153 and 750 days are likely caused by the longer intervals of low disintegration activity.
-The second principal components shows one dominant peak at 491 days, in addition to the 0.654 orbital period.
-The 22.9 day peak is consistent with \citet{kawahara2013starspots}, who notice that this period is co-incident with the stellar rotation period.}\label{fig:ampPeriodogram}
+\caption{Periodograms of the principal component time series shown in Figure \ref{fig:tserPC}, with peaks marked with red circles.
+The first peak at 0.654 days for both principal components is the orbital period, which is the sampling time for these time series.
+The PC$_1$ also peaks at 153 and 750 days, likely because of the intervals of low disintegration activity.
+The 22.9 day peak is consistent with \citet{kawahara2013starspots}, who notice that this period is co-incident with the stellar rotation period.
+The second principal components shows one dominant peak at 491 days, in addition to the 0.654 orbital period.}\label{fig:ampPeriodogram}
 \end{centering}
 \end{figure*}
 
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.49\textwidth]{images/kepler/amplitude_histogram.pdf}
-\caption{(Left) Histogram of transit amplitudes.
-An amplitude of 1.0 corresponds to the average light curve (with flux minimum of 99.53\% or 0.47\% transit depth).
-A comparison histogram is shown from the Kepler Secondary eclipses to show the statistical photon noise that explains shy some transit depths appear less than 0.
-}\label{fig:histograms}
-\end{centering}
-\end{figure*}
+%\begin{figure*}[!hbtp]
+%\begin{centering}
+%\includegraphics[width=0.49\textwidth]{images/kepler/amplitude_histogram.pdf}
+%\caption{(Left) Histogram of transit amplitudes.
+%An amplitude of 1.0 corresponds to the average light curve (with flux minimum of 99.53\% or 0.47\% transit depth).
+%A comparison histogram is shown from the Kepler Secondary eclipses to show the statistical photon noise that explains shy some transit depths appear less than 0.
+%}\label{fig:histograms}
+%\end{centering}
+%\end{figure*}
 
 
 \subsection{Statistical Analysis of Ground-based Photometry}\label{sec:statistics}
-
+We calculate and evalute the Kepler transit amplitudes to better understand the long-term behavior of \sha's disintegration.
+We take the histogram of transit amplitudes as measured by the Kepler light curves (shown in Figure \ref{fig:histoPhot}) and compare these to the ground-based photometry from \citet{schlawin2016kic1255} and this work.
+The histogram of secondary eclipse amplitudes from the Kepler light curves is also shown in \ref{fig:histoPhot}.
+The intrinsic astrophysical variation of the planet disintegration is convolved by this photometric scatter in the data.
+We compare the distribution of amplitudes from \citet{schlawin2016kic1255} from the Kepler long cadence data from 2009 to 2013.
+A Kolmogorov-Smirnov test gives a p value of 0.001 of the null hypothesis that the \citet{schlawin2016kic1255} results are drawn from the same distribution as the Kepler Long Cadence data.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/amp_distributions_comparison.pdf}
-\caption{Normalized frequency of 3 different distributions: 1) all of the Kepler Long Cadence data from 2009 to 2013, 2) the 8 night ground-based IRTF campaign in the summers of 2013 and 2014 from \citet{schlawin2016kic1255} (S16) and 3) the 5 night Kuiper observatory campaign in the summer of 2016.
-The \citet{schlawin2016kic1255} (S16) events give a Kolmogorov Smirnov p value of 0.001 of the null hypothesis that the S16 results are drawn from the same distribution as the Kepler Long Cadence.
-In contrast, the 2016 photometric results in this work are consistent with the Kepler Long Cadence data, giving a  p value of 0.5 of the null hypothesis.}\label{fig:histoPhot}
+\caption{Normalized frequency of 4 different transit amplitude distributions: 1) all of the Kepler Long Cadence data from 2009 to 2013, 2) the secondary eclipse amplitudes from the Kepler spacecraft over this same period, 3) the 8 night ground-based IRTF campaign in the summers of 2013 and 2014 from \citet{schlawin2016kic1255} (S16) and 4) the 5 night Kuiper observatory campaign in the summer of 2016.
+The \citet{schlawin2016kic1255} (S16) events give a KS-test p value of 0.001 of the null hypothesis when comparing to the Kepler data.
+In contrast, the 2016 photometric results in this work are consistent with the Kepler Long Cadence data, giving a  p value of 0.5 of the null hypothesis.
+This indicates that the transit depths are back to normal and there is no slowdown of disintegration activity over time.}\label{fig:histoPhot}
 \end{centering}
 \end{figure*}
 
