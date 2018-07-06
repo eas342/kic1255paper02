@@ -99,7 +99,7 @@ Surprisingly, the flux dips are neither symmetric in shape nor constant in ampli
 The amplitudes of the flux dips are highly stochastic and unpredictable from one event to the next 0.653 days later.
 This indicates that dusty material with a projected area $\sim$1\% of the stellar surface is created and cleared in $\lesssim$ 1 day timescales.
 These unusual light curve behaviors are best explained as dust extinction from material that is escaping a rocky planet (KIC 12557548 b, hereafter \sha) in a short period orbit.
-The KIC 12557548 system (hereafter \shStar) has the exciting possibility of being an opportunity to study a planet that has been peeled away layer by layer to reveal an interior core.
+The KIC 12557548/KOI-3794/Kepler-1520 system (hereafter \shStar) has the exciting possibility of being an opportunity to study a planet that has been peeled away layer by layer to reveal an interior core.
 
 The discovery of K2-22b \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating}, KOI 2700 \citep{rappaport2014KOI2700} and KIC 3542116 \citep{rappaport2018exocomets} showed that other systems have similar light curves and that several disintegrating planet systems may be useful laboratories for understanding planet evolution and composition.
 Multi-wavelength light curve measurements show that the dust particles can have wavelength-dependent transmission, as predicted from sub-micron dust particles \citep{bochinski2015evolving,sanchis-ojedak2-22}.
@@ -129,12 +129,16 @@ The Kepler data was used to put constraints on the particle size distribution an
 \citet{budaj12} and \citet{brogi2012} modeled the light curve, which includes a slight increase in flux prior before the transit begins.
 This pre-ingress flux increase is caused by forward scattering dust particles and the scattering function is sensitive to particle size modulo composition.
 \citet{budaj12} and \citet{brogi2012} find particle sizes $\sim$0.1 to $\sim$1.0$\mu$m in size based on this method.
+The tail length can also be used to constrain the composition of the particles and \citet{vanlieshout2014kic1255comp} find that the sublimation times of corundum and iron-rich silicates are consistent with the observed tail lengths.
+
+Multiple wavelength monitoring can also constrain the dust particle sizes because the scattering by dust is a strong function of wavelength.
+\citet{bochinski2015evolving} observed wavelength dependence in the transits by \sha\ and find that the extinction is similar to the ISM particles with sizes from 0.25 to 1~$\mu$m.
 Subsequently, \citet{croll2014} obtained a $K'$-band light curve simultaneously with the Kepler spacecraft to put a constraint on the dust extinction as a function of wavelength.
 \citet{croll2014} find a particle size distribution of $\gtrsim 0.5\mu$m.
 
 \citet{schlawin2016kic1255} observed 8 total transits of the system for 4 nights in 2013 and 4 nights in 2014 for the $r'$ band using the MORIS imager \citep{Gulbis2011} on SpeX/IRTF \citep{rayner03}.
 The SpeX/IRTF spectrum, though affected by systematic noise, confirmed the \citet{croll2014} result that particle sizes are $\gtrsim 0.5\%$ for a pyroxene composition.
-\citet{schlawin2016kic1255} found that the optical transit depths were all weaker than $0.43\%$ and that the probably of this randomly occurring based on random behavior from Kepler statistics was around 0.2\%.
+\citet{schlawin2016kic1255} found that the optical transit depths were all weaker than $0.43\%$ and that the probability of this randomly occurring based on random behavior from Kepler statistics was around 0.2\%.
 This was evidence that the observations occurred during weaker periods (as found in \citet{vanWerkhoven2014}'s 15 Kepler quarter analysis) or that the disintegration activity was falling off with time.
 We performed follow-up $R$ band photometry of the \shStar\ system to explore these two hypotheses and see if the the disintegration has returned to the levels found in the Kepler mission.
 
@@ -228,7 +232,7 @@ We include a linear baseline so that the model is
 F(t) = \left(A \cdot f_{SC}(t) + 1 \right)  (1 + B + C \cdot t),
 \end{equation}
 where $F(t)$ is the normalized flux at orbital phase $t$, $A$ is the amplitude parameter, $f_{SC}(t)$ is average Kepler short cadence light curve linearly interpolated at an orbital phase $t$, $B$ is the baseline offset and $C$ is the baseline slope.
-We construct $f_{SC}(t)$ by phasing the Kepler time series with Equation \ref{eq:ephem}, normalizing by the median, removing a quadratic baseline from each transit, averaging the results and subtracting 1.0 to get the differential flux.
+We construct $f_{SC}(t)$ by phasing the Kepler time series with Equation \ref{eq:ephem}, dividing by a quadratic baseline from each transit, averaging the results and subtracting 1.0 to get the differential flux.
 We use the Markov Chain Monte Carlo (MCMC) package \texttt{emcee} \citep{foreman-mackey2013emcee} to find the transit depth amplitude and uncertainty.
 We use 50 MCMC chains with 500 burn-in points and 1500 points to sample the posterior distribution.
 The best-fit light curves are shown in Figure \ref{fig:allNightrefCorrect} and the best-fit amplitudes are listed in Table \ref{tab:photSummary}.
@@ -252,17 +256,11 @@ When calculating the best fit model and posterior distribution of parameter, how
 In contrast to \citet{schlawin2016kic1255}, the transit depths in 2016 June and 2016 July are similar to the distribution measured by the Kepler spacecraft from 2009 to 2013.
 \citet{schlawin2016kic1255} found significantly weaker transit depths that the Kepler spacecraft in 2013 Aug-Sep and 2014 Aug-Sep, which indicated that either disintegration activity was slowing down or that there were quiescent periods during those observations.
 The transit depths listed in Table \ref{tab:photSummary} are ``back to normal'' in that they are consistent with the Kepler results.
-We will revisit the statistics of these events in Section \ref{sec:Kepler}.
+We will revisit the statistics of these events in Section \ref{sec:statistics}.
 
 \section{Kepler Re-analysis}\label{sec:Kepler}
 
-We examine the 17 total quarters of Kepler data for three purposes:
-\begin{enumerate}
-	\item To understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, how likely/unlikely were the weak transits observed in 2013-2014?
-	\item To measure the radius of the planet or put an upper limit on its radius by examining any possible transit beneath the dust signal
-	\item Identify any new patterns or observations from the Kepler data that might occur along the way
-\end{enumerate}
-
+We examine the 17 total quarters of Kepler data to understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, we sought to evaluate how likely/unlikely were the weak transits observed in 2013-2014 and normal transits in 2016.
 We downloaded all 17 quarters of Kepler Long-Cadence data from the MAST archive beginning on 2009 May 13 and ending on 2013 April 08 for a total of 1425 days or 2181.5 orbits.
 The Kepler data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
 A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 within the $\pm$ 0.28 phase window.
@@ -272,7 +270,7 @@ The secondary eclipses are used to quantify the noise in the transit depths.
 \subsection{Kepler Secondary Eclipse}
 
 We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected at $\lesssim 50$~ppm, seen in Figure \ref{fig:secEclipse}. 
-We then use the secondary eclipses as a way to characterize the noise of the primary eclipses.
+We then use the secondary eclipses as a way to characterize the noise of the primary transits.
 Both have the same quadratic baseline removal process over the same time intervals.
 
 \begin{figure*}[!hbtp]
@@ -348,14 +346,14 @@ We use a covariance matrix as opposed to correlation matrix to calculate the pri
 In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
 However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units (normalized flux).
 If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$ -0.12 to $\sim$0.15).
-The model using the first 4 principal components shown in Figure \ref{fig:riverPlotsPCA} better matches the data (with more degrees of freedom) and has residuals much closer to white noise than the model that uses the dot product with the average light curve.
+The model using the first 4 principal components shown in Figure \ref{fig:riverPlotsPCA} better matches the data and has residuals much closer to white noise than the model that uses the dot product with the average light curve.
 
 Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
-For the eigenvectors plot, we multiply each eigenvector by its eigenvalue to emphasize the covariances between the principal components and phase grid variables.
+For the eigenvectors plot, we multiply each eigenvector by its eigenvalue to emphasize the relative covariances between the principal components and phase grid variables.
 The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points (variables) in the phase grid from -0.25 to 0.25.
 We also transform the eigenvectors into light curves by multiplying each eigenvector by the standard deviation of principal components and adding it to the average light curve.
 The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering whereas the second eigenvector corresponds to models of large dust grains with more forward scattering \citep[e.g. models from][]{budaj12}.
-The implication of the PCA then is that the dust particle sizes are changing with time.
+The implication of the PCA then is that the dust particle sizes may be changing with time.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -423,7 +421,7 @@ We compare the distribution of amplitudes from \citet{schlawin2016kic1255} from 
 A Kolmogorov-Smirnov (KS) test gives a p value of 0.001 of the null hypothesis that the \citet{schlawin2016kic1255} results are drawn from the same distribution as the Kepler Long Cadence data.
 This indicated a possible slowdown of disintegration activity.
 However, the distribution from this work taken in 2016 shows consistency with the Kepler histogram, with the KS test p value of 0.5 of the null hypothesis. 
-We therefore conclude that the disintegration activity is stochastic with no long-term trend measurable from ground-based photometry.
+We therefore conclude that the disintegration activity is stochastic with no long-term slowdown measurable from ground-based photometry.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -469,7 +467,7 @@ In the photometric analysis and low resolution spectroscopy, the spectra are con
 High resolution spectra, however, indicated a higher temperature 4900 K lower log(g) sub-giant star \citep{kawahara2013starspots}.
 \citet{vanlieshout2016kic1255} analyzed the light curve with a dust model to put constraints on the semi-major axis in terms of stellar radii, which can be combined with Kepler's third law to calculate the stellar density \citep{seager2003uniqueSolution}.
 \citet{vanlieshout2016kic1255} find that the stellar density is only consistent with a main-sequence star with log(g) $\gtrsim 4.4 \log($cm s$^{-2})$.
-They suggest an intriguing possibility that the high resolution spectrum of \shStar\ has contamination from dusty debris from the planet and thus appears as a sub-giant star.
+\citet{vanlieshout2016kic1255} suggest an intriguing possibility that the high resolution spectrum of \shStar\ has contamination from dusty debris from the planet and thus appears as a sub-giant star.
 If true, high resolution spectra would be valuable tool to study the composition and dynamics of the material escaping \sha.
 In this section, we analyze archival high resolution spectra to put new constraints on the stellar temperature and surface gravity.
 
@@ -510,16 +508,15 @@ None of the observations was timed during a primary transit (phase = 0.0) or sec
 \subsection{Data Reduction}
 For the 2015 data, we use the same spectra as in \citep{masuda2018rvKIC1255}.
 All telluric emission features and outliers are masked in this analysis to remove these components.
-Time-variable outliers like cosmic rays are removed by measuring deviations from the median spectrum for the night.
+Time-variable outliers, such as cosmic rays, are removed by measuring deviations from the median spectrum for the night.
 The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
 All OH and O$_2$ lines are removed regardless if they are visible in the spectrum of \shStar.
 To combine the observations, we found the median spectrum for UT dates 2015 Aug 28 and 2015 Aug 29 to robustly combine the data.
-This median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
+%This median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
 
 For the 2013 data, we follow the \texttt{iraf} reduction techniques from the instrument manual V2.0.0  \footnote{\url{https://www.subarutelescope.org/Observing/Instruments/HDS/}}.
 Some modifications to the manual were made, including a more aggressive -50/+50 lower and upper window for bad pixel identification with \texttt{mkbadpx} on the red CCD.
 We applied bad pixel masks and bias files to each CCD (red and blue sides) separately.
-
 We performed wavelength calibration with a Thorium Argon reference spectrum.
 The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
 This polynomial fit has a RMS error of 0.02$\AA$.
@@ -548,18 +545,10 @@ The higher gravity log(g)=4.5 model appears to match the data better in terms of
 
 \begin{figure}[!hbtp]
 \begin{centering}
-\includegraphics[width=0.7\textwidth]{images/subaru/bosz_mg_triplet_median_spec_w_5000.pdf}
-\caption{Median spectrum of \shStar\ \citep{masuda2018rvKIC1255} near the Mg triplet compared to 4500 K BOSZ models with two different log(g)s.}\label{fig:mgTripletBOSZ}
+\includegraphics[width=0.49\textwidth]{images/subaru/bosz_mg_triplet_median_spec_w_5000.pdf}
+\caption{Median spectrum of \shStar\ \citep{masuda2018rvKIC1255} near the Mg triplet (green) compared to 4500 K BOSZ models with two different log(g)s (blue and orange). The standard error in the mean is shown at an arbitrary Y location as a red line.}\label{fig:mgTripletBOSZ}
 \end{centering}
 \end{figure}
-
-We explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M] to constrain these parameters in \shStar.
-The sensitivity to each parameter for the BOSZ models are shown in Figure \ref{fig:boszModelParamsMedianSpec}.
-For each parameter, we change the models by about 2 steps in the BOSZ grid.
-For a quantitative measure of the goodness-of-fit, we calculate a $\chi^2$ over the Mg triplet lines from 5160 to 5190 $\AA$.
-The errors are estimated from the standard deviation of the spectra over the night.
-
-%A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0.5), low $\alpha$ enrichment ($\alpha \approx -0.25$ and solar Carbon to metals ([C/M] $\approx$ 0) are favored by the models.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -573,6 +562,14 @@ The errors are estimated from the standard deviation of the spectra over the nig
 The bottom right plot shows the best-fit BOSZ model, but it still under-predicts and over-predicts some line strengths.}\label{fig:boszModelParamsMedianSpec}
 \end{centering}
 \end{figure*}
+
+We explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M] to constrain these parameters in \shStar.
+The sensitivity to each parameter for the BOSZ models are shown in Figure \ref{fig:boszModelParamsMedianSpec}.
+For each parameter, we change the models by about 2 steps in the BOSZ grid.
+For a quantitative measure of the goodness-of-fit, we calculate a $\chi^2$ over the Mg triplet lines from 5160 to 5190 $\AA$.
+The errors are estimated from the standard deviation of the spectra over the night.
+
+%A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0.5), low $\alpha$ enrichment ($\alpha \approx -0.25$ and solar Carbon to metals ([C/M] $\approx$ 0) are favored by the models.
 
 After initial constraints on the models from the sensitivity to parameters search, we downloaded a grid of BOSZ models with temperatures ranging from 4250 K to 4750 K, Log(g) from 4.0 to 4.5, [M/H] from 0.0 to 0.5, [C/M]=0.0 and [$\alpha$/M] = -0.25 to 0.0.
 We found the model with the  $\chi^2$ statistic over the Mg triple lines from 5160 to 51690 $\AA$
@@ -646,11 +643,11 @@ We therefore conclude that the noise in the spectrum affected the stellar parame
 We obtained ground-based R band photometry from the Kuiper 61-inch observatory to follow up a possible slowdown in disintegration activity observed in 2013 and 2014.
 \citet{schlawin2016kic1255} found shallow transits that were all below the Kepler observatory average in August-September 2013 and August-September 2014.
 One possibility was a long term evolution of the disintegration activity, such as a reduction of available dusty material of the planet or a slowdown in the disintegration mechanism.
-Our transit depths from June-July 2016 are instead consistent with the depths from the Kepler observatory from 2009 to 2013, with a KS-test between the two distributions having a p-value of 0.5 that depths are drawn from the same distribution.
+Our transit depths from June-July 2016 are instead consistent with the depths from the Kepler observatory from 2009 to 2013, with a KS-test between the two distributions resulting in a p-value of 0.5 that depths are drawn from the same distribution.
 This indicates that the shallow transit depths observed in August-September 2013 and August-September 2014 likely fell into the 14-36 day long quiescent intervals of disintegration activity as observed in Kepler photometry \citep{kawahara2013starspots,vanWerkhoven2014,croll2015starspots}.
 
 We re-analyze the existing Kepler photometry with PCA to better understand the time dependence and statistics of the light curves.
-We find that the first eigenvector corresponds to models with small sized dust grains whereas the second eigenvector corresponds to models with large-sized dust grains with larger forward scattering.
+We find that the first eigenvector corresponds to the overall transit depth whereas the second eigenvector corresponds to models of forward-scattering from  large-sized dust grains.
 The first principal component tracks closely with the transit depths and exhibits modulations at periods of 22.9, 153 and 750 days.
 The second principal component is nearly sinusoidal with a 491 day period, indicating possible long term evolution of the dust particle sizes.
 The 22.9 day period matches the rotation period of the host star, which has previously been used to tie disintegration to stellar activity \citep{kawahara2013starspots} or occultations of star spots \citep{croll2015starspots}.
@@ -658,7 +655,7 @@ The remaining periodicities are longer than the dynamical and sublimation times 
 
 \citet{vanlieshout2016kic1255} compile the stellar parameters reported in the literature via photometric and spectroscopic methods and note that the high resolution spectrum show that \shStar\ has the gravity of a sub-giant, whereas all other methods find that it is a main sequence star.
 One exciting possibility suggested in \citet{vanlieshout2016kic1255} is that the planet disintegration affects the spectral lines of the star and affects the high resolution spectrum from \citet{kawahara2013starspots}.
-We explore this possibility by examining archival Subaru HDS spectra of \shStar\.
+We explore this possibility by examining archival Subaru HDS spectra of \shStar.
 We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T=4500 $\pm$ 110 K, log(g) = 4.5, [Fe/H]=-0.1$\pm$0.1, M=0.7$\pm$0.1 R$_\odot$ and M=0.7 $\pm$0.1 M$_\odot$.
 Therefore, the optical depth of any gas sublimating of dust grains is too small to affect the high resolution spectrum.
 We argue that low signal to noise in the initial Subaru HDS spectra affected previous interpretations of the stellar parameters.
