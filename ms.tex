@@ -29,6 +29,7 @@
 \newcommand{\wat}{H$_2$O}
 \newcommand{\sha}{KIC 1255 b}
 \newcommand{\shStar}{KIC 1255}
+\newcommand{\kepler}{{\it Kepler}}
 
 %\submitjournal{RNAAS}
 
@@ -55,17 +56,15 @@
 \author{E. Schlawin}
 \affiliation{Steward Observatory, Tucson AZ 85721}
 
-%\author{Kento Masuda?}
-%\affiliation{Department of Astrophysical Sciences, Princeton University, Princeton, NJ 08544, USA}
-
 \author{Teruyuki Hirano}
 \affiliation{Department of Earth and Planetary Sciences, Tokyo Institute of Technology, Tokyo 152-8550, Japan}
 
 \author{Hajima Kawahara}
 \affiliation{Department of Earth and Planetary Science, The University of Tokyo, Tokyo 113-0033, Japan}
 
-\author{Johanna Teske?}
-\affiliation{Department of Terrestrial Magnetism, Carnegie Institution for Science, 5241 Broad Branch Road, NW, Washington, DC 20015}
+\author{Johanna Teske}
+\altaffiliation{Hubble Fellow, jteske@carnegiescience.edu} 
+\affiliation{Observatories of the Carnegie Institution for Science, 813 Santa Barbara Street, Pasadena, CA 91101}
 
 \author{Betsy Green?}
 \affiliation{Steward Observatory, Tucson AZ 85721}
@@ -79,10 +78,10 @@
 \begin{abstract}
 KIC 12557548 b is first of a growing class of intriguing disintegrating planet candidates, which lose mass in the form of dust particles escaping their surface.
 Here, we follow up two perplexing observations of the system: 1) the transits appeared shallower than average in 2013 and 2014 and 2) the parameters derived from a high resolution spectrum of the star differed from other results using photometry and low resolution spectroscopy.
-We observe 5 transits of the system with the 61-inch Kuiper observatory in 2016 and show that they are consistent with photometry from the Kepler spacecraft in 2009-2013.
-We also evaluate high resolution archival spectra from the Subaru HDS spectrograph and find spectra consistent with a main-sequence T=4500 $\pm$110 K star.
-This disfavors the hypothesis that planet disintegration affected previous high resolution spectra results.
-We apply PCA to the Kepler long cadence data to understand the modes of disintegration.
+We observe 5 transits of the system with the 61-inch Kuiper telescope in 2016 and show that they are consistent with photometry from the \kepler\ spacecraft in 2009-2013.
+We also evaluate high resolution archival spectra from the Subaru HDS spectrograph and find them to be consistent with a main-sequence T$_{eff}$=4500 $\pm$110 K star.
+This disfavors the hypothesis that planet disintegration affected the analysis of prior high resolution spectra of this star.
+We apply Principal Component Analysis to the \kepler\ long cadence data to understand the modes of disintegration.
 There is a tentative 491 day periodicity of the second principal component, which corresponds to possible long-term evolution of the dust grain sizes, though the mechanism on such long timescales remains unclear.
 \end{abstract}
 
@@ -93,7 +92,7 @@ There is a tentative 491 day periodicity of the second principal component, whic
 
 
 \section{Introduction}
-\citet{rappaport} first reported the discovery of a highly unusual stellar system in the Kepler field.
+\citet{rappaport} first reported the discovery of a highly unusual stellar system in the \kepler\ field.
 KIC 12557548's (hereafter \shStar's) light curve exhibits flux dips with a period of 0.653 days.
 Surprisingly, the flux dips are neither symmetric in shape nor constant in amplitude, varying from $\sim$ 0\% to $\sim$ 1.2\%.
 The amplitudes of the flux dips are highly stochastic and unpredictable from one event to the next 0.653 days later.
@@ -112,7 +111,7 @@ RIK-210 could be accreting material that causes variable extinction while PTFO 8
 The underlying planet candidate \sha\ has not been detected directly, but several observational constraints have placed upper limits on its size and mass.
 High precision radial velocity measurements of the host star with Keck/HIRES put an upper limit on the reflex motion due to the planet and constrains the mass to be $\lesssim 1.2 M_{\mathrm Jup}$ \citep{croll2014}.
 \citet{masuda2018rvKIC1255} find that the upper limit on the radial velocity semi-amplitude is 86 m/s corresponding to a planet mass $\lesssim 0.28 M_{\mathrm Jup}$ using the Subaru High Dispersion Spectrometer (HDS).
-There is no detection of secondary eclipses of \sha\ with a 3$\sigma$ upper limit of $5 \times 10^{-5}$ in the Kepler bandpass, which means that for an albedo of 0.5, the radius of the planet must be smaller than 4600 km \citep{vanWerkhoven2014}.
+There is no detection of secondary eclipses of \sha\ with a 3$\sigma$ upper limit of $5 \times 10^{-5}$ in the \kepler\ bandpass, which means that for an albedo of 0.5, the radius of the planet must be smaller than 4600 km \citep{vanWerkhoven2014}.
 A radiative-hydrodynamic wind model predicts that the mass loss rate will be a strong function of planet mass and for the present-day mass loss rate of $\sim$ M$_\oplus/Gyr$, the modeled mass is 0.014 $M_\oplus$ \citep{perez-becker}.
 
 One possible explanation of for the planet disintegration is that it is tied to stellar activity.
@@ -120,12 +119,12 @@ One possible explanation of for the planet disintegration is that it is tied to 
 The alignment of spots and disintegration activity could be due to XUV photoevaporation or magnetic reconnection events.
 The anti-correlation between stellar flux and transit depth was confirmed by \citet{croll2015starspots} though they find that occultations of star spots can also modulate the transit depth at the 22.9 day rotation period of the star.
 
-The Kepler spacecraft performed near-continuous long cadence photometry for KIC 12557548 during its entire main mission lifetime from 2009 to 2013.
+The \kepler\ spacecraft performed near-continuous long cadence photometry for KIC 12557548 during its entire main mission lifetime from 2009 to 2013.
 During this time, the transit depths averaged around $\sim$0.6\% but varied stochastically from just one 15.7 hour orbit to the next.
 \citet{vanWerkhoven2014} analyzed 15 of the total 17 quarters of data and calculated every transit depth during this period.
 There were two intervals near obits 50 and 1950 that showed shallower (0.1\%) than average transit depths for roughly one month in duration.
 
-The Kepler data was used to put constraints on the particle size distribution and composition of the dust particles.
+The \kepler\ data was used to put constraints on the particle size distribution and composition of the dust particles.
 \citet{budaj12} and \citet{brogi2012} modeled the light curve, which includes a slight increase in flux prior before the transit begins.
 This pre-ingress flux increase is caused by forward scattering dust particles and the scattering function is sensitive to particle size modulo composition.
 \citet{budaj12} and \citet{brogi2012} find particle sizes $\sim$0.1 to $\sim$1.0$\mu$m in size based on this method.
@@ -133,14 +132,14 @@ The tail length can also be used to constrain the composition of the particles a
 
 Multiple wavelength monitoring can also constrain the dust particle sizes because the scattering by dust is a strong function of wavelength.
 \citet{bochinski2015evolving} observed wavelength dependence in the transits by \sha\ and find that the extinction is similar to the ISM particles with sizes from 0.25 to 1~$\mu$m.
-Subsequently, \citet{croll2014} obtained a $K'$-band light curve simultaneously with the Kepler spacecraft to put a constraint on the dust extinction as a function of wavelength.
+Subsequently, \citet{croll2014} obtained a $K'$-band light curve simultaneously with the \kepler\ spacecraft to put a constraint on the dust extinction as a function of wavelength.
 \citet{croll2014} find a particle size distribution of $\gtrsim 0.5\mu$m.
 
 \citet{schlawin2016kic1255} observed 8 total transits of the system for 4 nights in 2013 and 4 nights in 2014 for the $r'$ band using the MORIS imager \citep{Gulbis2011} on SpeX/IRTF \citep{rayner03}.
 The SpeX/IRTF spectrum, though affected by systematic noise, confirmed the \citet{croll2014} result that particle sizes are $\gtrsim 0.5\%$ for a pyroxene composition.
-\citet{schlawin2016kic1255} found that the optical transit depths were all weaker than $0.43\%$ and that the probability of this randomly occurring based on random behavior from Kepler statistics was around 0.2\%.
-This was evidence that the observations occurred during weaker periods (as found in \citet{vanWerkhoven2014}'s 15 Kepler quarter analysis) or that the disintegration activity was falling off with time.
-We performed follow-up $R$ band photometry of the \shStar\ system to explore these two hypotheses and see if the the disintegration has returned to the levels found in the Kepler mission.
+\citet{schlawin2016kic1255} found that the optical transit depths were all weaker than $0.43\%$ and that the probability of this randomly occurring based on random behavior from \kepler\ statistics was around 0.2\%.
+This was evidence that the observations occurred during weaker periods (as found in \citet{vanWerkhoven2014}'s 15 \kepler\ quarter analysis) or that the disintegration activity was falling off with time.
+We performed follow-up $R$ band photometry of the \shStar\ system to explore these two hypotheses and see if the the disintegration has returned to the levels found in the \kepler\ mission.
 
 The high resolution spectrum of \shStar\ \citep{kawahara2013starspots} showed a different temperature and gravity than photometric methods \cite[e.g.][]{brown2011kic}.
 \citet{vanlieshout2016kic1255} suggest that one exciting possibility is that gases from the disintegrating planet contaminate the high resolution spectrum.
@@ -166,12 +165,12 @@ Here, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of t
 2016 Jul 14 & Mostly clear	& 1.24 $\rightarrow$ 1.06 $\rightarrow$ 1.55 & 1.2 & 	1.33 $\pm$ 0.14 \\
 2016 Jul 16 & Clear 		& 1.36 $\rightarrow$ 1.06 $\rightarrow$ 1.26	& 1.4 & 	2.14 $\pm$ 0.19 \\
 \enddata
-\tablenotetext{}{Summary of the attempted photometric observations of \shStar\ with the 61-inch Kuiper observatory.
+\tablenotetext{}{Summary of the attempted photometric observations of \shStar\ with the 61-inch Kuiper telescope.
 The seeing is expressed as the median FWHM for the night in arcseconds.}
 \end{deluxetable}
 
 \section{Photometric Observations}
-We attempted to observe 6 transit events of \sha\ with the Mont4k imager on the 61-inch Kuiper observatory located on Mt Bigelow, Arizona on UT using the f/13.5 Cassegrain focus.
+We attempted to observe 6 transit events of \sha\ with the Mont4k imager on the 61-inch Kuiper telescope located on Mt Bigelow, Arizona on UT using the f/13.5 Cassegrain focus.
 On all nights we used 90 second exposures using a Harris-R filter to best approximate the $r'$ filter used in \citet{schlawin2016kic1255}.
 5 of the 6 nights were clear with the exception of a few passing clouds on UT 2016 Jul 14.
 Cloudy skies on UT 2016 Jun 10 that prevented high precision time series.
@@ -217,22 +216,22 @@ All source radius, background start and background annulus end parameters were 9
 \subsection{Transit Depth Fitting}\label{sec:transFitting}
 
 Figure \ref{fig:allNightrefCorrect} shows the reference-corrected time series for \shStar\ for all nights.
-We use the planet transit ephemeris from \citet{croll2015starspots} where the Kepler flux minimum is the ``transit center'':
+We use the planet transit ephemeris from \citet{croll2015starspots} where the \kepler\ flux minimum is the ``transit center'':
 \begin{equation}\label{eq:ephem}
 T = T_0 + n P
 \end{equation}
 where $T_0 = 2 454 968.982 0 \pm 0.000 7$ BJD$_{TDB}$ and $P = 0.653 553 4 \pm 0.000 000 2$ days.
 The expected transit epochs from the ephemeris in \citep{vanWerkhoven2014} are shown for reference as vertical red bars.
-Typical uncertainties for the Kepler ephemeris are $\sim$ 1 minute at these dates due to the large number of transits measured by the Kepler observatory over nearly 4 years.
-The ``transit duration'' from Kepler light curves is about 0.06 days\footnote{We define the transit duration as the point at which the average light curve measured by the Kepler spacecraft drops below 99.95\% of the normalized flux as in \citet{schlawin2016kic1255}}, which is consistent with these transit durations.
+Typical uncertainties for the \kepler\ ephemeris are $\sim$ 1 minute at these dates due to the large number of transits measured by the \kepler\ observatory over nearly 4 years.
+The ``transit duration'' from \kepler\ light curves is about 0.06 days\footnote{We define the transit duration as the point at which the average light curve measured by the \kepler\ spacecraft drops below 99.95\% of the normalized flux as in \citet{schlawin2016kic1255}}, which is consistent with these transit durations.
 
-We find the best fit to each light curve using the average Kepler short cadence light curve as a model.
+We find the best fit to each light curve using the average \kepler\ short cadence light curve as a model.
 We include a linear baseline so that the model is
 \begin{equation}\label{eq:transFitting}
 F(t) = \left(A \cdot f_{SC}(t) + 1 \right)  (1 + B + C \cdot t),
 \end{equation}
-where $F(t)$ is the normalized flux at orbital phase $t$, $A$ is the amplitude parameter, $f_{SC}(t)$ is average Kepler short cadence light curve linearly interpolated at an orbital phase $t$, $B$ is the baseline offset and $C$ is the baseline slope.
-We construct $f_{SC}(t)$ by phasing the Kepler time series with Equation \ref{eq:ephem}, dividing by a quadratic baseline from each transit, averaging the results and subtracting 1.0 to get the differential flux.
+where $F(t)$ is the normalized flux at orbital phase $t$, $A$ is the amplitude parameter, $f_{SC}(t)$ is average \kepler\ short cadence light curve linearly interpolated at an orbital phase $t$, $B$ is the baseline offset and $C$ is the baseline slope.
+We construct $f_{SC}(t)$ by phasing the \kepler\ time series with Equation \ref{eq:ephem}, dividing by a quadratic baseline from each transit, averaging the results and subtracting 1.0 to get the differential flux.
 We use the Markov Chain Monte Carlo (MCMC) package \texttt{emcee} \citep{foreman-mackey2013emcee} to find the transit depth amplitude and uncertainty.
 We use 50 MCMC chains with 500 burn-in points and 1500 points to sample the posterior distribution.
 The best-fit light curves are shown in Figure \ref{fig:allNightrefCorrect} and the best-fit amplitudes are listed in Table \ref{tab:photSummary}.
@@ -242,8 +241,8 @@ The best-fit light curves are shown in Figure \ref{fig:allNightrefCorrect} and t
 \includegraphics[width=0.8\textwidth]{images/all_kic1255_phot/all_kic1255_refcor.pdf}
 \caption{Reference-corrected time series photometry \shStar\ for all nights (blue circles).
 Orange squares mark 20 minute flux bins.
-The expected transit epochs from the Kepler-based ephemeris \citep{vanWerkhoven2014} are shown as vertical red bars.
-We also show the average Short Cadence Kepler light curves for each of the transit events for comparison with the average.
+The expected transit epochs from the \kepler-based ephemeris \citep{vanWerkhoven2014} are shown as vertical red bars.
+We also show the average Short Cadence \kepler\ light curves for each of the transit events for comparison with the average.
 Transits are clearly visible for all five nights except for UT2016-06-14.}\label{fig:allNightrefCorrect}
 \end{centering}
 \end{figure*}
@@ -253,21 +252,21 @@ Obvious cosmic ray outliers were discarded by removing points with fluxes below 
 The error bars for the binned data are calculated from the standard error in the mean for each bin.
 When calculating the best fit model and posterior distribution of parameter, however, the un-binned data is used.
 
-In contrast to \citet{schlawin2016kic1255}, the transit depths in 2016 June and 2016 July are similar to the distribution measured by the Kepler spacecraft from 2009 to 2013.
-\citet{schlawin2016kic1255} found significantly weaker transit depths that the Kepler spacecraft in 2013 Aug-Sep and 2014 Aug-Sep, which indicated that either disintegration activity was slowing down or that there were quiescent periods during those observations.
-The transit depths listed in Table \ref{tab:photSummary} are ``back to normal'' in that they are consistent with the Kepler results.
+In contrast to \citet{schlawin2016kic1255}, the transit depths in 2016 June and 2016 July are similar to the distribution measured by the \kepler\ spacecraft from 2009 to 2013.
+\citet{schlawin2016kic1255} found significantly weaker transit depths that the \kepler\ spacecraft in 2013 Aug-Sep and 2014 Aug-Sep, which indicated that either disintegration activity was slowing down or that there were quiescent periods during those observations.
+The transit depths listed in Table \ref{tab:photSummary} are ``back to normal'' in that they are consistent with the \kepler\ results.
 We will revisit the statistics of these events in Section \ref{sec:statistics}.
 
-\section{Kepler Re-analysis}\label{sec:Kepler}
+\section{\kepler\ Re-analysis}\label{sec:Kepler}
 
-We examine the 17 total quarters of Kepler data to understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, we sought to evaluate how likely/unlikely were the weak transits observed in 2013-2014 and normal transits in 2016.
-We downloaded all 17 quarters of Kepler Long-Cadence data from the MAST archive beginning on 2009 May 13 and ending on 2013 April 08 for a total of 1425 days or 2181.5 orbits.
-The Kepler data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
+We examine the 17 total quarters of \kepler\ data to understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, we sought to evaluate how likely/unlikely were the weak transits observed in 2013-2014 and normal transits in 2016.
+We downloaded all 17 quarters of \kepler\ Long-Cadence data from the MAST archive beginning on 2009 May 13 and ending on 2013 April 08 for a total of 1425 days or 2181.5 orbits.
+The \kepler\ data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
 A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 within the $\pm$ 0.28 phase window.
 All points are divided by this baseline to produce a normalized flux transit or eclipse profile.
 The secondary eclipses are used to quantify the noise in the transit depths.
 
-\subsection{Kepler Secondary Eclipse}
+\subsection{\kepler\ Secondary Eclipse}
 
 We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected at $\lesssim 50$~ppm, seen in Figure \ref{fig:secEclipse}. 
 We then use the secondary eclipses as a way to characterize the noise of the primary transits.
@@ -276,7 +275,7 @@ Both have the same quadratic baseline removal process over the same time interva
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/kepler/secondary_eclipse.pdf}
-\caption{No secondary eclipse ( $\lesssim$ 50 ppm) is detected from a phase range of -0.25 to 0.75, even with 17 quarters (4 years) of Kepler Long Cadence data.
+\caption{No secondary eclipse ( $\lesssim$ 50 ppm) is detected from a phase range of -0.25 to 0.75, even with 17 quarters (4 years) of \kepler\ Long Cadence data.
 Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calculated from the standard error in the mean of the data within a bin.
 }\label{fig:secEclipse}
 \end{centering}
@@ -287,7 +286,7 @@ Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calc
 \includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
 \includegraphics[width=0.32\textwidth]{images/kepler/model_riverplot.pdf}
 \includegraphics[width=0.32\textwidth]{images/kepler/residual_riverplot.pdf}
-\caption{Cleaned Kepler Long-cadence data (Left) and model fit using the average light curve (Middle).
+\caption{Cleaned \kepler\ Long-cadence data (Left) and model fit using the average light curve (Middle).
 (Right) The residuals show significant deviations near phases of -0.5 and 0.05.
 }\label{fig:riverPlots}
 \end{centering}
@@ -296,8 +295,8 @@ Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calc
 \subsection{Average Light Curve Analysis}
 
 In order to perform some analysis techniques on the data and to study the transit depth behavior, we first create a uniform cleaned two dimensional array of the time series.
-We linearly interpolated the Kepler long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
-This cleaned Kepler long-cadence array is shown in Figure \ref{fig:riverPlots}.
+We linearly interpolated the \kepler\ long-cadence data set onto a fixed phase grid with a spacing of 15 minutes (to Nyquist sample the 30 minute observation cadence) and put together all the time series that have no gaps into this two dimensional grid.
+This cleaned \kepler\ long-cadence array is shown in Figure \ref{fig:riverPlots}.
 
 We start by taking the average transit light curve of all the long cadence data (the mean of the 2D grid along the transit number axis).
 We then take the dot product ($\bullet$) with this average light curve to create an amplitude time series.
@@ -312,7 +311,7 @@ The residual of this model (Figure \ref{fig:riverPlots}) shows significant $\pm$
 We explore more sophisticated models than the average light curve below that are based on principal component analysis.
 However, this average model serves as a useful comparison to fitting the transit depth for ground-based photometry, as performed in Section \ref{sec:transFitting}.
 The 0.2\% residuals with this average model are comparable with the typical photometric scatter of $\sim$ 0.1\% to 0.2\% for 20 minute timescales in \citet{schlawin2016kic1255} and this work.
-We statistically compare the transit depths from the Kepler mission from 2009 to 2013 to the ground-based measurements from 2013 through 2016 in Section \ref{sec:statistics}.
+We statistically compare the transit depths from the \kepler\ mission from 2009 to 2013 to the ground-based measurements from 2013 through 2016 in Section \ref{sec:statistics}.
 
 \subsection{Principal Component Analysis}
 \begin{figure*}[!hbtp]
@@ -320,7 +319,7 @@ We statistically compare the transit depths from the Kepler mission from 2009 to
 \includegraphics[width=0.32\textwidth]{images/kepler/photometry_riverplot.pdf}
 \includegraphics[width=0.32\textwidth]{images/kepler/pca_model_2D.pdf}
 \includegraphics[width=0.32\textwidth]{images/kepler/pca_resid_2D.pdf}
-\caption{Cleaned Kepler Long-cadence data (Left) and model fit using 4 Principal Components (Middle).
+\caption{Cleaned \kepler\ Long-cadence data (Left) and model fit using 4 Principal Components (Middle).
 The residuals (Right) are $\lesssim 0.1\%$, significantly smaller than the $\sim 0.2\%$ residuals when using the average-light curve method shown in Figure \ref{fig:riverPlots}.
 }\label{fig:riverPlotsPCA}
 \end{centering}
@@ -412,23 +411,23 @@ The second principal components shows one dominant peak at 491 days, in addition
 
 
 \subsection{Statistical Analysis of Ground-based Photometry}\label{sec:statistics}
-We calculate and evaluate the Kepler transit amplitudes to compare to ground-based results and to understand the long-term behavior of \sha's disintegration.
-We take the histogram of transit amplitudes as measured by the Kepler light curves (shown in Figure \ref{fig:histoPhot}) and compare these to the ground-based photometry from \citet{schlawin2016kic1255} and this work.
-The histogram of secondary eclipse amplitudes from the Kepler light curves is also shown in \ref{fig:histoPhot}, which shows the spread due to photon noise.
+We calculate and evaluate the \kepler\ transit amplitudes to compare to ground-based results and to understand the long-term behavior of \sha's disintegration.
+We take the histogram of transit amplitudes as measured by the \kepler\ light curves (shown in Figure \ref{fig:histoPhot}) and compare these to the ground-based photometry from \citet{schlawin2016kic1255} and this work.
+The histogram of secondary eclipse amplitudes from the \kepler\ light curves is also shown in \ref{fig:histoPhot}, which shows the spread due to photon noise.
 The intrinsic astrophysical variation of the planet disintegration is convolved by this photometric scatter in the data.
 
-We compare the distribution of amplitudes from \citet{schlawin2016kic1255} from the Kepler long cadence data from 2009 to 2013.
-A Kolmogorov-Smirnov (KS) test gives a p value of 0.001 of the null hypothesis that the \citet{schlawin2016kic1255} results are drawn from the same distribution as the Kepler Long Cadence data.
+We compare the distribution of amplitudes from \citet{schlawin2016kic1255} from the \kepler\ long cadence data from 2009 to 2013.
+A Kolmogorov-Smirnov (KS) test gives a p value of 0.001 of the null hypothesis that the \citet{schlawin2016kic1255} results are drawn from the same distribution as the \kepler\ Long Cadence data.
 This indicated a possible slowdown of disintegration activity.
-However, the distribution from this work taken in 2016 shows consistency with the Kepler histogram, with the KS test p value of 0.5 of the null hypothesis. 
+However, the distribution from this work taken in 2016 shows consistency with the \kepler\ histogram, with the KS test p value of 0.5 of the null hypothesis. 
 We therefore conclude that the disintegration activity is stochastic with no long-term slowdown measurable from ground-based photometry.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/amp_distributions_comparison.pdf}
-\caption{Normalized frequency of 4 different transit amplitude distributions: 1) all of the Kepler Long Cadence data from 2009 to 2013, 2) the secondary eclipse amplitudes from the Kepler spacecraft over this same period, 3) the 8 night ground-based IRTF campaign in the summers of 2013 and 2014 from \citet{schlawin2016kic1255} (S16) and 4) the 5 night Kuiper observatory campaign in the summer of 2016.
-The \citet{schlawin2016kic1255} (S16) events give a KS-test p value of 0.001 when comparing to the Kepler data.
-In contrast, the 2016 photometric results in this work are consistent with the Kepler Long Cadence data, giving a  p value of 0.5.
+\caption{Normalized frequency of 4 different transit amplitude distributions: 1) all of the \kepler\ Long Cadence data from 2009 to 2013, 2) the secondary eclipse amplitudes from the \kepler\ spacecraft over this same period, 3) the 8 night ground-based IRTF campaign in the summers of 2013 and 2014 from \citet{schlawin2016kic1255} (S16) and 4) the 5 night Kuiper telescope campaign in the summer of 2016.
+The \citet{schlawin2016kic1255} (S16) events give a KS-test p value of 0.001 when comparing to the \kepler\ data.
+In contrast, the 2016 photometric results in this work are consistent with the \kepler\ Long Cadence data, giving a  p value of 0.5.
 This indicates that the transit depths are back to normal and there is no slowdown of disintegration activity over time.}\label{fig:histoPhot}
 \end{centering}
 \end{figure*}
@@ -479,7 +478,7 @@ There is one set of data taken on 2013 June 22 (UT) discussed in \citet{kawahara
 For this 2013 observation, the instrument was configured to use an image slicer unit \#2, which has a resolving power R$\approx$80,000.
 Additionally, there are two sets of observations from 2015 Aug 28 (UT) and 2015 Aug 29 (UT) that were taken to test if the planet could be on a high eccentricity grazing orbit \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
 The instrument was configured with a 0.3 mm (0.6\arcsec) wide and 30 mm long (60\arcsec) slit, which has a resolving power of R $\approx$60,000.
-The second set of observations happened after the reaction wheel failure on 2013 May 11\footnote{\url{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main Kepler field, so no simultaneous Kepler photometry was available with the high dispersion spectroscopy to assess disintegration activity preceding or following the spectra.
+The second set of observations happened after the reaction wheel failure on 2013 May 11\footnote{\url{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main \kepler\ field, so no simultaneous \kepler\ photometry was available with the high dispersion spectroscopy to assess disintegration activity preceding or following the spectra.
 None of the observations was timed during a primary transit (phase = 0.0) or secondary eclipse (phase = 0.5 for a circular orbit).
 
 \begin{deluxetable}{cccccccc}
@@ -640,13 +639,13 @@ We therefore conclude that the noise in the spectrum affected the stellar parame
 
 \section{Conclusions}\label{sec:conclusions}
 
-We obtained ground-based R band photometry from the Kuiper 61-inch observatory to follow up a possible slowdown in disintegration activity observed in 2013 and 2014.
-\citet{schlawin2016kic1255} found shallow transits that were all below the Kepler observatory average in August-September 2013 and August-September 2014.
+We obtained ground-based R band photometry from the Kuiper 61-inch telescope to follow up a possible slowdown in disintegration activity observed in 2013 and 2014.
+\citet{schlawin2016kic1255} found shallow transits that were all below the \kepler\ observatory average in August-September 2013 and August-September 2014.
 One possibility was a long term evolution of the disintegration activity, such as a reduction of available dusty material of the planet or a slowdown in the disintegration mechanism.
-Our transit depths from June-July 2016 are instead consistent with the depths from the Kepler observatory from 2009 to 2013, with a KS-test between the two distributions resulting in a p-value of 0.5 that depths are drawn from the same distribution.
-This indicates that the shallow transit depths observed in August-September 2013 and August-September 2014 likely fell into the 14-36 day long quiescent intervals of disintegration activity as observed in Kepler photometry \citep{kawahara2013starspots,vanWerkhoven2014,croll2015starspots}.
+Our transit depths from June-July 2016 are instead consistent with the depths from the \kepler\ observatory from 2009 to 2013, with a KS-test between the two distributions resulting in a p-value of 0.5 that depths are drawn from the same distribution.
+This indicates that the shallow transit depths observed in August-September 2013 and August-September 2014 likely fell into the 14-36 day long quiescent intervals of disintegration activity as observed in \kepler\ photometry \citep{kawahara2013starspots,vanWerkhoven2014,croll2015starspots}.
 
-We re-analyze the existing Kepler photometry with PCA to better understand the time dependence and statistics of the light curves.
+We re-analyze the existing \kepler\ photometry with PCA to better understand the time dependence and statistics of the light curves.
 We find that the first eigenvector corresponds to the overall transit depth whereas the second eigenvector corresponds to models of forward-scattering from  large-sized dust grains.
 The first principal component tracks closely with the transit depths and exhibits modulations at periods of 22.9, 153 and 750 days.
 The second principal component is nearly sinusoidal with a 491 day period, indicating possible long term evolution of the dust particle sizes.
@@ -663,7 +662,6 @@ We argue that low signal to noise in the initial Subaru HDS spectra affected pre
 
 \section{Acknowledgements}
 %Thanks to Alessondra Springman for good resources on core and mantle compositions and the gases that could sublimate off of them.
-%Thanks to Jonathan Fraine and Rafia Bushra for help with observing at the 61-inch Kuiper telescope on Mt Bigelow.
 %MCMC fitting makes use of \texttt{emcee} \citep{foreman-mackey2013emcee} and the covariance plot was made with \texttt{corner.py} \citep{foremanCorner}.
 Thanks to Kento Masuda for sharing the 2015 Subaru spectrum of \shStar\ and giving helpful comments on this work.
 Funding for the E Schlawin is provided by NASA Goddard Spaceflight Center.
