@@ -91,7 +91,7 @@ There is a tentative 491 day periodicity of the second principal component, whic
 %\section{Abstract}
 
 
-\section{Introduction}
+\section{Introduction}\label{sec:Intro}
 \citet{rappaport} first reported the discovery of a highly unusual stellar system in the \kepler\ field.
 KIC 12557548's (hereafter \shStar's) light curve exhibits flux dips with a period of 0.653 days.
 Surprisingly, the flux dips are neither symmetric in shape nor constant in amplitude, varying from $\sim$ 0\% to $\sim$ 1.2\%.
@@ -100,29 +100,30 @@ This indicates that dusty material with a projected area $\sim$1\% of the stella
 These unusual light curve behaviors are best explained as dust extinction from material that is escaping a rocky planet (KIC 12557548 b, hereafter \sha) in a short period orbit.
 The KIC 12557548/KOI-3794/Kepler-1520 system (hereafter \shStar) has the exciting possibility of being an opportunity to study a planet that has been peeled away layer by layer to reveal an interior core.
 
-The discovery of K2-22b \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating}, KOI 2700 \citep{rappaport2014KOI2700} and KIC 3542116 \citep{rappaport2018exocomets} showed that other systems have similar light curves and that several disintegrating planet systems may be useful laboratories for understanding planet evolution and composition.
-Multi-wavelength light curve measurements show that the dust particles can have wavelength-dependent transmission, as predicted from sub-micron dust particles \citep{bochinski2015evolving,sanchis-ojedak2-22}.
+After the discovery of K1255, other systems were found to show similar light curve behavior: K2-22b \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating}, KOI 2700 \citep{rappaport2014KOI2700} and KIC 3542116 \citep{rappaport2018exocomets}.
+A collection, albeit small, of several different disintegrating planet systems makes for a useful laboratory for understanding planet evolution and composition.
+Multi-wavelength light curve measurements show that the dust particles inferred to be escaping from these objects can have wavelength-dependent transmission, as predicted for sub-micron dust particles \citep{bochinski2015evolving,sanchis-ojedak2-22}.
 
 Furthermore, there are perplexing systems that also display stochastic transit behavior but for which there are still no fully agreed-upon explanations: KIC 8462852 (ie. Boyajian's star) \citep{boyajian846}, RIK-210/EPIC 205483258 \citep{david2017rik210},  and PTFO 8-8695 \citep{vanEyken2012ptfTTauri}.
-KIC 8462852 may be a family of comets from one or more parent bodies that recently were broken apart \citep{boyajian846,bodman2016kic8462852cometFamily,wright2016familiesOfSolutions}.
-RIK-210 and PTFO 8-8695 are both in young systems ($\lesssim$ 10 and $\lesssim$3 Myr respectively) so they may be proto-planet candidates or structures within a protoplanetary disk \citep{stauffer2017orbitingClouds,yu2015ptfO8d8695PlanetHypothesisTest}.
+KIC 8462852 may be a family of comets from one or more parent bodies that recently broke apart \citep{boyajian846,bodman2016kic8462852cometFamily,wright2016familiesOfSolutions}.
+RIK-210 and PTFO 8-8695 are both in young systems ($\lesssim$ 10 and $\lesssim$3 Myr, respectively), so they may be proto-planet candidates or structures within a protoplanetary disk \citep{stauffer2017orbitingClouds,yu2015ptfO8d8695PlanetHypothesisTest}.
 RIK-210 could be accreting material that causes variable extinction while PTFO 8-8695's orbit may be precessing and causing variations in transit depth depending on its longitude, though only portions of the lightcurve are explained this way \citep{barnes2013PTFO8d8695NodalPrecession,yu2015ptfO8d8695PlanetHypothesisTest}.
-
-The underlying planet candidate \sha\ has not been detected directly, but several observational constraints have placed upper limits on its size and mass.
-High precision radial velocity measurements of the host star with Keck/HIRES put an upper limit on the reflex motion due to the planet and constrains the mass to be $\lesssim 1.2 M_{\mathrm Jup}$ \citep{croll2014}.
-\citet{masuda2018rvKIC1255} find that the upper limit on the radial velocity semi-amplitude is 86 m/s corresponding to a planet mass $\lesssim 0.28 M_{\mathrm Jup}$ using the Subaru High Dispersion Spectrometer (HDS).
-There is no detection of secondary eclipses of \sha\ with a 3$\sigma$ upper limit of $5 \times 10^{-5}$ in the \kepler\ bandpass, which means that for an albedo of 0.5, the radius of the planet must be smaller than 4600 km \citep{vanWerkhoven2014}.
-A radiative-hydrodynamic wind model predicts that the mass loss rate will be a strong function of planet mass and for the present-day mass loss rate of $\sim$ M$_\oplus/Gyr$, the modeled mass is 0.014 $M_\oplus$ \citep{perez-becker}.
-
-One possible explanation of for the planet disintegration is that it is tied to stellar activity.
-\citet{kawahara2013starspots} found an anti-correlation between stellar flux and the depth of transit events, which suggested that the alignment of the planet's position (true anomaly) causes disintegration.
-The alignment of spots and disintegration activity could be due to XUV photoevaporation or magnetic reconnection events.
-The anti-correlation between stellar flux and transit depth was confirmed by \citet{croll2015starspots} though they find that occultations of star spots can also modulate the transit depth at the 22.9 day rotation period of the star.
 
 The \kepler\ spacecraft performed near-continuous long cadence photometry for KIC 12557548 during its entire main mission lifetime from 2009 to 2013.
 During this time, the transit depths averaged around $\sim$0.6\% but varied stochastically from just one 15.7 hour orbit to the next.
 \citet{vanWerkhoven2014} analyzed 15 of the total 17 quarters of data and calculated every transit depth during this period.
 There were two intervals near obits 50 and 1950 that showed shallower (0.1\%) than average transit depths for roughly one month in duration.
+
+The underlying planet candidate \sha\ has not been detected directly, but several observational constraints have placed upper limits on its size and mass.
+High precision radial velocity measurements of the host star with Keck/HIRES put an upper limit on the reflex motion due to the planet and constrains the mass to be $\lesssim 1.2 M_{\mathrm Jup}$ \citep{croll2014}.
+\citet{masuda2018rvKIC1255} find that the upper limit on the radial velocity semi-amplitude is 86 m/s corresponding to a planet mass $\lesssim 0.28 M_{\mathrm Jup}$ using the Subaru High Dispersion Spectrometer (HDS).
+There is no detection of secondary eclipses of \sha\ with a 3$\sigma$ upper limit of $5 \times 10^{-5}$ in the \kepler\ bandpass, which means that for an albedo of 0.5, the radius of the planet must be smaller than 4600 km \citep{vanWerkhoven2014}.
+A radiative-hydrodynamic wind model predicts that the mass loss rate will be a strong function of planet mass and for the present-day mass loss rate of $\sim$ M$_\oplus/Gyr$ (determined by the mass of dust needed to absorb and scatter 10$^{-2}$ of star light per orbit), the modeled mass is 0.014 $M_\oplus$ \citep{perez-becker}.
+
+One possible explanation for the planet disintegration is that it is tied to stellar activity.
+\citet{kawahara2013starspots} found an anti-correlation between stellar flux and the depth of transit events and suggested that the alignment of the planet's position (true anomaly) with active regions on the star causes disintegration.
+The alignment of spots and disintegration activity could be due to XUV photoevaporation or magnetic reconnection events.
+The anti-correlation between stellar flux and transit depth was confirmed by \citet{croll2015starspots} though they find that occultations of star spots can also modulate the transit depth at the 22.9 day rotation period of the star.
 
 The \kepler\ data was used to put constraints on the particle size distribution and composition of the dust particles.
 \citet{budaj12} and \citet{brogi2012} modeled the light curve, which includes a slight increase in flux prior before the transit begins.
@@ -139,12 +140,13 @@ Subsequently, \citet{croll2014} obtained a $K'$-band light curve simultaneously 
 The SpeX/IRTF spectrum, though affected by systematic noise, confirmed the \citet{croll2014} result that particle sizes are $\gtrsim 0.5\%$ for a pyroxene composition.
 \citet{schlawin2016kic1255} found that the optical transit depths were all weaker than $0.43\%$ and that the probability of this randomly occurring based on random behavior from \kepler\ statistics was around 0.2\%.
 This was evidence that the observations occurred during weaker periods (as found in \citet{vanWerkhoven2014}'s 15 \kepler\ quarter analysis) or that the disintegration activity was falling off with time.
-We performed follow-up $R$ band photometry of the \shStar\ system to explore these two hypotheses and see if the the disintegration has returned to the levels found in the \kepler\ mission.
+We performed follow-up $R$ band photometry of the \shStar\ system to explore these two hypotheses and see if the the disintegration has returned to the levels found in the \kepler\ mission and discuss this in Section \ref{sec:photObs}.
+We also re-analyze the \kepler\ photometry in order to quantify the light curve behavior in Section \ref{sec:Kepler}.
 
 The high resolution spectrum of \shStar\ \citep{kawahara2013starspots} showed a different temperature and gravity than photometric methods \cite[e.g.][]{brown2011kic}.
 \citet{vanlieshout2016kic1255} suggest that one exciting possibility is that gases from the disintegrating planet contaminate the high resolution spectrum.
 This would enable compositional and kinematic studies of the disintegrating planet.
-Here, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of the star to assess the stellar parameters and explore the possibility that sublimated gases appear in the high resolution spectrum.
+In Section \ref{sec:SubaruDescrip}, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of the star to assess the stellar parameters and explore the possibility that sublimated gases appear in the high resolution spectrum.
 
 \begin{deluxetable}{lrrrr}
 \tablecaption{List of photometric observations}\label{tab:photSummary}
@@ -169,7 +171,7 @@ Here, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of t
 The seeing is expressed as the median FWHM for the night in arcseconds.}
 \end{deluxetable}
 
-\section{Photometric Observations}
+\section{Photometric Observations}\label{sec:photObs}
 We attempted to observe 6 transit events of \sha\ with the Mont4k imager on the 61-inch Kuiper telescope located on Mt Bigelow, Arizona on UT using the f/13.5 Cassegrain focus.
 On all nights we used 90 second exposures using a Harris-R filter to best approximate the $r'$ filter used in \citet{schlawin2016kic1255}.
 5 of the 6 nights were clear with the exception of a few passing clouds on UT 2016 Jul 14.
