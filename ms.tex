@@ -340,14 +340,16 @@ We use the Python package \texttt{scikit-learn} \citep{pedregosa2011scikit-learn
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255.pdf}
 \includegraphics[width=0.49\textwidth]{images/kepler/pca_k1255_transformed.pdf}
-\caption{The principal component eigenvectors scaled by their eigenvalues (Left), shows that the first component largely describes the extinction while the second shows the contributions from forward scattering.
-When the eigenvectors are transformed into light curves (Right), it can be seen that the first component corresponds to small dust particle sizes with negligible forward scattering and that the second component corresponds to large dust particle sizes with pronounced forward scattering before and after the transit mid-point.
+\caption{The principal component eigenvectors scaled by their eigenvalues (Left), shows that the first eigenvector largely describes the extinction while the second shows the contributions from forward scattering.
+When the eigenvectors are transformed into light curves (Right), it can be seen that the first eigenvector corresponds to small dust particle sizes with negligible forward scattering \citep[dash-dot purple model][]{budaj12}.
+The second eigenvector resembles models with large dust particle sizes with pronounced forward scattering before and after the transit mid-point \citep[dashed brown model][]{budaj12}.
+The models are offset vertically for clarity.
 }\label{fig:pcaVectorsComp}
 \end{centering}
 \end{figure*}
 
 We use a covariance matrix as opposed to correlation matrix to calculate the principal component eigenvectors.
-In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component vectors \citep{jolliffe2002pca}.
+In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component eigenvectors \citep{jolliffe2002pca}.
 However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units (normalized flux).
 If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$ -0.12 to $\sim$0.15).
 The model using the first 4 principal components shown in Figure \ref{fig:riverPlotsPCA} better matches the data and has residuals much closer to white noise than the model that uses the dot product with the average light curve.
@@ -356,7 +358,12 @@ Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of 
 For the eigenvectors plot, we multiply each eigenvector by its eigenvalue to emphasize the relative covariances between the principal components and phase grid variables.
 The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points (variables) in the phase grid from -0.25 to 0.25.
 We also transform the eigenvectors into light curves by multiplying each eigenvector by the standard deviation of principal components and adding it to the average light curve.
-The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering whereas the second eigenvector corresponds to models of large dust grains with more forward scattering \citep[e.g. models from][]{budaj12}.
+
+The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering so that the light curve is dominated by the extinction \citep{budaj12}.
+We also note that the second eigenvector resembles models of large dust grains from \citet{budaj12}, where the forward scattering from particles that are a similar order of magnitude as the wavelength cause a pronounced pre-ingress flux increase.
+The fact that the pre-ingress flux increase is not found in the first eigenvector and instead is pronounced in orthogonal eigenvectors suggests that the dust particle sizes may be changing in time.
+We would expect that a dust cloud that only varies in the number of particles but not in grain size would be exhibit a forward scattering in the first principal component because the forward scattering flux increase goes up with the number of particles.
+
 The implication of the PCA then is that the dust particle sizes may be changing with time.
 
 \begin{figure*}[!hbtp]
@@ -369,7 +376,7 @@ The second principal component shows periodicity at 491 days, indicating possibl
 \end{centering}
 \end{figure*}
 
-Figure \ref{fig:tserPC} shows the time series of the first two principal components.
+Figure \ref{fig:tserPC} shows the time series of the first two principal components (PC$_1$ and PC$_2$).
 We highlight the quiescent periods, which are also discussed in \citet{kawahara2013starspots}, \citet{vanWerkhoven2014} and \citet{croll2015starspots}.
 The first principal component largely tracks closely with the dot product of the average light curve ($A'$).
 The quiescent periods show up as 14 to 36 day long intervals of low amplitude events.
@@ -418,21 +425,21 @@ The second principal components shows one dominant peak at 491 days, in addition
 \subsection{Statistical Analysis of Ground-based Photometry}\label{sec:statistics}
 We calculate and evaluate the \kepler\ transit amplitudes to compare to ground-based results and to understand the long-term behavior of \sha's disintegration.
 We take the histogram of transit amplitudes as measured by the \kepler\ light curves (shown in Figure \ref{fig:histoPhot}) and compare these to the ground-based photometry from \citet{schlawin2016kic1255} and this work.
-The histogram of secondary eclipse amplitudes from the \kepler\ light curves is also shown in \ref{fig:histoPhot}, which shows the spread due to photon noise.
+The histogram of secondary eclipse amplitudes from the \kepler\ light curves is also shown in Figure \ref{fig:histoPhot}, which shows the spread due to photon noise.
 The intrinsic astrophysical variation of the planet disintegration is convolved by this photometric scatter in the data.
 
 We compare the distribution of amplitudes from \citet{schlawin2016kic1255} from the \kepler\ long cadence data from 2009 to 2013.
-A Kolmogorov-Smirnov (KS) test gives a p value of 0.001 of the null hypothesis that the \citet{schlawin2016kic1255} results are drawn from the same distribution as the \kepler\ Long Cadence data.
+A Kolmogorov-Smirnov (KS) test gives a $p$ value of 0.001 of the null hypothesis that the \citet{schlawin2016kic1255} results are drawn from the same distribution as the \kepler\ Long Cadence data.
 This indicated a possible slowdown of disintegration activity.
-However, the distribution from this work taken in 2016 shows consistency with the \kepler\ histogram, with the KS test p value of 0.5 of the null hypothesis. 
+However, the distribution from this work taken in 2016 shows consistency with the \kepler\ histogram, with the KS test $p$ value of 0.5 of the null hypothesis. 
 We therefore conclude that the disintegration activity is stochastic with no long-term slowdown measurable from ground-based photometry.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{images/kepler/amp_distributions_comparison.pdf}
 \caption{Normalized frequency of 4 different transit amplitude distributions: 1) all of the \kepler\ Long Cadence data from 2009 to 2013, 2) the secondary eclipse amplitudes from the \kepler\ spacecraft over this same period, 3) the 8 night ground-based IRTF campaign in the summers of 2013 and 2014 from \citet{schlawin2016kic1255} (S16) and 4) the 5 night Kuiper telescope campaign in the summer of 2016.
-The \citet{schlawin2016kic1255} (S16) events give a KS-test p value of 0.001 when comparing to the \kepler\ data.
-In contrast, the 2016 photometric results in this work are consistent with the \kepler\ Long Cadence data, giving a  p value of 0.5.
+The \citet{schlawin2016kic1255} (S16) events give a KS-test $p$ value of 0.001 when comparing to the \kepler\ data.
+In contrast, the 2016 photometric results in this work are consistent with the \kepler\ Long Cadence data, giving a  $p$ value of 0.5.
 This indicates that the transit depths are back to normal and there is no slowdown of disintegration activity over time.}\label{fig:histoPhot}
 \end{centering}
 \end{figure*}
@@ -484,7 +491,7 @@ For this 2013 observation, the instrument was configured to use an image slicer 
 Additionally, there are two sets of observations from 2015 Aug 28 (UT) and 2015 Aug 29 (UT) that were taken to test if the planet could be on a high eccentricity grazing orbit \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
 The instrument was configured with a 0.3 mm (0.6\arcsec) wide and 30 mm long (60\arcsec) slit, which has a resolving power of R $\approx$60,000.
 The second set of observations happened after the reaction wheel failure on 2013 May 11\footnote{\url{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main \kepler\ field, so no simultaneous \kepler\ photometry was available with the high dispersion spectroscopy to assess disintegration activity preceding or following the spectra.
-None of the observations was timed during a primary transit (phase = 0.0) or secondary eclipse (phase = 0.5 for a circular orbit).
+None of the observations were timed during a primary transit (phase = 0.0) or secondary eclipse (phase = 0.5 for a circular orbit).
 
 \begin{deluxetable}{cccccccc}
 \tablecaption{List of Spectroscopic Observations}
@@ -510,19 +517,19 @@ None of the observations was timed during a primary transit (phase = 0.0) or sec
 
 
 \subsection{Data Reduction}
-For the 2015 data, we use the same spectra as in \citep{masuda2018rvKIC1255}.
+For the 2015 data, we use the same spectra, as in \citet{masuda2018rvKIC1255}.
 All telluric emission features and outliers are masked in this analysis to remove these components.
 Time-variable outliers, such as cosmic rays, are removed by measuring deviations from the median spectrum for the night.
 The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
 All OH and O$_2$ lines are removed regardless if they are visible in the spectrum of \shStar.
-To combine the observations, we found the median spectrum for UT dates 2015 Aug 28 and 2015 Aug 29 to robustly combine the data.
+We combined the normalized spectra from UT dates 2015 Aug 28 and 2015 Aug 29 with a median in the time direction, which is more robust to cosmic rays than an average.
 %This median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
 
 For the 2013 data, we follow the \texttt{iraf} reduction techniques from the instrument manual V2.0.0  \footnote{\url{https://www.subarutelescope.org/Observing/Instruments/HDS/}}.
 Some modifications to the manual were made, including a more aggressive -50/+50 lower and upper window for bad pixel identification with \texttt{mkbadpx} on the red CCD.
 We applied bad pixel masks and bias files to each CCD (red and blue sides) separately.
 We performed wavelength calibration with a Thorium Argon reference spectrum.
-The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in x direction and 4th order in y direction.
+The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in the x direction and 4th order in the y direction.
 This polynomial fit has a RMS error of 0.02$\AA$.
 
 We compare the 2013 and 2015 data to search for any variability in the absorption lines, as seen in Figure \ref{fig:spec2013vs2015}.
@@ -539,20 +546,20 @@ We then proceed with the 2015 data to constrain stellar models since it has 6.7 
 \end{figure*}
 
 \subsection{Comparison to BOSZ}
-We first evaluate stellar parameters by comparing to the high resolving power ($R=100,000$) BOSZ grids of ATLAS-APOGEE ATLAS9 models \citep{bohlin2017bosz} to the median spectrum from 2015.
+We first evaluate stellar parameters by comparing the high resolving power ($R=100,000$) BOSZ grids of ATLAS-APOGEE ATLAS9 models \citep{bohlin2017bosz} to the median spectrum from 2015.
 Since the discrepancies in the literature are mostly differences in the surface gravity (see Table \ref{tab:stellObsParams}), we study the gravity-sensitive Mg triplet near 517 nm.
 The $R=100,000$ models are convolved with a Gaussian kernel that has a standard deviation $\sigma_K = \lambda/161,000 \approx 0.03 \AA$ to best match the data.
-This was a smaller we expected from combining inverse resolving powers in quadrature, which would imply that an $R=75,000 $ kernel convolved with an $R=100,000$ spectrum would result in a $R=60,000$ spectrum.
+This was smaller than we expected from combining inverse resolving powers in quadrature, which would imply that an $R=75,000 $ kernel convolved with an $R=100,000$ spectrum would result in a $R=60,000$ spectrum.
 We start by comparing the measured spectrum with two BOSZ models in Figure \ref{fig:mgTripletBOSZ}.
 Here, the two BOSZ models are broadly representative of the two types of results in Table \ref{tab:stellObsParams} (log(g)=4.5 and log(g)=4.0).
 The higher gravity log(g)=4.5 model appears to match the data better in terms of line ratios but does not explain all of the line depths in the spectrum.
 
-\begin{figure}[!hbtp]
+\begin{figure*}[!hbtp]
 \begin{centering}
-\includegraphics[width=0.49\textwidth]{images/subaru/bosz_mg_triplet_median_spec_w_5000.pdf}
+\includegraphics[width=0.85\textwidth]{images/subaru/bosz_mg_triplet_median_spec_w_5000.pdf}
 \caption{Median spectrum of \shStar\ \citep{masuda2018rvKIC1255} near the Mg triplet (green) compared to 4500 K BOSZ models with two different log(g)s (blue and orange). The standard error in the mean is shown at an arbitrary Y location as a red line.}\label{fig:mgTripletBOSZ}
 \end{centering}
-\end{figure}
+\end{figure*}
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -575,11 +582,11 @@ The errors are estimated from the standard deviation of the spectra over the nig
 
 %A temperature near 4500 K, log(g) = 4.0-4.5, high metallicity ([M/H] $\approx$ 0.5), low $\alpha$ enrichment ($\alpha \approx -0.25$ and solar Carbon to metals ([C/M] $\approx$ 0) are favored by the models.
 
-After initial constraints on the models from the sensitivity to parameters search, we downloaded a grid of BOSZ models with temperatures ranging from 4250 K to 4750 K, Log(g) from 4.0 to 4.5, [M/H] from 0.0 to 0.5, [C/M]=0.0 and [$\alpha$/M] = -0.25 to 0.0.
-We found the model with the  $\chi^2$ statistic over the Mg triple lines from 5160 to 51690 $\AA$
+After initial constraints on the models from the sensitivity to parameters search, we downloaded a grid of BOSZ models with effective temperatures ranging from 4250 K to 4750 K, Log(g) from 4.0 to 4.5, [M/H] from 0.0 to 0.5, [C/M]=0.0 and [$\alpha$/M] = -0.25 to 0.0.
+We found the model with the  $\chi^2$ statistic over the Mg triple lines from 5160 to 5190 $\AA$
 As discussed above, we use an approximate $\chi^2$ statistic over the wavelength range covering the Mg triplet (5160 $\AA$ to 5190 $\AA$).
-The minimum $\chi^2$ model for this entire grid is the same as shown in Figure \ref{fig:boszModelParamsMedianSpec} on the Bottom Right: T=4500 K, Log(g)=4.5, M/H=0.0, C/M=0.0, $\alpha=-0.25$.
-This is similar to the log(g)$\approx$4.6, T=4500 stellar parameters derived from photometry and low resolution spectroscopy listed in Table \ref{tab:stellObsParams}.
+The minimum $\chi^2$ model for this entire grid is the same as shown in Figure \ref{fig:boszModelParamsMedianSpec} on the Bottom Right: T$_{eff}$=4500 K, Log(g)=4.5, M/H=0.0, C/M=0.0, $\alpha=-0.25$.
+This is similar to the log(g)$\approx$4.6, T$_{eff}$=4500 stellar parameters derived from photometry and low resolution spectroscopy listed in Table \ref{tab:stellObsParams}.
 
 \subsection{SpecMatch-Emp}\label{sec:SpecMatch-Emp}
 
@@ -592,7 +599,6 @@ Figure \ref{fig:SpecMatch-Emp} shows the chi-squared differences between the med
 The effective temperature and radius parameters show clear global $\chi^2$ minima for the HIRES spectral libraries.
 However, the metallicity is less well constrained.
 The resulting best-fit parameters from \texttt{SpecMatch-Emp} are T$_{eff}$=4500 K $\pm$ 110 K, [Fe/H]=-0.1$\pm$0.1, log(g)=4.5$\pm$0.1, R=0.7 $\pm$ 0.1 R$_\odot$ and Mass=0.7 $\pm 0.1 $M$_\odot$.
-The output \texttt{SpecMatch-Emp} age constraint of 9.6 $\pm$ 0.2 Gyr is likely an underestimated error in the age.
 Figure \ref{fig:SpecMatch-EmpComb} shows the linear combination of spectra that best-fit \shStar\ from \texttt{SpecMatch-Emp}.
 
 \begin{figure*}[!hbtp]
@@ -660,7 +666,7 @@ The remaining periodicities are longer than the dynamical and sublimation times 
 \citet{vanlieshout2016kic1255} compile the stellar parameters reported in the literature via photometric and spectroscopic methods and note that the high resolution spectrum show that \shStar\ has the gravity of a sub-giant, whereas all other methods find that it is a main sequence star.
 One exciting possibility suggested in \citet{vanlieshout2016kic1255} is that the planet disintegration affects the spectral lines of the star and affects the high resolution spectrum from \citet{kawahara2013starspots}.
 We explore this possibility by examining archival Subaru HDS spectra of \shStar.
-We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T=4500 $\pm$ 110 K, log(g) = 4.5, [Fe/H]=-0.1$\pm$0.1, M=0.7$\pm$0.1 R$_\odot$ and M=0.7 $\pm$0.1 M$_\odot$.
+We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T$_{eff}$=4500 $\pm$ 110 K, log(g) = 4.5, [Fe/H]=-0.1$\pm$0.1, M=0.7$\pm$0.1 R$_\odot$ and M=0.7 $\pm$0.1 M$_\odot$.
 Therefore, the optical depth of any gas sublimating of dust grains is too small to affect the high resolution spectrum.
 We argue that low signal to noise in the initial Subaru HDS spectra affected previous interpretations of the stellar parameters.
 
