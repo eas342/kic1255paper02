@@ -93,11 +93,13 @@ There is a tentative 491 day periodicity of the second principal component, whic
 
 \section{Introduction}\label{sec:Intro}
 \citet{rappaport} first reported the discovery of a highly unusual stellar system in the \kepler\ field.
-KIC 12557548's (hereafter \shStar's) light curve exhibits flux dips with a period of 0.653 days.
-Surprisingly, the flux dips are neither symmetric in shape nor constant in amplitude, varying from $\sim$ 0\% to $\sim$ 1.2\%.
+KIC 12557548's light curve exhibits flux dips with a period of 0.653 days.
+Surprisingly, the flux dips are neither symmetric in shape nor constant in amplitude, varying from $\sim$0\% to $\sim$1.2\%.
 The amplitudes of the flux dips are highly stochastic and unpredictable from one event to the next 0.653 days later.
-This indicates that dusty material with a projected area $\sim$1\% of the stellar surface is created and cleared in $\lesssim$ 1 day timescales.
-These unusual light curve behaviors are best explained as dust extinction from material that is escaping a rocky planet (KIC 12557548 b, hereafter \sha) in a short period orbit.
+This is radially different from a transiting planet, where the planet absorbs the same amount of light from the star each orbit and does so symmetrically about the star, modulo stellar inhomogenities.
+The time variability of the flux dips indicates that material with a projected area $\sim$1\% of the stellar surface is created and cleared in $\lesssim$ 1 day timescales in order to extinct $\sim$1.2\% of starlight at one epoch and $\sim$0\% at another.
+These unusual light curve behaviors are best explained as dust extinction from a comet-like tail of material that is escaping a rocky planet (KIC 12557548 b, hereafter \sha) in a short period orbit.
+The comet-like shape of the dust explains the asymmetric shape of the light curve profile.
 The KIC 12557548/KOI-3794/Kepler-1520 system (hereafter \shStar) has the exciting possibility of being an opportunity to study a planet that has been peeled away layer by layer to reveal an interior core.
 
 After the discovery of K1255, other systems were found to show similar light curve behavior: K2-22b \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating}, KOI 2700 \citep{rappaport2014KOI2700} and KIC 3542116 \citep{rappaport2018exocomets}.
@@ -267,20 +269,21 @@ We will revisit the statistics of these events in Section \ref{sec:statistics}.
 We examine the 17 total quarters of \kepler\ data to understand the statistics of the transits and put the 2013-2016 observations in context. Mainly, we sought to evaluate the likelihood of the weak transits observed in 2013-2014 and normal transits in 2016.
 We downloaded all 17 quarters of \kepler\ Long-Cadence data from the MAST archive beginning on 2009 May 13 and ending on 2013 April 08 for a total of 1425 days or 2181.5 orbits.
 The \kepler\ data were examined for one transit or secondary eclipse at a time with a window of $\pm$0.28 in orbital phase.
-A quadratic baseline is fit to all the points before a phase of 0.12 and after a phase of 0.15 within the $\pm$ 0.28 phase window.
+A quadratic baseline is fit to all the points before a phase of -0.12 and after a phase of 0.15 within the $\pm$ 0.28 phase window.
+The -0.12 and 0.28 phases are set from the points within the average \kepler\ light curve that are within $\pm$ 200 ppm from the median out-of-transit flux.
 All points are divided by this baseline to produce a normalized flux transit or eclipse profile.
 The secondary eclipses are used to quantify the noise in the transit depths.
 
 \subsection{\kepler\ Secondary Eclipse}
 
-We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected at $\lesssim 50$~ppm, seen in Figure \ref{fig:secEclipse}. 
+We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected at f$_p$/f$_*$ $\lesssim 50$~ppm, seen in Figure \ref{fig:secEclipse}, where f$_p$/f$_*$ is the relative flux of the planet to star in the Kepler bandpass.
 We then use the secondary eclipses as a way to characterize the noise of the primary transits.
 Both have the same quadratic baseline removal process over the same time intervals.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/kepler/secondary_eclipse.pdf}
-\caption{No secondary eclipse ( $\lesssim$ 50 ppm) is detected from a phase range of -0.25 to 0.75, even with 17 quarters (4 years) of \kepler\ Long Cadence data.
+\caption{No secondary eclipse (f$_p$/f$_*$ $\lesssim$ 50 ppm) is detected from a phase range of 0.25 to 0.75, even with 17 quarters (4 years) of \kepler\ Long Cadence data.
 Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calculated from the standard error in the mean of the data within a bin.
 }\label{fig:secEclipse}
 \end{centering}
@@ -292,7 +295,7 @@ Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calc
 \includegraphics[width=0.32\textwidth]{images/kepler/model_riverplot.pdf}
 \includegraphics[width=0.32\textwidth]{images/kepler/residual_riverplot.pdf}
 \caption{Cleaned \kepler\ Long-cadence data (Left) and model fit using the average light curve (Middle).
-(Right) The residuals show significant deviations near phases of -0.5 and 0.05.
+(Right) The residuals show significant deviations near phases of -0.05 and 0.05.
 }\label{fig:riverPlots}
 \end{centering}
 \end{figure*}
@@ -381,9 +384,7 @@ We highlight the quiescent periods, which are also discussed in \citet{kawahara2
 The first principal component largely tracks closely with the dot product of the average light curve ($A'$).
 The quiescent periods show up as 14 to 36 day long intervals of low amplitude events.
 The second principal component shows some sinusoidal behavior at a $\sim$500 day period, indicating that the large particles may be evolving.
-However, the timescales are much longer than dynamical and sublimation times for this system.
-
-
+However, the timescale of these sinusoidal modulations of PC$_2$ is much longer than dynamical time (t$_{dyn} \sim$ P = 0.65 days) and sublimation times \citep[$t_{sub} \sim$1 day][]{rappaport} for this system.
 
 %We also show the first two principal components as a scatter plot in Figure \ref{fig:pcaVectorsComp}.
 %In some applications of PCA, separate populations of behaviors can appear in these scatter plots (such as different modes of planet disintegration) but here there is a continuous distribution points.
@@ -536,7 +537,7 @@ We compare the 2013 and 2015 data to search for any variability in the absorptio
 Absorption line variability could be caused by disintegration activity of the planet that escapes as dusty material and then sublimates into gas.
 This gas absorption could provide kinematic information on escaping material provided that the sublimated gas has sufficient optical depth.
 We find no statistically significant differences between the 2013 and 2015 spectra, as shown in Figure \ref{fig:spec2013vs2015}.
-We then proceed with the 2015 data to constrain stellar models since it has 6.7 hours of total exposure time compared (compared to 1.5 hours in 2013).
+We then proceed with the 2015 data to constrain stellar models since it has 6.7 hours of total exposure time (compared to 1.5 hours in 2013).
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -656,14 +657,14 @@ One possibility was a long term evolution of the disintegration activity, such a
 Our transit depths from June-July 2016 are instead consistent with the depths from the \kepler\ observatory from 2009 to 2013, with a KS-test between the two distributions resulting in a p-value of 0.5 that depths are drawn from the same distribution.
 This indicates that the shallow transit depths observed in August-September 2013 and August-September 2014 likely fell into the 14-36 day long quiescent intervals of disintegration activity as observed in \kepler\ photometry \citep{kawahara2013starspots,vanWerkhoven2014,croll2015starspots}.
 
-We re-analyze the existing \kepler\ photometry with PCA to better understand the time dependence and statistics of the light curves.
-We find that the first eigenvector corresponds to the overall transit depth whereas the second eigenvector corresponds to models of forward-scattering from  large-sized dust grains.
+We re-analyzed the existing \kepler\ photometry with PCA to better understand the time dependence and statistics of the light curves.
+We found that the first eigenvector corresponds to the overall transit depth whereas the second eigenvector corresponds to models of forward-scattering from  large-sized dust grains.
 The first principal component tracks closely with the transit depths and exhibits modulations at periods of 22.9, 153 and 750 days.
 The second principal component is nearly sinusoidal with a 491 day period, indicating possible long term evolution of the dust particle sizes.
 The 22.9 day period matches the rotation period of the host star, which has previously been used to tie disintegration to stellar activity \citep{kawahara2013starspots} or occultations of star spots \citep{croll2015starspots}.
-The remaining periodicities are longer than the dynamical and sublimation times of the planet and grains, so a different mechanisms would be required to modulate the activity over these timescales.
+The remaining periodicities are longer than the dynamical and sublimation times of the planet and grains, so a different mechanism would be required to modulate the activity over these timescales.
 
-\citet{vanlieshout2016kic1255} compile the stellar parameters reported in the literature via photometric and spectroscopic methods and note that the high resolution spectrum show that \shStar\ has the gravity of a sub-giant, whereas all other methods find that it is a main sequence star.
+\citet{vanlieshout2016kic1255} compiled the stellar parameters reported in the literature via photometric and spectroscopic methods and note that the high resolution spectrum show that \shStar\ has the gravity of a sub-giant, whereas all other methods find that it is a main sequence star.
 One exciting possibility suggested in \citet{vanlieshout2016kic1255} is that the planet disintegration affects the spectral lines of the star and affects the high resolution spectrum from \citet{kawahara2013starspots}.
 We explore this possibility by examining archival Subaru HDS spectra of \shStar.
 We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T$_{eff}$=4500 $\pm$ 110 K, log(g) = 4.5, [Fe/H]=-0.1$\pm$0.1, M=0.7$\pm$0.1 R$_\odot$ and M=0.7 $\pm$0.1 M$_\odot$.
