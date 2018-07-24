@@ -361,13 +361,12 @@ The model using the first 4 principal components shown in Figure \ref{fig:riverP
 Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
 For the eigenvectors plot, we multiply each eigenvector by its eigenvalue to emphasize the relative covariances between the principal components and phase grid variables.
 The first 4 eigenvectors explain 62\%, 12\%, 6\% and 3\% of the variance (a total of 84\%) for the 32 points (variables) in the phase grid from -0.25 to 0.25.
-We also transform the eigenvectors into light curves by multiplying each eigenvector by the standard deviation of principal components and adding it to the average light curve.
+We also transform the eigenvectors into light curves by multiplying each eigenvector by the standard deviation of principal components and adding it to the average light curve, as shown in the right side of Figure \ref{fig:pcaVectorsComp}.
 
-The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering so that the light curve is dominated by the extinction \citep{budaj12}.
-We also note that the second eigenvector resembles models of large dust grains from \citet{budaj12}, where the forward scattering from particles that are a similar order of magnitude as the wavelength cause a pronounced pre-ingress flux increase.
+The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering so that the light curve is dominated by extinction \citep{budaj12,brogi2012}.
+We also note that the second eigenvector resembles models of large dust grains of pyroxene from \citet{budaj12}, where the particles that are a similar order of magnitude as the wavelength exhibit forward scattering, which causes a pronounced pre-ingress flux increase.
 The fact that the pre-ingress flux increase is not found in the first eigenvector and instead is pronounced in orthogonal eigenvectors suggests that the dust particle sizes may be changing in time.
-We would expect that a dust cloud that only varies in the number of particles but not in grain size would be exhibit a forward scattering in the first principal component because the forward scattering flux increase goes up with the number of particles.
-
+We would expect that a dust tail with a variable number of of particles but a constant grain size would be exhibit a forward scattering in the first principal component because the forward scattering flux would scale proportionally with the number of particles and transit depth.
 The implication of the PCA then is that the dust particle sizes may be changing with time.
 
 \begin{figure*}[!hbtp]
@@ -397,7 +396,7 @@ The first component, corresponding to the transit depth, has peaks at 22.9, 153 
 The 22.9 day peak is consistent with the \citet{kawahara2013starspots} and \citet{croll2015starspots} that shows amplitudes are anti-correlated with stellar flux.
 As suggested in \citet{kawahara2013starspots}, the anti-correlation points to a physical mechanism for the disintegration - such as magnetic activity or high energy flux associated with spots causing disintegration on the planet.
 The second principal component's periodogram has a strong peak at 491 days.
-This singly-peaked periodogram implies that PC$_2$ is nearly sinusoidal.
+This singly-peaked periodogram (other than the 0.654 day sampling period) implies that PC$_2$ is nearly sinusoidal.
 As shown in Figure \ref{fig:pcaVectorsComp}, the second principal component resembles models with larger dust grains, so the dust grain sizes could be evolving on long-term 491-day timescales.
 This is much longer than the dynamical and sublimation times of the system, so there is no obvious mechanism for the dust grain size evolution.
 
@@ -489,11 +488,12 @@ In this section, we analyze archival high resolution spectra to put new constrai
 We evaluate the stellar parameters by examining the archival spectra taken with the High Definition Spectrograph (HDS) spectrograph on the Subaru telescope \citep{noguchi2002hds}.
 An observing log of the 3 nights is summarized in Table \ref{tab:specObs}.
 There is one set of data taken on 2013 June 22 (UT) discussed in \citet{kawahara2013starspots}, including 2 exposures each 2700 seconds in duration.
-For this 2013 observation, the instrument was configured to use an image slicer unit \#2, which has a resolving power R$\approx$80,000.
+For these 2013 exposures, the instrument was configured to use an image slicer unit \#2, which has a resolving power R$\approx$80,000.
 Additionally, there are two sets of observations from 2015 Aug 28 (UT) and 2015 Aug 29 (UT) that were taken to test if the planet could be on a high eccentricity grazing orbit \citep{masuda2018rvKIC1255}, with exposure durations of 2400 seconds each.
 The instrument was configured with a 0.3 mm (0.6\arcsec) wide and 30 mm long (60\arcsec) slit, which has a resolving power of R $\approx$60,000.
 The second set of observations happened after the reaction wheel failure on 2013 May 11\footnote{\url{https://www.nasa.gov/mission_pages/kepler/news/keplerm-20130521.html}} that ended photometry of the main \kepler\ field, so no simultaneous \kepler\ photometry was available with the high dispersion spectroscopy to assess disintegration activity preceding or following the spectra.
 None of the observations were timed during a primary transit (phase = 0.0) or secondary eclipse (phase = 0.5 for a circular orbit).
+Future high resolution spectroscopy at an orbital phase of 0.0 may be useful for searching for gaseous planetary debris.
 
 \begin{deluxetable}{cccccccc}
 \tablecaption{List of Spectroscopic Observations}
