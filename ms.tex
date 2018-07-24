@@ -127,7 +127,7 @@ One possible explanation for the planet disintegration is that it is tied to ste
 The alignment of spots and disintegration activity could be due to XUV photoevaporation or magnetic reconnection events.
 The anti-correlation between stellar flux and transit depth was confirmed by \citet{croll2015starspots}, though the authors find that occultations of star spots can also modulate the transit depth at the 22.9 day rotation period of the star.
 Recently, \citet{rackham2018transitSourceEffect} have studied the effect of un-occulted spots on the transit depths exoplanets of M stars, the ``transit source light effect.''
-For the observed amplitude variations of 0.8\% \citep{kawahara2013starspots}, scaling relations for K4 V dwarfs indicate that transit depths of exoplanets can vary by 10$^{+20}_{-5}$\% depending on the distribution and sizes of spots if the transit chord is completely devoid of spots.\footnote{Benjamin Rackham, private communication, 2018}
+For the observed amplitude variations of 0.8\% \citep{kawahara2013starspots}, scaling relations for K4 V dwarfs indicate that transit depths of exoplanets can vary by 10$^{+20}_{-5}$\% depending on the distribution and sizes of spots if the transit chord is completely devoid of spots.\footnote{Benjamin V. Rackham, private communication, 2018}
 The large physical size of \sha\, as indicated by a transit duration longer than the time to cross the star, means that spots are likely to be crossed and diminish the transit source effect, so \sha's 30\% transit depth variation would require a worst-case starspot coverage.
 
 The \kepler\ data was used to put constraints on the particle size distribution and composition of the dust particles.
@@ -151,7 +151,8 @@ We also re-analyze the \kepler\ photometry in order to quantify the light curve 
 The high resolution spectrum of \shStar\ \citep{kawahara2013starspots} showed a different temperature and gravity than photometric methods \cite[e.g.][]{brown2011kic}.
 \citet{vanlieshout2016kic1255} suggest that one exciting possibility is that gases from the disintegrating planet contaminate the high resolution spectrum.
 This would enable compositional and kinematic studies of the disintegrating planet.
-In Section \ref{sec:SubaruDescrip}, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of the star to assess the stellar parameters and explore the possibility that sublimated gases appear in the high resolution spectrum.
+In Section \ref{sec:stellarCharacterization}, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of the star to assess the stellar parameters and explore the possibility that sublimated gases appear in the high resolution spectrum.
+We conclude in Section \ref{sec:conclusions}.
 
 \begin{deluxetable}{lrrrr}
 \tablecaption{List of photometric observations}\label{tab:photSummary}
@@ -276,7 +277,7 @@ The secondary eclipses are used to quantify the noise in the transit depths.
 
 \subsection{\kepler\ Secondary Eclipse}
 
-We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected at f$_p$/f$_*$ $\lesssim 50$~ppm, seen in Figure \ref{fig:secEclipse}, where f$_p$/f$_*$ is the relative flux of the planet to star in the Kepler bandpass.
+We confirm the result of \citet{vanWerkhoven2014} that no secondary eclipse is detected at f$_p$/f$_*$ $\lesssim 50$~ppm, where f$_p$/f$_*$ is the relative flux of the planet to star in the Kepler bandpass, as seen in Figure \ref{fig:secEclipse}.
 We then use the secondary eclipses as a way to characterize the noise of the primary transits.
 Both have the same quadratic baseline removal process over the same time intervals.
 
@@ -284,7 +285,7 @@ Both have the same quadratic baseline removal process over the same time interva
 \begin{centering}
 \includegraphics[width=0.45\textwidth]{images/kepler/secondary_eclipse.pdf}
 \caption{No secondary eclipse (f$_p$/f$_*$ $\lesssim$ 50 ppm) is detected from a phase range of 0.25 to 0.75, even with 17 quarters (4 years) of \kepler\ Long Cadence data.
-Here, the data are binned to orbital phases of 0.1 (1.5 minutes) and errors calculated from the standard error in the mean of the data within a bin.
+Here, the data are binned to orbital phases of 0.016 (15 minutes) and errors calculated from the standard error in the mean of the data within a bin.
 }\label{fig:secEclipse}
 \end{centering}
 \end{figure*}
@@ -445,7 +446,7 @@ This indicates that the transit depths are back to normal and there is no slowdo
 \end{centering}
 \end{figure*}
 
-\section{Stellar Characterization}
+\section{Stellar Characterization}\label{sec:stellarCharacterization}
 \subsection{Previous Observations}
 
 \begin{deluxetable*}{lcrrr}
@@ -530,8 +531,8 @@ For the 2013 data, we follow the \texttt{iraf} reduction techniques from the ins
 Some modifications to the manual were made, including a more aggressive -50/+50 lower and upper window for bad pixel identification with \texttt{mkbadpx} on the red CCD.
 We applied bad pixel masks and bias files to each CCD (red and blue sides) separately.
 We performed wavelength calibration with a Thorium Argon reference spectrum.
-The final wavelength calibration fit was performed with a chebyshev polynomial, 4th order in the x direction and 4th order in the y direction.
-This polynomial fit has a RMS error of 0.02$\AA$.
+The final wavelength calibration fit was performed with a chebyshev polynomial, 5th order in the x direction and 3th order in the y direction.
+This polynomial fit has a RMS error of 0.002$\AA$.
 
 We compare the 2013 and 2015 data to search for any variability in the absorption lines, as seen in Figure \ref{fig:spec2013vs2015}.
 Absorption line variability could be caused by disintegration activity of the planet that escapes as dusty material and then sublimates into gas.
