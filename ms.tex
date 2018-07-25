@@ -365,6 +365,7 @@ We also transform the eigenvectors into light curves by multiplying each eigenve
 
 The first eigenvector largely corresponds to models of small dust grains with more isotropic scattering so that the light curve is dominated by extinction \citep{budaj12,brogi2012}.
 We also note that the second eigenvector resembles models of large dust grains of pyroxene from \citet{budaj12}, where the particles that are a similar order of magnitude as the wavelength exhibit forward scattering, which causes a pronounced pre-ingress flux increase.
+The second eigenvector has a broader forward scattering peak than the \citet{budaj12} models, so it may be the result of a broader distribution of particles.
 The fact that the pre-ingress flux increase is not found in the first eigenvector and instead is pronounced in orthogonal eigenvectors suggests that the dust particle sizes may be changing in time.
 We would expect that a dust tail with a variable number of of particles but a constant grain size would be exhibit a forward scattering in the first principal component because the forward scattering flux would scale proportionally with the number of particles and transit depth.
 The implication of the PCA then is that the dust particle sizes may be changing with time.
@@ -373,8 +374,9 @@ The implication of the PCA then is that the dust particle sizes may be changing 
 \begin{centering}
 \includegraphics[width=0.99\textwidth]{images/kepler/pc_tser_w_quiescent.pdf}
 \caption{Time series of the transit amplitude and principals components.
-The amplitude is found with a dot product with the average light curve.
+The amplitude is found with a dot product with the average light curve for the Kepler data (left 3 panels) and with a scaled model for the ground-based data (right plot).
 Quiescent intervals with low transit activity are identified from the amplitude.
+The first principal component tracks closely with the amplitude.
 The second principal component shows periodicity at 491 days, indicating possible long-term evolution of dust grain particle sizes.}\label{fig:tserPC}
 \end{centering}
 \end{figure*}
