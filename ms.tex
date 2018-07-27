@@ -120,7 +120,7 @@ The underlying planet candidate \sha\ has not been detected directly, but severa
 High precision radial velocity measurements of the host star with Keck/HIRES put an upper limit on the reflex motion due to the planet and constrains the mass to be $\lesssim 1.2 M_{\mathrm Jup}$ \citep{croll2014}.
 \citet{masuda2018rvKIC1255} find that the upper limit on the radial velocity semi-amplitude is 86 m/s corresponding to a planet mass $\lesssim 0.28 M_{\mathrm Jup}$ using the Subaru High Dispersion Spectrometer (HDS).
 There is no detection of secondary eclipses of \sha\ with a 3$\sigma$ upper limit of $5 \times 10^{-5}$ in the \kepler\ bandpass, which means that for an albedo of 0.5, the radius of the planet must be smaller than 4600 km \citep{vanWerkhoven2014}.
-A radiative-hydrodynamic wind model predicts that the mass loss rate will be a strong function of planet mass and for the present-day mass loss rate of $\sim$ M$_\oplus/Gyr$ (determined by the mass of dust needed to absorb and scatter 10$^{-2}$ of star light per orbit), the modeled mass is 0.014 $M_\oplus$ \citep{perez-becker}.
+A radiative-hydrodynamic wind model predicts that the mass loss rate will be a strong function of planet mass and for the present-day mass loss rate of $\sim$ M$_\oplus/Gyr$ (determined by the mass of dust needed to absorb and scatter 10$^{-2}$ of star light per orbit), the modeled mass is 0.014~$M_\oplus$ \citep{perez-becker}.
 
 One possible explanation for the planet disintegration is that it is tied to stellar activity.
 \citet{kawahara2013starspots} found an anti-correlation between stellar flux and the depth of transit events and suggested that the alignment of the planet's position (true anomaly) with active regions on the star causes disintegration.
@@ -526,6 +526,7 @@ All telluric emission features and outliers are masked in this analysis to remov
 Time-variable outliers, such as cosmic rays, are removed by measuring deviations from the median spectrum for the night.
 The night-sky emissions from OH and O$_2$ are removed by using the \citet{osterbrock1996lineAtlas} night sky atlas.
 All OH and O$_2$ lines are removed regardless if they are visible in the spectrum of \shStar.
+The wavelength of each spectrum is shifted to correct for the observatory's motion about the Solar Systems barycenter as well as the systematic -36.3 km/s velocity \citep{croll2014}.
 We combined the normalized spectra from UT dates 2015 Aug 28 and 2015 Aug 29 with a median in the time direction, which is more robust to cosmic rays than an average.
 %This median spectrum is visible in Figure \ref{fig:mgTripletBOSZ}.
 
