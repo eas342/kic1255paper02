@@ -1,0 +1,30 @@
+Important issues: 
+
+Introduction: 
+* "Recently, Rackham et al. (2018) have studied the effect of un-occulted spots on the transit depths exoplanets of M stars, the "transit source light effect." For the observed amplitude variations of 0.8% (Kawahara et al. 2013), scaling relations for K4 V dwarfs indicate that transit depths of exoplanets can be biased by 10+20% depending on the distribution and sizes of spots if the transit chord is completely devoid of spots. The large physical size of KIC 1255 b as indicated by a transit duration longer than the time to cross the star, means that spots are likely to be crossed and diminish the transit source effect, so KIC 1255 b's 30% transit depth variation would require a worst-case starspot coverage to be explained by un-occulted spots." -- This discussion in the introduction appears to be new analysis performed by these authors which contradicts the conclusions of previous authors on the subject (in particular Croll et al. 2015). I think this is an important point which should be elaborated upon and put in a more prominent place in the paper, including more details about this calculation, and references to the scaling relations discussed by the authors. 
+
+* Section 3: I think a major challenge, and potential point of improvement, for this paper is to quantify the significance and uncertainties in the trends identified with the PCA analysis. For example, the authors choose to study the effects of the first four principal components, which account for 84% of the variation in the light curve. How did the authors decide to choose only four principal components? Also, the authors claim "The implication of the PCA then is that the dust particle sizes may be changing with time." With what level of confidence do the authors make this claim? 3-sigma? 10-sigma? In Figure 8, it's important to know what the statistical uncertainty on each measurement of the principal component amplitudes is, so that we can see if there is evidence for short-timescale changes to the shape of the transit, as well as the well known changes to the depth of the transit. 
+
+* I think the newly measured variations in the principal component time series are an interesting new result, and deserve some additional discussion about possible interpretations. While I understand that disintegrating planets are not very well understood, it might be interesting to compare the variations in the amplitude and shape time series with variations seen in the transit amplitude of WD 1145+017 (see Figure 7 of http://adsabs.harvard.edu/abs/2018MNRAS.474..933R). 
+
+Minor issues: 
+
+D Title: The "B" in "KIC 12557548 B" should be forced to lowercase.
+
+* Abstract: "which lose mass in the form of dust particles escaping their surface." This is not quite accurate - the generally accepted model is that the mass loss is in the form of metal vapors, which then re-condense once away from the planet to become dust particles. 
+
+* Introduction: "After the discovery of K1255, other systems were found to show similar light curve behavior: K2- 22b (Sanchis-Ojeda et al. 2015), WD 1145+017 (Vanderburg et al. 2015), KOI 2700 (Rappaport et al. 2014) and KIC 3542116 (Rappaport et al. 2018)." I would say that KIC 3542116 falls into a different category than the others listed here due to its aperiodicity.
+
+* Figure 8: I have several suggestions to make this figure more readable. First, it's important to show the typical uncertainties on these measurements, especially for the amplitudes of the ground-based transits. Second, I would recommend not including the ground-based data in a separate panel, but putting those measurements in the same panel as the Kepler data, but with breaks in the X-axis to fit everything on the graph. Alternatively, the panel with the ground-based measurements could be labeled more clearly. Third, it would be helpful to have a horizontal line at amplitude = 0, to show where the transits essentially disappear. 
+
+* Figure 8: I would also be interested to see PC2/PC1 plotted - this will isolate changes in shape from changes in depth of the transit. 
+
+* Figure 9: Since the sampling is purely periodic, there's nothing to gain from showing the periodogram at periods shorter than twice the orbital period (the Nyquist limit). 
+
+* Section 4.1: It may be worth noting that Gaia DR2 confirms that the star must indeed be a dwarf. 
+
+* Section 4.4: "This was smaller than we expected from combining inverse resolving powers in quadrature, which would imply that an R = 75, 000 kernel convolved with an R = 100, 000 spectrum would result in a R = 60,000 spectrum." Do the authors have any idea why? Was the seeing particularly good in this observation, making the actual resolution of the spectrum higher than expected? 
+
+D Conclusions "Therefore, the optical depth of any gas sublimating of dust grains is too small to affect the high resolution spectrum. " - "of" should be "off". 
+
+* The authors claim "Therefore, the optical depth of any gas sublimating of dust grains is too small to affect the high resolution spectrum. ", but perhaps it would be more precise to state "Therefore, the optical depth of any gas sublimating off dust grains is too small to affect the the stellar parameters we derive from the high resolution spectrum". I would recommend the authors modify this and other similar statements throughout the paper.
