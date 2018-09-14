@@ -27,4 +27,4 @@ D Title: The "B" in "KIC 12557548 B" should be forced to lowercase.
 
 D Conclusions "Therefore, the optical depth of any gas sublimating of dust grains is too small to affect the high resolution spectrum. " - "of" should be "off". 
 
-* The authors claim "Therefore, the optical depth of any gas sublimating of dust grains is too small to affect the high resolution spectrum. ", but perhaps it would be more precise to state "Therefore, the optical depth of any gas sublimating off dust grains is too small to affect the the stellar parameters we derive from the high resolution spectrum". I would recommend the authors modify this and other similar statements throughout the paper.
+D The authors claim "Therefore, the optical depth of any gas sublimating of dust grains is too small to affect the high resolution spectrum. ", but perhaps it would be more precise to state "Therefore, the optical depth of any gas sublimating off dust grains is too small to affect the the stellar parameters we derive from the high resolution spectrum". I would recommend the authors modify this and other similar statements throughout the paper.
