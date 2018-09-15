@@ -4,3 +4,7 @@ Thank you to the referee for the helpful suggestions on this paper.
 
 We have made the following revisions based on the comments from the referee.
 
+- Minor wording corrections including lower case "b" in the title and corrected "of" typo with "off"
+
+- We changed the wording of the contamination of the high resolution spectrum by debris evaporating from the planet to emphasize that it is at a level below that which could change stellar parameters, but not necessarily undetectable.
+

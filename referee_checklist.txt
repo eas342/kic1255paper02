@@ -11,7 +11,7 @@ Minor issues:
 
 D Title: The "B" in "KIC 12557548 B" should be forced to lowercase.
 
-* Abstract: "which lose mass in the form of dust particles escaping their surface." This is not quite accurate - the generally accepted model is that the mass loss is in the form of metal vapors, which then re-condense once away from the planet to become dust particles. 
+D Abstract: "which lose mass in the form of dust particles escaping their surface." This is not quite accurate - the generally accepted model is that the mass loss is in the form of metal vapors, which then re-condense once away from the planet to become dust particles. 
 
 * Introduction: "After the discovery of K1255, other systems were found to show similar light curve behavior: K2- 22b (Sanchis-Ojeda et al. 2015), WD 1145+017 (Vanderburg et al. 2015), KOI 2700 (Rappaport et al. 2014) and KIC 3542116 (Rappaport et al. 2018)." I would say that KIC 3542116 falls into a different category than the others listed here due to its aperiodicity.
 
