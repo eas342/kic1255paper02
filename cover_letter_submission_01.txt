@@ -8,3 +8,4 @@ We have made the following revisions based on the comments from the referee.
 
 - We changed the wording of the contamination of the high resolution spectrum by debris evaporating from the planet to emphasize that it is at a level below that which could change stellar parameters, but not necessarily undetectable.
 
+- We have only included the frequencies above the Nyquist rate in the periodograms.
