@@ -548,7 +548,8 @@ We then proceed with the 2015 data to constrain stellar models since it has 6.7 
 We first evaluate stellar parameters by comparing the high resolving power ($R=100,000$) BOSZ grids of ATLAS-APOGEE ATLAS9 models \citep{bohlin2017bosz} to the median spectrum from 2015.
 Because the discrepancies in the literature are mostly differences in the surface gravity (see Table \ref{tab:stellObsParams}), we study the gravity-sensitive Mg triplet near 517 nm.
 The $R=100,000$ models are convolved with a Gaussian kernel that has a standard deviation $\sigma_K = \lambda/161,000 \approx 0.03 \AA$ to best match the data.
-This was smaller than we expected from combining inverse resolving powers in quadrature, which would imply that an $R=75,000 $ kernel convolved with an $R=100,000$ spectrum would result in a $R=60,000$ spectrum.
+This was \replaced{smaller}{slightly broader} than we expected from combining inverse resolving powers in quadrature, which would imply that an \replaced{$R=75,000$}{$R_{expected} = 75,000$} kernel \added{($\sigma_{expected} = \lambda/176,600$)} convolved with an $R=100,000$ spectrum would result in a $R=60,000$ spectrum.
+\added{We suspect that the non-Gaussian shape of the line spread function is the cause of this discrepancy.}
 We start by comparing the measured spectrum with two BOSZ models in Figure \ref{fig:mgTripletBOSZ}.
 Here, the two BOSZ models are broadly representative of the two types of results in Table \ref{tab:stellObsParams} (log(g)=4.5 and log(g)=4.0).
 The higher gravity log(g)=4.5 model appears to match the data better in terms of line ratios but does not explain all of the line depths in the spectrum.
