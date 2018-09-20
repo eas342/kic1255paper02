@@ -15,9 +15,9 @@ D Abstract: "which lose mass in the form of dust particles escaping their surfac
 
 D Introduction: "After the discovery of K1255, other systems were found to show similar light curve behavior: K2- 22b (Sanchis-Ojeda et al. 2015), WD 1145+017 (Vanderburg et al. 2015), KOI 2700 (Rappaport et al. 2014) and KIC 3542116 (Rappaport et al. 2018)." I would say that KIC 3542116 falls into a different category than the others listed here due to its aperiodicity.
 
-* Figure 8: I have several suggestions to make this figure more readable. First, it's important to show the typical uncertainties on these measurements, especially for the amplitudes of the ground-based transits. Second, I would recommend not including the ground-based data in a separate panel, but putting those measurements in the same panel as the Kepler data, but with breaks in the X-axis to fit everything on the graph. Alternatively, the panel with the ground-based measurements could be labeled more clearly. Third, it would be helpful to have a horizontal line at amplitude = 0, to show where the transits essentially disappear. 
+D Figure 8: I have several suggestions to make this figure more readable. First, it's important to show the typical uncertainties on these measurements, especially for the amplitudes of the ground-based transits. Second, I would recommend not including the ground-based data in a separate panel, but putting those measurements in the same panel as the Kepler data, but with breaks in the X-axis to fit everything on the graph. Alternatively, the panel with the ground-based measurements could be labeled more clearly. Third, it would be helpful to have a horizontal line at amplitude = 0, to show where the transits essentially disappear. 
 
-* Figure 8: I would also be interested to see PC2/PC1 plotted - this will isolate changes in shape from changes in depth of the transit. 
+D Figure 8: I would also be interested to see PC2/PC1 plotted - this will isolate changes in shape from changes in depth of the transit. 
 
 D Figure 9: Since the sampling is purely periodic, there's nothing to gain from showing the periodogram at periods shorter than twice the orbital period (the Nyquist limit). 
 
