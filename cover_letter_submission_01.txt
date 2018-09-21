@@ -16,6 +16,6 @@ We have made the following revisions based on the comments from the referee.
 
 - We adjusted the time series figure as requested with typical error bars, a line at 0 and better labeling of the Kepler vs. Ground-based data. However, we have not included the ratio of PC1 to PC2.
 
-
+- We have offered an explanation of why the observed resolution did not quite match expectations from the convolution with model - it is likely due to the non-Gaussian shape of the line spread function.
 
 
