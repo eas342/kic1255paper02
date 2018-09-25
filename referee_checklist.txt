@@ -21,7 +21,7 @@ D Figure 8: I would also be interested to see PC2/PC1 plotted - this will isolat
 
 D Figure 9: Since the sampling is purely periodic, there's nothing to gain from showing the periodogram at periods shorter than twice the orbital period (the Nyquist limit). 
 
-* Section 4.1: It may be worth noting that Gaia DR2 confirms that the star must indeed be a dwarf. 
+D Section 4.1: It may be worth noting that Gaia DR2 confirms that the star must indeed be a dwarf. 
 
 D Section 4.4: "This was smaller than we expected from combining inverse resolving powers in quadrature, which would imply that an R = 75, 000 kernel convolved with an R = 100, 000 spectrum would result in a R = 60,000 spectrum." Do the authors have any idea why? Was the seeing particularly good in this observation, making the actual resolution of the spectrum higher than expected? 
 
