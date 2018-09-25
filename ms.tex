@@ -625,7 +625,12 @@ The consequence of the increased noise in the 2013 spectra affected the interpre
 For example, the SNR of the Na D lines was $\sim$ 30, which is near the threshold needed for the \citet{takeda2005specFGKdwarfs} equivalent width method employed in the initial analysis.
 We therefore conclude that the noise in the spectrum affected the stellar parameters rather than gas absorption from sublimating dust grains.
 
-\added{We also confirm our finding that the star is a main sequence using the Gaia DR2 data}.
+\added{We also confirm our finding that the star is a main sequence using the Gaia DR2 parallax of 1.617 $\pm$ 0.030 pc.
+We follow the methodology from \citet{stassun2017gaiaRadiiMasses}, which is to estimate the bolometric flux from the spectral energy distribution and invert the Stefan-Boltman law to solve for the radius.
+For the measured spectral energy distribution, we use the VizieR photometry service and fit this with a representative 4600 K \citet{castelli2004models} model.
+We also assume an effective temperature of 4400 $\pm$ 70 K from our spectral fitting and a photometric error of 5\%, assumed to be dominated by photometric systematics.
+Using this method we find a radius of 0.72 $\pm$ 0.03 R$_\odot$, which is consistent with a main sequence star.
+}
 
 
 \section{Conclusions}\label{sec:conclusions}
@@ -646,7 +651,7 @@ The remaining periodicities are longer than the dynamical and sublimation times 
 \citet{vanlieshout2016kic1255} compiled the stellar parameters reported in the literature via photometric and spectroscopic methods and note that the high resolution spectrum show that \shStar\ has the gravity of a sub-giant, whereas all other methods find that it is a main sequence star.
 One exciting possibility suggested in \citet{vanlieshout2016kic1255} is that the planet disintegration affects the spectral lines of the star and affects the high resolution spectrum from \citet{kawahara2013starspots}.
 We explore this possibility by examining archival Subaru HDS spectra of \shStar.
-We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T$_{eff}$=4440 $\pm$ 70 K, log(g) = 4.63 $\pm$ 0.12, [Fe/H]=-0.08$\pm$0.09, M=0.69$\pm$0.10 R$_\odot$ and M=0.70 $\pm$0.08 M$_\odot$.
+We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T$_{eff}$=4440 $\pm$ 70 K, log(g) = 4.63 $\pm$ 0.12, [Fe/H]=-0.08$\pm$0.09, \replaced{M}{R}=0.69$\pm$0.10 R$_\odot$ and M=0.70 $\pm$0.08 M$_\odot$.
 Therefore, the optical depth of any gas sublimating \replaced{of}{off} dust grains is too small to affect \added{the parameters derived from} the high resolution spectrum.
 We argue that low signal to noise in the initial Subaru HDS spectra affected previous interpretations of the stellar parameters.
 
@@ -657,7 +662,7 @@ We argue that low signal to noise in the initial Subaru HDS spectra affected pre
 The authors thank to Kento Masuda for sharing the 2015 Subaru spectrum of \shStar\ and giving helpful comments on this work.
 Funding for E Schlawin is provided by NASA Goddard Spaceflight Center.
 The authors thank Benjamin Rackham for providing an estimate of the transit light source effect for a K4 V star and for helpful comments from Saul Rappaport.
-
+\added{This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France. The original description of the VizieR service was published in \citet{ochsenbein2000vizieR}.}
 
 %If  used, this work made use of the \texttt{astropy} package \citep{astropy2013}.
 %If used, some data was collected from the Open Exoplanet Catalogue \citep{rein2012openExoCat}.
