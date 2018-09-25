@@ -127,9 +127,10 @@ One possible explanation for the planet disintegration is that it is tied to ste
 \citet{kawahara2013starspots} found an anti-correlation between stellar flux and the depth of transit events and suggested that the alignment of the planet's position (true anomaly) with active regions on the star causes disintegration.
 The alignment of spots and disintegration activity could be due to XUV photoevaporation or magnetic reconnection events.
 The anti-correlation between stellar flux and transit depth was confirmed by \citet{croll2015starspots}, though the authors find that occultations of star spots can also modulate the transit depth at the 22.9 day rotation period of the star.
-Recently, \citet{rackham2018transitSourceEffect} have studied the effect of un-occulted spots on the transit depths exoplanets of M stars, the ``transit source light effect.''
-For the observed amplitude variations of 0.8\% \citep{kawahara2013starspots}, scaling relations for K4 V dwarfs indicate that transit depths of exoplanets can be biased by 10$^{+20}_{-5}$\% depending on the distribution and sizes of spots if the transit chord is completely devoid of spots.\footnote{Benjamin V. Rackham, private communication, 2018}
-The large physical size of \sha\, as indicated by a transit duration longer than the time to cross the star, means that spots are likely to be crossed and diminish the transit source effect, so \sha's 30\% transit depth variation would require a worst-case starspot coverage to be explained by un-occulted spots.
+\added{We will revisit stellar activity in Section \ref{sec:activity}.}
+\deleted{Recently, \citet{rackham2018transitSourceEffect} have studied the effect of un-occulted spots on the transit depths exoplanets of M stars, the ``transit source light effect.''
+For the observed amplitude variations of 0.8\% \citep{kawahara2013starspots}, scaling relations for K4 V dwarfs indicate that transit depths of exoplanets can be biased by 10$^{+20}_{-5}$\% depending on the distribution and sizes of spots if the transit chord is completely devoid of spots.%\footnote{Benjamin V. Rackham, private communication, 2018}
+The large physical size of \sha\, as indicated by a transit duration longer than the time to cross the star, means that spots are likely to be crossed and diminish the transit source effect, so \sha's 30\% transit depth variation would require a worst-case starspot coverage to be explained by un-occulted spots.}
 
 The \kepler\ data was used to put constraints on the particle size distribution and composition of the dust particles.
 \citet{budaj12} and \citet{brogi2012} modeled the light curve, which includes a slight increase in flux before the transit begins.
@@ -154,6 +155,7 @@ The high resolution spectrum of \shStar\ \citep{kawahara2013starspots} showed a 
 \citet{vanlieshout2016kic1255} suggest that one exciting possibility is that gases from the disintegrating planet contaminate the high resolution spectrum.
 This would enable compositional and kinematic studies of the disintegrating planet.
 In Section \ref{sec:stellarCharacterization}, we examine archival Subaru High Dispersion Spectrograph (HDS) spectra of the star to assess the stellar parameters and explore the possibility that sublimated gases appear in the high resolution spectrum.
+\added{In Section \ref{sec:activity}, we examine the activity of the star from the H$\alpha$ line and also discuss how starspots can affect the light curves.}
 We conclude in Section \ref{sec:conclusions}.
 
 \begin{deluxetable}{lrrrr}
@@ -375,11 +377,13 @@ The implication of the PCA then is that the dust particle sizes may be changing 
 \begin{figure*}[!hbtp]
 \begin{centering}
 \includegraphics[width=0.99\textwidth]{pc_tser_w_quiescent.pdf}
-\caption{Time series of the transit amplitude and principals components of the Kepler data (Left panel).
+\caption{Time series of the transit amplitude and principals components of the \replaced{Kepler}{{\it Kepler}} data (Left panel).
 We also show the ground-based photometry from \citet{schlawin2016kic1255} and this work (Right upper plot).
-Quiescent intervals with low transit activity are identified from the amplitude.
+Quiescent intervals with low transit activity are identified from the amplitude \added{and highlighted in orange. 
+Typical (median) error bars for the time series are shown as red error bars at arbitrary positions.}
 The first principal component tracks closely with the amplitude.
-The second principal component shows periodicity at 491 days, indicating possible long-term evolution of dust grain particle sizes.}\label{fig:tserPC}
+The second principal component shows periodicity at 491 days, indicating possible long-term evolution of dust grain particle sizes.
+}\label{fig:tserPC}
 \end{centering}
 \end{figure*}
 
@@ -630,8 +634,43 @@ We follow the methodology from \citet{stassun2017gaiaRadiiMasses}, which is to e
 For the measured spectral energy distribution, we use the VizieR photometry service and fit this with a representative 4600 K \citet{castelli2004models} model.
 We also assume an effective temperature of 4400 $\pm$ 70 K from our spectral fitting and a photometric error of 5\%, assumed to be dominated by photometric systematics.
 Using this method we find a radius of 0.72 $\pm$ 0.03 R$_\odot$, which is consistent with a main sequence star.
-}
 
+While examining the bolometric flux from all available data, we notice that the WISE band 4 flux is in excess of a \citet{castelli2004models} stellar model.
+This is also true of the disintegrating system K2-22 b.
+These infrared fluxes may arise from dust created by the disintegrating planet and pushed out to a larger radius to form a disk or ring.
+}.
+
+\added{
+\section{Stellar Activity}\label{sec:activity}
+
+The high resolution spectrum of \shStar\ allows us to measure the H$\alpha$ line, which is an indicator of stellar activity.
+Figure \ref{fig:Halpha}, shows the Subaru HDS spectrum for 
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{h_alpha_subaru.pdf}
+\caption{H$\alpha$ line as measured by Subaru HDS on two adjacent nights in 2015.
+The line's core changes noticeably between the two nights.}\label{fig:Halpha}
+\end{centering}
+\end{figure*}
+
+As discussed in Section \ref{sec:intro}, \citet{kawahara2013starspots} first noted an anti-correlation between the transit depths of \sha\ and the flux of its host star.
+This correlation implies that the planet disintegration is regulated by the high energy radiation or magnetic energy associated with star spots and that the planet's passage over the spot can increase the disintegration activity.
+\citet{croll2015starspots} confirm this anti-correlation but offer a different explanation: occulted dark spots on the stellar surface can decrease the transit depth because the planetary debris extincts less total starlight.
+If there is a localized grouping of spots that the planet's transit chord passes through, this could create a positive correlation of transit depth with stellar flux.
+\citet{croll2015starspots} note that the spots could have a complicated distribution and that a separate set of spots on the other side of the star could dominate the overall light curve rotational modulation but be at a different latitude from the transit chord, thus creating an anti-correlation between transit depth and stellar flux.
+\citet{croll2015starspots} calculate that unocculted spots 
+>>>>>>> 5cf2b3b9d0cb4ff5d079f02e7c26986a56147bb5
+
+Recently, \citet{rackham2018transitSourceEffect} have studied, in detail, the effect of un-occulted spots on the transit depths of exoplanets orbiting M stars, the so-called transit source light effect.
+One commonly held assumption is that there is a linear relation between the amplitude of variability and the spot covering fraction.
+Instead, \citet{rackham2018transitSourceEffect} use more realistic simulations of spot covering and light curve modulations and find that the amplitude of variability is proportional to $\sqrt{f_S}$, where $f_S$ is the spot covering fraction.
+
+For the observed amplitude variations of 0.8\% \citep{kawahara2013starspots}, scaling relations for K4 V dwarfs indicate that transit depths of exoplanets can be biased by 10$^{+20}_{-5}$\% depending on the distribution and sizes of spots if the transit chord is completely devoid of spots.\footnote{Benjamin V. Rackham, private communication, 2018}
+The large physical size of \sha\, as indicated by a transit duration longer than the time to cross the star, means that spots are likely to be crossed and diminish the transit source effect, so \sha's 30\% transit depth variation would require a worst-case starspot coverage to be explained by un-occulted spots.
+Also, the bias in transit depth is different from the transit depth variations, which would be un-affacted by a polar spot.
+Therefore, the conclusion from \citet{croll2015starspots} that unocculted spots are unlikely to cause the correlation between transit depth and stellar flux is likely correct even when considering a more realistic scaling relation between spot covering fraction and rotational modulation amplitude.
+}
 
 \section{Conclusions}\label{sec:conclusions}
 
