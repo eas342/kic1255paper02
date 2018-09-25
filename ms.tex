@@ -1,6 +1,7 @@
 % manuscript produces a one-column, double-spaced document:
 %\documentclass[12pt,preprint]{aastex}
 \documentclass[preprint,trackchanges]{aastex61}
+
 %\documentclass[iop]{emulateapj}
 
 % preprint2 produces a double-column, single-spaced document:
@@ -91,7 +92,7 @@ There is a tentative 491 day periodicity of the second principal component, whic
 %\section{Abstract}
 
 
-\section{Introduction}\label{sec:Intro}
+\section{Introduction}\label{sec:intro}
 \citet{rappaport} first reported the discovery of a highly unusual system in the \kepler\ field, KIC 12557548.
 Its light curve exhibits flux dips with a period of 0.653 days.
 Surprisingly, the flux dips are neither symmetric in shape nor constant in amplitude, varying from $\sim$0\% to $\sim$1.2\%.
@@ -629,17 +630,6 @@ The consequence of the increased noise in the 2013 spectra affected the interpre
 For example, the SNR of the Na D lines was $\sim$ 30, which is near the threshold needed for the \citet{takeda2005specFGKdwarfs} equivalent width method employed in the initial analysis.
 We therefore conclude that the noise in the spectrum affected the stellar parameters rather than gas absorption from sublimating dust grains.
 
-\added{We also confirm our finding that the star is a main sequence using the Gaia DR2 parallax of 1.617 $\pm$ 0.030 pc.
-We follow the methodology from \citet{stassun2017gaiaRadiiMasses}, which is to estimate the bolometric flux from the spectral energy distribution and invert the Stefan-Boltman law to solve for the radius.
-For the measured spectral energy distribution, we use the VizieR photometry service and fit this with a representative 4600 K \citet{castelli2004models} model.
-We also assume an effective temperature of 4400 $\pm$ 70 K from our spectral fitting and a photometric error of 5\%, assumed to be dominated by photometric systematics.
-Using this method we find a radius of 0.72 $\pm$ 0.03 R$_\odot$, which is consistent with a main sequence star.
-
-While examining the bolometric flux from all available data, we notice that the WISE band 4 flux is in excess of a \citet{castelli2004models} stellar model.
-This is also true of the disintegrating system K2-22 b.
-These infrared fluxes may arise from dust created by the disintegrating planet and pushed out to a larger radius to form a disk or ring.
-}.
-
 \added{
 \section{Stellar Activity}\label{sec:activity}
 
@@ -671,6 +661,33 @@ Also, the bias in transit depth is different from the transit depth variations, 
 Therefore, the conclusion from \citet{croll2015starspots} that unocculted spots are unlikely to cause the correlation between transit depth and stellar flux is likely correct even when considering a more realistic scaling relation between spot covering fraction and rotational modulation amplitude.
 }
 
+\added{
+\section{Spectral Energy Distribution and Parallax}\label{sec:SED}
+
+We also confirm our finding that the star is a main sequence using the Gaia DR2 parallax of 1.617 $\pm$ 0.030 pc \citep{gaia2016mission,gaia2018dr2,luri2018parallaxes}.
+We follow the methodology from \citet{stassun2017gaiaRadiiMasses}, which is to estimate the bolometric flux from the spectral energy distribution and invert the Stefan-Boltman law to solve for the radius.
+For the measured spectral energy distribution, we use the VizieR photometry service and fit this with a representative 4600 K \citet{castelli2004models} model and a (E-B)=0.05 diffuse Milky Way extinction model \citep{cardelli1989}.
+We use the \texttt{pysynphot} tool \citep{lim2015pysynphot} to calculate the model and extinction.
+We note that the exact stellar model used is less important than finding a function to fit the Spectral Energy Distribution.
+When inverting the Stefan-Boltzman law, we assume an effective temperature of 4400 $\pm$ 70 K from our spectral fitting and a photometric error of 5\%, assumed to be dominated by photometric systematics.
+Using this method we find a radius of 0.72 $\pm$ 0.03 R$_\odot$, which is consistent with a main sequence star.
+
+While examining the bolometric flux from all available data, we notice that the WISE band 3 and 4 fluxes at 12 $\mu$m and 22 $\mu$m are significantly in excess of a \citet{castelli2004models} stellar model, as shown in Figure \ref{fig:SED}.
+This is also true of the disintegrating system K2-22 b.
+These infrared fluxes may arise from dust created by the disintegrating planet and pushed out to a larger radius to form a disk or ring.
+Further investigation of the infrared excesses should be explored observationally and theoretically.
+
+\begin{figure*}[!hbtp]
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{kic1255_sed.pdf}
+\caption{\added{The spectral Energy distribution from VizieR \citep{ochsenbein2000vizieR}.
+The photometry is fit in order to estimate the stellar bolometric flux and derive a stellar radius of 0.72 $\pm$ 0.03 R$_\odot$.
+We note that the WISE Band 3 and Band 4 excess may arise from a dusty ring or disk of material from the planet, warranting further investigation.}}\label{fig:SED}
+\end{centering}
+\end{figure*}
+}.
+
+
 \section{Conclusions}\label{sec:conclusions}
 
 We obtained ground-based R band photometry from the Kuiper 61-inch telescope to follow up a possible slowdown in disintegration activity observed in 2013 and 2014.
@@ -700,7 +717,9 @@ We argue that low signal to noise in the initial Subaru HDS spectra affected pre
 The authors thank to Kento Masuda for sharing the 2015 Subaru spectrum of \shStar\ and giving helpful comments on this work.
 Funding for E Schlawin is provided by NASA Goddard Spaceflight Center.
 The authors thank Benjamin Rackham for providing an estimate of the transit light source effect for a K4 V star and for helpful comments from Saul Rappaport.
-\added{This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France. The original description of the VizieR service was published in \citet{ochsenbein2000vizieR}.}
+\added{This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France. The original description of the VizieR service was published in \citet{ochsenbein2000vizieR}.
+This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}).
+Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.}
 
 %If  used, this work made use of the \texttt{astropy} package \citep{astropy2013}.
 %If used, some data was collected from the Open Exoplanet Catalogue \citep{rein2012openExoCat}.
@@ -802,8 +821,9 @@ The authors thank Benjamin Rackham for providing an estimate of the transit ligh
 	\texttt{scikit-learn} \citep{pedregosa2011scikit-learn},
 	\texttt{photutils v0.3} \citep{bradley2016photutilsv0p3},
 	\texttt{iraf},
-	\texttt{SpecMatch-Emp} \citep{yee2017specMatch} 
+	\texttt{SpecMatch-Emp} \citep{yee2017specMatch},
          \texttt{emcee} \citep{foreman-mackey2013emcee}, 
+         \added{ \texttt{pysynphot} \citep{lim2015pysynphot}}
           }
 
 
