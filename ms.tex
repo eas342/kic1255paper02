@@ -632,7 +632,7 @@ We therefore conclude that the noise in the spectrum affected the stellar parame
 \added{
 \section{Spectral Energy Distribution and Parallax}\label{sec:SED}
 
-We also confirm our finding that the star is a main sequence using the Gaia DR2 parallax of 1.617 $\pm$ 0.030 pc \citep{gaia2016mission,gaia2018dr2,luri2018parallaxes}.
+We also confirm our finding that the star is a main sequence using the Gaia DR2 parallax of 1.617 $\pm$ 0.030 mas \citep{gaia2016mission,gaia2018dr2,luri2018parallaxes}.
 We follow the methodology from \citet{stassun2017gaiaRadiiMasses}, which is to estimate the bolometric flux from the spectral energy distribution and invert the Stefan-Boltman law to solve for the radius.
 For the measured spectral energy distribution, we use the VizieR photometry service and fit this with a representative 4600 K \citet{castelli2004models} model and a (E-B)=0.05 diffuse Milky Way extinction model \citep{cardelli1989}.
 We use the \texttt{pysynphot} tool \citep{lim2015pysynphot} to calculate the model and extinction.
@@ -659,7 +659,8 @@ We note that the WISE Band 3 and Band 4 excess at 12$\mu$m and 22 $\mu$m may ari
 \section{Stellar Activity}\label{sec:activity}
 
 The high resolution spectrum of \shStar\ allows us to measure the H$\alpha$ line, which is an indicator of stellar activity.
-Figure \ref{fig:Halpha}, shows the Subaru HDS spectrum for 
+Figure \ref{fig:Halpha}, shows the Subaru HDS spectrum for 2015 Aug 28 and 2015 Aug 29.
+We note that the strong emission feature at the core of the H$\alpha$ line is visible for one night but not the other, confirming the activity of the star already known from the rotational modulations \citep{kawahara2013starspots}.
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -676,7 +677,7 @@ If there is a localized grouping of spots that the planet's transit chord passes
 \citet{croll2015starspots} note that the spots could have a complicated distribution and that a separate set of spots on the other side of the star could dominate the overall light curve rotational modulation but be at a different latitude from the transit chord, thus creating an anti-correlation between transit depth and stellar flux.
 \citet{croll2015starspots} calculate that unocculted spots have a minimal impact on the transit depth variations.
 
-Recently, \citet{rackham2018transitSourceEffect} have studied, in detail, the effect of un-occulted spots on the transit depths of exoplanets orbiting M stars, the so-called transit source light effect.
+Recently, \citet{rackham2018transitSourceEffect} have studied in detail the effect of un-occulted spots on the transit depths of exoplanets orbiting M stars, the so-called transit source light effect.
 One commonly held assumption is that there is a linear relation between the amplitude of variability and the spot covering fraction.
 Instead, \citet{rackham2018transitSourceEffect} use more realistic simulations of spot covering and light curve modulations and find that the amplitude of variability is proportional to $\sqrt{f_S}$, where $f_S$ is the spot covering fraction.
 
@@ -708,6 +709,8 @@ One exciting possibility suggested in \citet{vanlieshout2016kic1255} is that the
 We explore this possibility by examining archival Subaru HDS spectra of \shStar.
 We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T$_{eff}$=4440 $\pm$ 70 K, log(g) = 4.63 $\pm$ 0.12, [Fe/H]=-0.08$\pm$0.09, \replaced{M}{R}=0.69$\pm$0.10 R$_\odot$ and M=0.70 $\pm$0.08 M$_\odot$.
 Therefore, the optical depth of any gas sublimating \replaced{of}{off} dust grains is too small to affect \added{the parameters derived from} the high resolution spectrum.
+\added{We also confirm the main-sequence radius of the star using the Gaia DR2 parallax.
+While fitting the Spectral Energy Distribution to estimate the bolometric flux, we notice that there is an infrared excess in WISE Bands 3 and 4 that warrants further study.}
 We argue that low signal to noise in the initial Subaru HDS spectra affected previous interpretations of the stellar parameters.
 
 
