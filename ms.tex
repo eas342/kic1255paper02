@@ -70,6 +70,9 @@
 \author{Elizabeth Green}
 \affiliation{Steward Observatory, Tucson AZ 85721}
 
+\author{Benjamin V. Rackham}
+\affiliation{Steward Observatory, Tucson AZ 85721}
+
 \author{Jonathan Fraine}
 \affiliation{Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD 21218, USA}
 
@@ -681,12 +684,19 @@ If there is a localized grouping of spots that the planet's transit chord passes
 \citet{croll2015starspots} calculate that unocculted spots have a minimal impact on the transit depth variations.
 
 Recently, \citet{rackham2018transitSourceEffect} have studied in detail the effect of un-occulted spots on the transit depths of exoplanets orbiting M stars, the so-called transit source light effect.
+Using a suite of model rotating photospheres with active regions added successively at random positions, they explored the dependence of observed brightness variations with spot and faculae covering fractions.
 One commonly held assumption is that there is a linear relation between the amplitude of variability and the spot covering fraction.
-Instead, \citet{rackham2018transitSourceEffect} use more realistic simulations of spot covering and light curve modulations and find that the amplitude of variability is proportional to $\sqrt{f_S}$, where $f_S$ is the spot covering fraction.
+Instead, \citet{rackham2018transitSourceEffect} find that the amplitude of variability is proportional to $\sqrt{f_S}$, where $f_S$ is the spot covering fraction.
+They also find that large ranges of $f_{S}$ are consistent with a given amplitude of variability, leading to a correspondingly large range of transit depth changes possible for a given stellar variability amplitude.
 
-For the observed amplitude variations of 0.8\% \citep{kawahara2013starspots}, scaling relations for K4 V dwarfs indicate that transit depths of exoplanets can be biased by 10$^{+20}_{-5}$\% depending on the distribution and sizes of spots if the transit chord is completely devoid of spots.\footnote{Benjamin V. Rackham, private communication, 2018}
-The large physical size of \sha\, as indicated by a transit duration longer than the time to cross the star, means that spots are likely to be crossed and diminish the transit source effect, so \sha's 30\% transit depth variation would require a worst-case starspot coverage to be explained by un-occulted spots.
-Also, the bias in transit depth is different from the transit depth variations, which would be un-affacted by a polar spot.
+Extending the analysis to spectral types F5V to K9V, which display larger spot contrasts \citep{berdyugina2005spots} and lower typical rotational variabilities than M dwarfs \citep{mcquillan2014rotationPeriodsAutoC}, \citet{rackham2018activityFGKsubmitted} find the observed variabilities of FGK dwarfs point to relatively low spot coverages and transit depth biases.
+Their scaling relations suggest that the observed amplitude variations of 0.8\% \citep{kawahara2013starspots} for a K4 dwarf correspond to $f_{S}=3^{+5}_{-2}\%$, indicating that transit depths of exoplanets can be biased by $3^{+3}_{-2}\%$ at optical wavelengths depending on the distribution and sizes of spots and that the transit chord is completely devoid of spots.
+
+High values of $f_S$ are possible for longitudinally symmetric distributions of active regions, such as a latitudinal band or polar spot.
+Polar spots are indeed observed on rapidly rotating stars via Doppler imaging \citep{strassmeier2009starspots}; however, one would be unlikely on \sha, given its relatively long rotation period.
+Additionally, the large physical size of \sha, as indicated by a transit duration longer than the time to cross the star, means that spots are likely to be crossed and thus this diminish the transit source effect further.
+In this light, \sha's 30\% observed transit depth variation would require a pathological distribution of stellar activity to be explained by un-occulted spots.
+If the spot distribution is polar or distributed in a latitudinal band, this would produce a bias at all epochs, unlike the time-dependent transit depth variations observed in \sha.
 Therefore, the conclusion from \citet{croll2015starspots} that unocculted spots are unlikely to cause the correlation between transit depth and stellar flux is likely correct even when considering a more realistic scaling relation between spot covering fraction and rotational modulation amplitude.
 }
 
@@ -712,9 +722,13 @@ One exciting possibility suggested in \citet{vanlieshout2016kic1255} is that the
 We explore this possibility by examining archival Subaru HDS spectra of \shStar.
 We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T$_{eff}$=4440 $\pm$ 70 K, log(g) = 4.63 $\pm$ 0.12, [Fe/H]=-0.08$\pm$0.09, \replaced{M}{R}=0.69$\pm$0.10 R$_\odot$ and M=0.70 $\pm$0.08 M$_\odot$.
 Therefore, the optical depth of any gas sublimating \replaced{of}{off} dust grains is too small to affect \added{the parameters derived from} the high resolution spectrum.
-\added{We also confirm the main-sequence radius of the star using the Gaia DR2 parallax.
-While fitting the Spectral Energy Distribution to estimate the bolometric flux, we notice that there is an infrared excess in WISE Bands 3 and 4 that warrants further study.}
 We argue that low signal to noise in the initial Subaru HDS spectra affected previous interpretations of the stellar parameters.
+\added{We also confirm the main-sequence radius of the star using the Gaia DR2 parallax.
+While fitting the Spectral Energy Distribution to estimate the bolometric flux, we notice that there is an infrared excess in WISE Bands 3 and 4 that warrants further study.
+
+We examine the effect of un-occulted spots on the transit depth behavior in light of recent research by \citet{rackham2018transitSourceEffect} that star spot coverage can be underestimated by a linear scaling with stellar flux variability amplitude.
+Even when accounting for the larger coverage of starspots by this effect, we confirm the conclusion from \citet{croll2015starspots} that {\it un-occulted} spots are unlikely to explain the correlation between transit depth and stellar flux.
+It is still possible that \sha's disintegration is regulated by stellar activity or that {\it occulted} spots account for this correlation.}
 
 
 \section{Acknowledgements}
@@ -722,7 +736,7 @@ We argue that low signal to noise in the initial Subaru HDS spectra affected pre
 %MCMC fitting makes use of \texttt{emcee} \citep{foreman-mackey2013emcee} and the covariance plot was made with \texttt{corner.py} \citep{foremanCorner}.
 The authors thank to Kento Masuda for sharing the 2015 Subaru spectrum of \shStar\ and giving helpful comments on this work.
 Funding for E Schlawin is provided by NASA Goddard Spaceflight Center.
-The authors thank Benjamin Rackham for providing an estimate of the transit light source effect for a K4 V star and for helpful comments from Saul Rappaport.
+\replaced{The authors thank Benjamin Rackham for providing an estimate of the transit light source effect for a K4 V star and for helpful comments from Saul Rappaport.}{The authors thank Saul Rappaport for helpful comments.} % Now Ben is a coauthor
 \added{This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France. The original description of the VizieR service was published in \citet{ochsenbein2000vizieR}.
 This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}).
 Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.
