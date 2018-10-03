@@ -365,7 +365,11 @@ We use a covariance matrix as opposed to correlation matrix to calculate the pri
 In other uses of PCA, the variables are often scaled so that they all have a variance of 1.0 to ensure that variables with intrinsically larger variance (such as height in inches over weight in kilograms) do not get higher loadings in the principal component eigenvectors \citep{jolliffe2002pca}.
 However, we do not scale the variables (columns) by variance and use a covariance matrix because all of our variables are the same units (normalized flux).
 If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$ -0.12 to $\sim$0.15).
-The model using the first 4 principal components shown in Figure \ref{fig:riverPlotsPCA} better matches the data and has residuals much closer to white noise than the model that uses the dot product with the average light curve.
+
+\added{We model the 2D {\it Kepler} flux grid shown in Figure \ref{fig:riverPlotsPCA} (Left) with a set of principal components and examine the residuals to evaluate the number of principal components to keep.
+We begin with 1 principal component and progressively added one at at time until the residuals along the transit number axis of Figure \ref{fig:riverPlotsPCA} are the same as the out-of-transit flux.
+We find that after 4 eigenvectors, the in-transit (with phases between -0.12 and 0.15) matches the out-of-transit standard deviation of $\sim 0.05\%$.}
+The model using the first 4 principal components shown in Figure \ref{fig:riverPlotsPCA} \added{(Right)} better matches the data and has residuals much closer to white noise than the model that uses the dot product with the average light curve.
 
 Figure \ref{fig:pcaVectorsComp} shows the first 4 eigenvectors as a function of orbital phase.
 For the eigenvectors plot, we multiply each eigenvector by its eigenvalue to emphasize the relative covariances between the principal components and phase grid variables.
