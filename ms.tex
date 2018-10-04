@@ -648,17 +648,17 @@ The consequence of the increased noise in the 2013 spectra affected the interpre
 For example, the SNR of the Na D lines was $\sim$ 30, which is near the threshold needed for the \citet{takeda2005specFGKdwarfs} equivalent width method employed in the initial analysis.
 We therefore conclude that the noise in the spectrum affected the stellar parameters rather than gas absorption from sublimating dust grains.
 \added{
-\section{Spectral Energy Distribution and Parallax}\label{sec:SED}
+\subsection{Spectral Energy Distribution and Parallax}\label{sec:SED}
 
 We also confirm our finding that the star is a main sequence using the Gaia DR2 parallax of 1.617 $\pm$ 0.030 mas \citep{gaia2016mission,gaia2018dr2,luri2018parallaxes}.
 We follow the methodology from \citet{stassun2017gaiaRadiiMasses}, which is to estimate the bolometric flux from the spectral energy distribution and invert the Stefan-Boltman law to solve for the radius.
 For the measured spectral energy distribution, we use the VizieR photometry service and fit this with a representative 4600 K \citet{castelli2004models} model and a (E-B)=0.05 diffuse Milky Way extinction model \citep{cardelli1989}.
 We use the \texttt{pysynphot} tool \citep{lim2015pysynphot} to calculate the model and extinction.
 We note that the exact stellar model used is less important than finding a function to fit the Spectral Energy Distribution.
-When inverting the Stefan-Boltzman law, we assume an effective temperature of 4400 $\pm$ 70 K from our spectral fitting and a photometric error of 5\%, assumed to be dominated by photometric systematics.
+When inverting the Stefan-Boltzman law, we assume an effective temperature of 4400 $\pm$ 70 K from our spectral fitting in Section \ref{sec:SpecMatch-Emp} and a photometric error of 5\%, assumed to be dominated by photometric systematics.
 Using this method we find a radius of 0.72 $\pm$ 0.03 R$_\odot$, which is consistent with a main sequence star.
 
-While examining the bolometric flux from all available data, we notice that the WISE band 3 and 4 fluxes at 12 $\mu$m and 22 $\mu$m \citep{wright2010wise} are significantly in excess of a \citet{castelli2004models} stellar model, as shown in Figure \ref{fig:SED}.
+While examining the bolometric flux from all available data, we notice that the WISE band 3 and 4 fluxes at 12 $\mu$m and 22 $\mu$m \citep{wright2010wise} are significantly in excess of the \citet{castelli2004models} stellar model, as shown in Figure \ref{fig:SED}.
 This is also true of the disintegrating system K2-22 b.
 These infrared fluxes may arise from dust created by the disintegrating planet and radiatively pushed out to a larger radius to form a disk or ring.
 Further investigation of the infrared excesses should be explored observationally and theoretically.
@@ -706,8 +706,8 @@ Their scaling relations suggest that the observed amplitude variations of 0.8\% 
 
 High values of $f_S$ are possible for longitudinally symmetric distributions of active regions, such as a latitudinal band or polar spot.
 Polar spots are indeed observed on rapidly rotating stars via Doppler imaging \citep{strassmeier2009starspots}; however, one would be unlikely on \sha, given its relatively long rotation period.
-Additionally, the large physical size of \sha, as indicated by a transit duration longer than the time to cross the star, means that spots are likely to be crossed and thus this diminish the transit source effect further.
-In this light, \sha's 30\% observed transit depth variation would require a pathological distribution of stellar activity to be explained by un-occulted spots.
+Additionally, the large physical size of \sha, as indicated by a transit duration longer than the time to cross the star, meaning that spots are likely to be crossed and thus diminish the transit source effect further.
+In this light, \sha's $\sim$30\% observed transit depth variation at a $\sim$ 22 day period would require a pathological distribution of stellar activity to be explained by un-occulted spots.
 If the spot distribution is polar or distributed in a latitudinal band, this would produce a bias at all epochs, unlike the time-dependent transit depth variations observed in \sha.
 Therefore, the conclusion from \citet{croll2015starspots} that unocculted spots are unlikely to cause the correlation between transit depth and stellar flux is likely correct even when considering a more realistic scaling relation between spot covering fraction and rotational modulation amplitude.
 }
