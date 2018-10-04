@@ -382,6 +382,7 @@ The second eigenvector has a broader forward scattering peak than the \citet{bud
 The fact that the pre-ingress flux increase is not found in the first eigenvector and instead is pronounced in orthogonal eigenvectors suggests that the dust particle sizes may be changing in time.
 We would expect that a dust tail with a variable number of of particles but a constant grain size would be exhibit a forward scattering in the first principal component because the forward scattering flux would scale proportionally with the number of particles and transit depth.
 The implication of the PCA then is that the dust particle sizes may be changing with time.
+\added{We assess the uncertainty of this conclusion through the time series of the principal components.}
 
 \begin{figure*}[!hbtp]
 \begin{centering}
@@ -389,7 +390,7 @@ The implication of the PCA then is that the dust particle sizes may be changing 
 \caption{Time series of the transit amplitude and principals components of the \replaced{Kepler}{{\it Kepler}} data (Left panel).
 We also show the ground-based photometry from \citet{schlawin2016kic1255} and this work (Right upper plot).
 Quiescent intervals with low transit activity are identified from the amplitude \added{and highlighted in orange. 
-Typical (median) error bars for the time series are shown as red error bars at arbitrary positions.}
+Typical error bars for the time series are shown as red error bars at arbitrary positions.}
 The first principal component tracks closely with the amplitude.
 The second principal component shows periodicity at 491 days, indicating possible long-term evolution of dust grain particle sizes.
 }\label{fig:tserPC}
@@ -398,12 +399,14 @@ The second principal component shows periodicity at 491 days, indicating possibl
 
 Figure \ref{fig:tserPC} shows the time series of the first two principal components (PC$_1$ and PC$_2$).
 We highlight the quiescent periods, which are also discussed in \citet{kawahara2013starspots}, \citet{vanWerkhoven2014} and \citet{croll2015starspots}.
+\added{We estimate the errors in the principal components by measuring the dot product with the secondary eclipse light curve and calculating its standard deviation.}
 The first principal component largely tracks closely with the dot product of the average light curve ($A'$).
 The quiescent periods show up as 14 to 36 day long intervals of low amplitude events.
 The second principal component shows some sinusoidal behavior at a $\sim$500 day period, indicating that the large particles may be evolving.
 However, the timescale of these sinusoidal modulations of PC$_2$ is much longer than dynamical time (t$_{dyn} \sim$ P = 0.65 days) and sublimation times \citep[$t_{sub} \sim$1 day][]{rappaport} for this system.
 
 In Figure \ref{fig:ampPeriodogram} we show the periodogram of the principal components.
+\added{We also show the formal false alarm levels of $5 \times 10^{-2}$ and $10^{-4}$ for the periodograms.}
 \deleted{The peaks at 0.654 days in both the first and second principal components are the same as the orbital period, which determines the sampling cadence of the time series of amplitudes and principal components.}
 The first component, corresponding to the transit depth, has peaks at 22.9, 153 and 750 days.
 The 22.9 day peak is consistent with the \citet{kawahara2013starspots} and \citet{croll2015starspots} that shows amplitudes are anti-correlated with stellar flux.
@@ -423,7 +426,7 @@ It is also possible that red noise such as 1/$f$ noise contributes to these long
 PC$_1$ \deleted{also} peaks at 22.9, 153 and 750 days.
 The 22.9 day peak is consistent with \citet{kawahara2013starspots}, who notice that this period is co-incident with the stellar rotation period.
 The second principal components shows one dominant peak at 491 days, \deleted{in addition to the 0.654 orbital period,} indicating possible long term evolution of the dust particle sizes.
-\added{False alarm levels with probabilities of 0.05 and $10^{-4}$ are shown as orange horizontal lines.}}\label{fig:ampPeriodogram}
+\added{False alarm levels with probabilities of $5 \times 10^{-2}$ and $10^{-4}$ are shown as orange horizontal lines.}}\label{fig:ampPeriodogram}
 \end{centering}
 \end{figure*}
 
