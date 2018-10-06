@@ -22,7 +22,7 @@
 \newcommand{\ldl}{$\lambda/{\Delta}{\lambda}$}
 \newcommand{\lsun}{L$_{\sun}$}
 \newcommand{\lbol}{$\log_{10}{L_{bol}/L_{\sun}}$}
-\newcommand{\teff}{T$_{eff}$}
+\newcommand{\teff}{T$_\mathrm{eff}$}
 \newcommand{\logg}{$\log{g}$}
 \newcommand{\fsed}{$f_{sed}$}
 \newcommand{\kzz}{$K_{zz}$}
@@ -82,8 +82,8 @@
 \begin{abstract}
 KIC 12557548 b is first of a growing class of intriguing disintegrating planet candidates, which lose mass in the form of \added{a metal rich vapor that condenses into} dust particles escaping their surface.
 Here, we follow up two perplexing observations of the system: 1) the transits appeared shallower than average in 2013 and 2014 and 2) the parameters derived from a high resolution spectrum of the star differed from other results using photometry and low resolution spectroscopy.
-We observe 5 transits of the system with the 61-inch Kuiper telescope in 2016 and show that they are consistent with photometry from the \kepler\ spacecraft in 2009-2013.
-We also evaluate high resolution archival spectra from the Subaru HDS spectrograph and find them to be consistent with a main-sequence T$_{eff}$=4440 $\pm$70 K star in agreement with the photometry and low resolution spectroscopy.
+We observe 5 transits of the system with the 61-inch Kuiper telescope in 2016 and show that they are consistent with photometry from the \kepler\ spacecraft in 2009-2013\added{, suggesting that the dusty tail has returned to normal length and mass}.
+We also evaluate high resolution archival spectra from the Subaru HDS spectrograph and find them to be consistent with a main-sequence T$_\mathrm{eff}$=4440 $\pm$70 K star in agreement with the photometry and low resolution spectroscopy.
 This disfavors the hypothesis that planet disintegration affected the analysis of prior high resolution spectra of this star.
 We apply Principal Component Analysis to the \kepler\ long cadence data to understand the modes of disintegration.
 There is a tentative 491 day periodicity of the second principal component, which corresponds to possible long-term evolution of the dust grain sizes, though the mechanism on such long timescales remains unclear.
@@ -107,7 +107,7 @@ These unusual light curve behaviors are best explained as dust extinction from a
 The comet-like shape of the dust explains the asymmetric shape of the light curve profile.
 The KIC 12557548/KOI-3794/Kepler-1520 system (hereafter \shStar) has the exciting possibility of being an opportunity to study a planet that has been peeled away layer by layer to reveal an interior core.
 
-After the discovery of K1255, other systems were found to show similar light curve behavior: K2-22b \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating} \replaced{,}{and} KOI 2700 \citep{rappaport2014KOI2700} \deleted{and KIC 3542116 \citep{rappaport2018exocomets}}.
+After the discovery of \replaced{K1255}{\shStar}, other systems were found to show similar light curve behavior: K2-22\deleted{b} \citep{sanchis-ojedak2-22}, WD 1145+017 \citep{vanderburg2015wdDisintegrating} \replaced{,}{and} KOI 2700 \citep{rappaport2014KOI2700} \deleted{and KIC 3542116 \citep{rappaport2018exocomets}}.
 A collection, albeit small, of several different disintegrating planet systems makes for a useful laboratory for understanding planet evolution and composition.
 Multi-wavelength light curve measurements show that the dust particles inferred to be escaping from these objects can have wavelength-dependent transmission, as predicted for sub-micron dust particles \citep{bochinski2015evolving,sanchis-ojedak2-22}.
 
@@ -367,7 +367,7 @@ However, we do not scale the variables (columns) by variance and use a covarianc
 If we scaled each column in this 2D grid by its standard deviation or used a correlation matrix, this would magnify the contribution of photon noise to out-of-transit data over the real astrophysical variability of the inner phases (between $\sim$ -0.12 to $\sim$0.15).
 
 \added{We model the 2D {\it Kepler} flux grid shown in Figure \ref{fig:riverPlotsPCA} (Left) with a set of principal components and examine the residuals to evaluate the number of principal components to keep.
-We begin with 1 principal component and progressively added one at at time until the residuals along the transit number axis of Figure \ref{fig:riverPlotsPCA} are the same as the out-of-transit flux.
+We begin with 1 principal component and progressively added one at time until the residuals along the transit number axis of Figure \ref{fig:riverPlotsPCA} are the same as the out-of-transit flux.
 We find that after 4 eigenvectors, the in-transit (with phases between -0.12 and 0.15) matches the out-of-transit standard deviation of $\sim 0.05\%$, also found in the secondary eclipse 2D flux grid.}
 The model using the first 4 principal components shown in Figure \ref{fig:riverPlotsPCA} \added{(Right)} better matches the data and has residuals much closer to white noise than the model that uses the dot product with the average light curve.
 
@@ -380,7 +380,7 @@ The first eigenvector largely corresponds to models of small dust grains with mo
 We also note that the second eigenvector resembles models of large dust grains of pyroxene from \citet{budaj12}, where the particles that are a similar order of magnitude as the wavelength exhibit forward scattering, which causes a pronounced pre-ingress flux increase.
 The second eigenvector has a broader forward scattering peak than the \citet{budaj12} models, so it may be the result of a broader distribution of particles.
 The fact that the pre-ingress flux increase is not found in the first eigenvector and instead is pronounced in orthogonal eigenvectors suggests that the dust particle sizes may be changing in time.
-We would expect that a dust tail with a variable number of of particles but a constant grain size would be exhibit a forward scattering in the first principal component because the forward scattering flux would scale proportionally with the number of particles and transit depth.
+We would expect that a dust tail with a variable number of of particles but a constant grain size would \deleted{be} exhibit a forward scattering in the first principal component because the forward scattering flux would scale proportionally with the number of particles and transit depth.
 The implication of the PCA then is that the dust particle sizes may be changing with time.
 \added{We assess the uncertainty of this conclusion through the time series of the principal components.}
 
@@ -472,7 +472,7 @@ This indicates that the transit depths are back to normal and there is no slowdo
 \tablewidth{0pt}
 \tablehead{
 \colhead{Reference} &
-\colhead{$ T_{eff,*} $} &
+\colhead{$ T_\mathrm{eff,*} $} &
 \colhead{$\log(g)$} &
 \colhead{Evolutionary Status} &
 \colhead{Method} \\
@@ -598,7 +598,7 @@ The bottom right plot shows the best-fit BOSZ model, but it still under-predicts
 \end{centering}
 \end{figure*}
 
-We explore the 5 parameters in the BOSZ models: T$_{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M] to constrain these parameters in \shStar.
+We explore the 5 parameters in the BOSZ models: T$_\mathrm{eff}$, log(g), [M/H], [$\alpha$/M] and [C/M] to constrain these parameters in \shStar.
 The sensitivity to each parameter for the BOSZ models are shown in Figure \ref{fig:boszModelParamsMedianSpec}.
 For each parameter, we change the models by about 2 steps in the BOSZ grid.
 For a quantitative measure of the goodness-of-fit, we calculate a $\chi^2$ over the Mg triplet lines from 5160 to 5190 $\AA$.
@@ -606,8 +606,8 @@ The errors are estimated from the standard deviation of the spectra over the nig
 
 After initial constraints on the models from the sensitivity to parameters search, we downloaded a grid of BOSZ models with effective temperatures ranging from 4250 K to 4750 K, Log(g) from 4.0 to 4.5, [M/H] from 0.0 to 0.5, [C/M]=0.0 and [$\alpha$/M] = -0.25 to 0.0.
 We found the model with the  $\chi^2$ statistic over the Mg I triplet lines from 5160 to 5190 $\AA$
-The minimum $\chi^2$ model for this entire grid is the same as shown in Figure \ref{fig:boszModelParamsMedianSpec} on the Bottom Right: T$_{eff}$=4500 K, Log(g)=4.5, [M/H]=0.0, [C/M]=0.0, $\alpha=-0.25$.
-This is similar to the log(g)$\approx$4.6, T$_{eff}$=4500 stellar parameters derived from photometry and low resolution spectroscopy listed in Table \ref{tab:stellObsParams}.
+The minimum $\chi^2$ model for this entire grid is the same as shown in Figure \ref{fig:boszModelParamsMedianSpec} on the Bottom Right: T$_\mathrm{eff}$=4500 K, Log(g)=4.5, [M/H]=0.0, [C/M]=0.0, $\alpha=-0.25$.
+This is similar to the log(g)$\approx$4.6, T$_\mathrm{eff}$=4500 stellar parameters derived from photometry and low resolution spectroscopy listed in Table \ref{tab:stellObsParams}.
 
 \subsection{SpecMatch-Emp}\label{sec:SpecMatch-Emp}
 
@@ -618,7 +618,7 @@ We cut the default HIRES library and Subaru spectra to the wavelengths from 5000
 Figure \ref{fig:SpecMatch-Emp} shows the chi-squared differences between the median Subaru spectrum and the models.
 The effective temperature and radius parameters show clear global $\chi^2$ minima for the HIRES spectral libraries.
 However, the metallicity is less well constrained.
-The resulting best-fit parameters from \texttt{SpecMatch-Emp} are T$_{eff}$=4440 K $\pm$ 70 K, [Fe/H]=-0.08$\pm$0.09, log(g)=4.63$\pm$0.12, R=0.69 $\pm$ 0.10 R$_\odot$ and Mass=0.70 $\pm 0.08~$M$_\odot$.
+The resulting best-fit parameters from \texttt{SpecMatch-Emp} are T$_\mathrm{eff}$=4440 K $\pm$ 70 K, [Fe/H]=-0.08$\pm$0.09, log(g)=4.63$\pm$0.12, R=0.69 $\pm$ 0.10 R$_\odot$ and Mass=0.70 $\pm 0.08~$M$_\odot$.
 Figure \ref{fig:SpecMatch-EmpComb} shows the linear combination of spectra that best-fit \shStar\ from \texttt{SpecMatch-Emp} over a subset of the wavelengths near the Mg I triplet.
 
 \begin{figure*}[!hbtp]
@@ -732,7 +732,7 @@ The remaining periodicities are longer than the dynamical and sublimation times 
 \citet{vanlieshout2016kic1255} compiled the stellar parameters reported in the literature via photometric and spectroscopic methods and note that the high resolution spectrum show that \shStar\ has the gravity of a sub-giant, whereas all other methods find that it is a main sequence star.
 One exciting possibility suggested in \citet{vanlieshout2016kic1255} is that the planet disintegration affects the spectral lines of the star and affects the high resolution spectrum from \citet{kawahara2013starspots}.
 We explore this possibility by examining archival Subaru HDS spectra of \shStar.
-We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T$_{eff}$=4440 $\pm$ 70 K, log(g) = 4.63 $\pm$ 0.12, [Fe/H]=-0.08$\pm$0.09, \replaced{M}{R}=0.69$\pm$0.10 R$_\odot$ and M=0.70 $\pm$0.08 M$_\odot$.
+We find that the high resolution spectra are consistent with previous photometry and spectroscopy and that the host star is on the main sequence with T$_\mathrm{eff}$=4440 $\pm$ 70 K, log(g) = 4.63 $\pm$ 0.12, [Fe/H]=-0.08$\pm$0.09, \replaced{M}{R}=0.69$\pm$0.10 R$_\odot$ and M=0.70 $\pm$0.08 M$_\odot$.
 Therefore, the optical depth of any gas sublimating \replaced{of}{off} dust grains is too small to affect \added{the parameters derived from} the high resolution spectrum.
 We argue that low signal to noise in the initial Subaru HDS spectra affected previous interpretations of the stellar parameters.
 \added{We also confirm the main-sequence radius of the star using the Gaia DR2 parallax.
@@ -748,6 +748,7 @@ It is still possible that \sha's disintegration is regulated by stellar activity
 %MCMC fitting makes use of \texttt{emcee} \citep{foreman-mackey2013emcee} and the covariance plot was made with \texttt{corner.py} \citep{foremanCorner}.
 The authors thank to Kento Masuda for sharing the 2015 Subaru spectrum of \shStar\ and giving helpful comments on this work.
 Funding for E Schlawin is provided by NASA Goddard Spaceflight Center.
+\added{This work was supported by Japan Society for Promotion of Science (JSPS) KAKENHI Grant Number JP16K17660.}
 \replaced{The authors thank Benjamin Rackham for providing an estimate of the transit light source effect for a K4 V star and for helpful comments from Saul Rappaport.}{The authors thank Saul Rappaport for helpful comments.} % Now Ben is a coauthor
 \added{This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France. The original description of the VizieR service was published in \citet{ochsenbein2000vizieR}.
 This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}).
