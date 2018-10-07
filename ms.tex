@@ -87,11 +87,10 @@ We also evaluate high resolution archival spectra from the Subaru HDS spectrogra
 This disfavors the hypothesis that planet disintegration affected the analysis of prior high resolution spectra of this star.
 We apply Principal Component Analysis to the \kepler\ long cadence data to understand the modes of disintegration.
 There is a tentative 491 day periodicity of the second principal component, which corresponds to possible long-term evolution of the dust grain sizes, though the mechanism on such long timescales remains unclear.
-\added{Another area to be explored is the WISE band 3 and 4 infrared excess in the spectral energy distribution, probably arising from a dust ring or disk.}
 \end{abstract}
 
 
-%\keywords{stars: atmospheres -- stars: individual (\objectname{KIC 12557548}) -- stars: variables: general}
+\keywords{stars: atmospheres -- stars: individual (\objectname{KIC 12557548}, \objectname{KOI-3794}, \objectname{Kepler-1520}) -- stars: variables: general}
 
 %\section{Abstract}
 
@@ -572,7 +571,7 @@ We first evaluate stellar parameters by comparing the high resolving power ($R=1
 Because the discrepancies in the literature are mostly differences in the surface gravity (see Table \ref{tab:stellObsParams}), we study the gravity-sensitive Mg triplet near 517 nm.
 The $R=100,000$ models are convolved with a Gaussian kernel that has a standard deviation $\sigma_K = \lambda/161,000 \approx 0.03 \AA$ to best match the data.
 This was \replaced{smaller}{slightly broader} than we expected from combining inverse resolving powers in quadrature, which would imply that an \replaced{$R=75,000$}{$R_{expected} = 75,000$} kernel \added{($\sigma_{expected} = \lambda/176,600$)} convolved with an $R=100,000$ spectrum would result in a $R=60,000$ spectrum.
-\added{We suspect that the non-Gaussian shape of the line spread function is the cause of this discrepancy.}
+\added{We suspect that the non-Gaussian shape of the instrumental line broadening is the cause of this discrepancy.}
 
 We start by comparing the measured spectrum with two BOSZ models in Figure \ref{fig:mgTripletBOSZ}.
 Here, the two BOSZ models are broadly representative of the two types of results in Table \ref{tab:stellObsParams} (log(g)=4.5 and log(g)=4.0).
@@ -657,27 +656,14 @@ We use the \texttt{pysynphot} tool \citep{lim2015pysynphot} to calculate the mod
 We note that the exact stellar model used is less important than finding a function to fit the Spectral Energy Distribution.
 When inverting the Stefan-Boltzman law, we assume an effective temperature of 4400 $\pm$ 70 K from our spectral fitting in Section \ref{sec:SpecMatch-Emp} and a photometric error of 5\%, assumed to be dominated by photometric systematics.
 Using this method we find a radius of 0.72 $\pm$ 0.03 R$_\odot$, which is consistent with a main sequence star.
-
-While examining the bolometric flux from all available data, we notice that the WISE band 3 and 4 fluxes at 12 $\mu$m and 22 $\mu$m \citep{wright2010wise} are significantly in excess of the \citet{castelli2004models} stellar model, as shown in Figure \ref{fig:SED}.
-This is also true of the disintegrating system K2-22 b.
-These infrared fluxes may arise from dust created by the disintegrating planet and radiatively pushed out to a larger radius to form a disk or ring.
-Further investigation of the infrared excesses should be explored observationally and theoretically.
-
-\begin{figure*}[!hbtp]
-\begin{centering}
-\includegraphics[width=0.8\textwidth]{kic1255_sed.pdf}
-\caption{\added{The spectral Energy distribution from VizieR \citep{ochsenbein2000vizieR}.
-The photometry is fit in order to estimate the stellar bolometric flux and derive a stellar radius of 0.72 $\pm$ 0.03 R$_\odot$.
-We note that the WISE Band 3 and Band 4 excess at 12$\mu$m and 22 $\mu$m may arise from a dusty ring or disk of material from the planet, warranting further investigation.}}\label{fig:SED}
-\end{centering}
-\end{figure*}
-}.
+}
 
 \added{
 \section{Stellar Activity}\label{sec:activity}
 
 The high resolution spectrum of \shStar\ allows us to measure the H$\alpha$ line, which is an indicator of stellar activity.
 Figure \ref{fig:Halpha}, shows the Subaru HDS spectrum for 2015 Aug 28 and 2015 Aug 29.
+
 We note that the strong emission feature at the core of the H$\alpha$ line is visible for one night but not the other, confirming the activity of the star already known from the rotational modulations \citep{kawahara2013starspots}.
 
 \begin{figure*}[!hbtp]
@@ -736,8 +722,6 @@ We find that the high resolution spectra are consistent with previous photometry
 Therefore, the optical depth of any gas sublimating \replaced{of}{off} dust grains is too small to affect \added{the parameters derived from} the high resolution spectrum.
 We argue that low signal to noise in the initial Subaru HDS spectra affected previous interpretations of the stellar parameters.
 \added{We also confirm the main-sequence radius of the star using the Gaia DR2 parallax.
-While fitting the Spectral Energy Distribution to estimate the bolometric flux, we notice that there is an infrared excess in WISE Bands 3 and 4 that warrants further study.
-
 We examine the effect of un-occulted spots on the transit depth behavior in light of recent research by \citet{rackham2018transitSourceEffect} that star spot coverage can be underestimated by a linear scaling with stellar flux variability amplitude.
 Even when accounting for the larger coverage of starspots by this effect, we confirm the conclusion from \citet{croll2015starspots} that {\it un-occulted} spots are unlikely to explain the correlation between transit depth and stellar flux.
 It is still possible that \sha's disintegration is regulated by stellar activity or that {\it occulted} spots account for this correlation.}
