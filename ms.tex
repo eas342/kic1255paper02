@@ -54,24 +54,26 @@
 \correspondingauthor{E. Schlawin}
 \email{eas342@email.arizona.edu}
 
-\author{E. Schlawin}
+\author[0000-0001-8291-6490]{Everett Schlawin}
 \affiliation{Steward Observatory, Tucson AZ 85721}
 
 \author{Teruyuki Hirano}
 \affiliation{Department of Earth and Planetary Sciences, Tokyo Institute of Technology, Tokyo 152-8550, Japan}
 
-\author{Hajima Kawahara}
+\author{Hajime Kawahara}
 \affiliation{Department of Earth and Planetary Science, The University of Tokyo, Tokyo 113-0033, Japan}
+\affiliation{Research Center for the Early Universe, School of Science, The University of Tokyo, Tokyo 113-0033, Japan}
 
 \author{Johanna Teske}
 \altaffiliation{Hubble Fellow, jteske@carnegiescience.edu} 
 \affiliation{Observatories of the Carnegie Institution for Science, 813 Santa Barbara Street, Pasadena, CA 91101}
 
-\author{Elizabeth Green}
+\author{Elizabeth M. Green}
 \affiliation{Steward Observatory, Tucson AZ 85721}
 
-\author{Benjamin V. Rackham}
+\author[0000-0002-3627-1676]{Benjamin V. Rackham}
 \affiliation{Steward Observatory, Tucson AZ 85721}
+\affiliation{Earths in Other Solar Systems Team, NASA Nexus for Exoplanet System Science.}
 
 \author{Jonathan Fraine}
 \affiliation{Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD 21218, USA}
@@ -162,7 +164,7 @@ In Section \ref{sec:stellarCharacterization}, we examine archival Subaru High Di
 \added{In Section \ref{sec:activity}, we examine how un-occulted starspots can affect the transit depth behavior.}
 We conclude in Section \ref{sec:conclusions}.
 
-\begin{deluxetable}{lrrrr}
+\begin{deluxetable*}{lrrrr}
 \tablecaption{List of photometric observations}\label{tab:photSummary}
 \tablewidth{0pt}
 \tablehead{
@@ -183,7 +185,7 @@ We conclude in Section \ref{sec:conclusions}.
 \enddata
 \tablenotetext{}{Summary of the attempted photometric observations of \shStar\ with the 61-inch Kuiper telescope.
 The seeing is expressed as the median FWHM for the night in arcseconds.}
-\end{deluxetable}
+\end{deluxetable*}
 
 \section{Photometric Observations}\label{sec:photObs}
 We attempted to observe 6 transit events of \sha\ with the Mont4k imager on the 61-inch Kuiper telescope located on Mt Bigelow, Arizona in 2016 using the f/13.5 Cassegrain focus.
@@ -204,7 +206,7 @@ We used a photometric aperture of 9 pixels (3.9") and a background annulus from 
 The reference stars are identified Figure \ref{fig:refStars} across the 9.7\arcmin $\times$ 9.7 \arcmin\ Mont4K field of view.
 These 12 reference stars' time series were combined with a weighted average and this combined time series was divided into the target, \shStar.
 
-\begin{figure}
+\begin{figure*}
 \begin{centering}
 \includegraphics[width=0.49\textwidth]{figure_index_152.pdf}
 \includegraphics[width=0.49\textwidth]{stamps_kic1255_UT2016_07_14.pdf}
@@ -213,7 +215,7 @@ These 12 reference stars' time series were combined with a weighted average and 
 The reference stars were chosen to have similar count levels as \shStar.
 }\label{fig:refStars}
 \end{centering}
-\end{figure}
+\end{figure*}
 
 All light curves for \shStar\ and the 12 reference stars are shown in Figure \ref{fig:allNightallStar}.
 These are the same reference stars shown in Figure \ref{fig:refStars}.
@@ -414,6 +416,7 @@ The second principal component's periodogram has a strong peak at 491 days.
 This singly-peaked periodogram \deleted{(other than the 0.654 day sampling period)} implies that PC$_2$ is nearly sinusoidal.
 As shown in Figure \ref{fig:pcaVectorsComp}, the second principal component resembles models with larger dust grains, so the dust grain sizes could be evolving on long-term 491-day timescales.
 This is much longer than the dynamical and sublimation times of the system, so there is no obvious mechanism for the dust grain size evolution.
+\added{However, this timescale is close to the overturning timescale for a magma pool \citep{kite2016atmInteriorExchange}, which could control the source of metal rich vapor that creates grains.} 
 It is also possible that red noise such as 1/$f$ noise contributes to these long term oscillations.
 
 \begin{figure*}[!hbtp]
@@ -513,7 +516,7 @@ The second set of observations happened after the reaction wheel failure on 2013
 None of the observations were timed during a primary transit (phase = 0.0) or secondary eclipse (phase = 0.5 for a circular orbit).
 Future high resolution spectroscopy at an orbital phase of 0.0 may be useful for searching for gaseous planetary debris in absorption against the star.
 
-\begin{deluxetable}{cccccccc}
+\begin{deluxetable*}{cccccccc}
 \tablecaption{List of Spectroscopic Observations}
 \tablefontsize{\scriptsize}
 \tablehead{\colhead{Exposure Number} & \colhead{ExpTime} & \colhead{UT Date} & \colhead{UT Start} & \colhead{Image Slicer} & \colhead{Slit Width} & \colhead{Orbital Phase} & \colhead{Resolving Power}\\
@@ -533,7 +536,7 @@ Future high resolution spectroscopy at an orbital phase of 0.0 may be useful for
 111553 & 2400 & 2015 Aug 29 & 09:14 & N & 0.3 & 0.428 & 60,000 \\
 \enddata
 \tablenotetext{}{Observing log of the Subaru HDS spectroscopic observations.}\label{tab:specObs}
-\end{deluxetable}
+\end{deluxetable*}
 
 
 \subsection{Data Reduction}
@@ -727,6 +730,8 @@ Support for this work was provided by NASA through Hubble Fellowship grant HST-H
 This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC,\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}).
 Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.
 This publication makes use of data products from the Wide-field Infrared Survey Explorer, which is a joint project of the University of California, Los Angeles, and the Jet Propulsion Laboratory/California Institute of Technology, funded by the National Aeronautics and Space Administration.}
+The results reported herein benefited from collaborations and/or information exchange within NASA?s Nexus for Exoplanet System Science (NExSS) research coordination network sponsored by NASA?s Science Mission Directorate.
+
 
 %If  used, this work made use of the \texttt{astropy} package \citep{astropy2013}.
 %If used, some data was collected from the Open Exoplanet Catalogue \citep{rein2012openExoCat}.
